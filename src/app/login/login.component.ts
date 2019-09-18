@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import{Form} from '@angular/forms'
 
 @Component({
   selector: 'app-login',
@@ -8,20 +9,26 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username:any;
-  password:any;
+ username:any;
+ password:any;
 
   constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
-  SignUp(username,password)
+  SignUp()
   {
-    this.username=username;
-    this.password=password;
-    alert(this.username+" "+this.password);
-   // this.router.navigate(['/signup']);
+    if(this.username!=undefined && this.password!=undefined)
+    {
+      this.router.navigate(['/UserMenu']);
+    }
+    else
+    {
+    alert("Please Fill the Correct Username/Password");
+    }
+  
+  
   }
 
 }

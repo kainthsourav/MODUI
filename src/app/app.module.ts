@@ -13,6 +13,7 @@ import { TrainerMenuComponent } from './trainer-menu/trainer-menu.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

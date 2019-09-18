@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { TrainerSignInComponent } from './trainer-sign-in/trainer-sign-in.component';
 import { TrainerSignUpComponent } from './trainer-sign-up/trainer-sign-up.component';
+import { UserMenuComponent } from './user-menu/user-menu.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {
     path:'TrainerSignUp',component:TrainerSignUpComponent
+  },
+  {
+    path:'UserMenu',component:UserMenuComponent
   }
 ];
 
