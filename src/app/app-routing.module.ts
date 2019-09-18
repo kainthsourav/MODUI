@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { TrainerSignInComponent } from './trainer-sign-in/trainer-sign-in.component';
+import { TrainerSignUpComponent } from './trainer-sign-up/trainer-sign-up.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path:'TrainerSignIn',component:TrainerSignInComponent
+  },
+  {
+    path:'TrainerSignUp',component:TrainerSignUpComponent
   }
 ];
 

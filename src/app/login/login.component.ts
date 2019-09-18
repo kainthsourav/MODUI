@@ -10,15 +10,18 @@ export class LoginComponent implements OnInit {
 
   username:any;
   password:any;
-  
+
   constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
-  SignUp()
+  SignUp(username,password)
   {
-    this.router.navigate(['/signup']);
+    this.username=username;
+    this.password=password;
+    alert(this.username+" "+this.password);
+   // this.router.navigate(['/signup']);
   }
 
 }
