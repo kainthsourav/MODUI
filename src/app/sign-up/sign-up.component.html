@@ -1,43 +1,50 @@
 <app-nav-home></app-nav-home>
-<div class="container" style="padding-top: 40px;">
-    <div class="row" style="padding-bottom: 50px; ">
-        <div class="col-md-3">
-           
+<div class="container my-5">
+        <div class="row">
+                <div class="col-md-12 rounded" style="background-color: white;border: 1px solid #007bff">
+                        <h3>User Sign-Up</h3>
+                        <form>
+                                <label for="Username" class="form-label">Username</label>
+
+                                <input type="text" class="form-control" id="Username" placeholder="Enter Username"
+                                        required>
+
+                                <label for="Email" class="form-label">Email</label>
+
+                                <input type="email" class="form-control" id="Email" placeholder="Enter Email" required>
+
+                                <label for="Password" class="form-label">Password</label>
+
+                                <input type="password" class="form-control" id="Password" placeholder="Password"
+                                        required>
+
+                                <label for="CPassword" class="form-label">Password</label>
+
+                                <input type="password" class="form-control" id="CPassword"
+                                        placeholder="Confirm Password" required>
+
+                                <label for="Fname" class="form-label">First Name</label>
+
+                                <input type="text" class="form-control" id="Fname" placeholder="Enter First Name"
+                                        required>
+
+                                <label for="Lname" class="form-label">Last Name</label>
+
+                                <input type="text" class="form-control" id="Lname" placeholder="Enter Last Name"
+                                        required>
+
+                                <label for="Mobile" class="form-label">Mobile Number</label>
+
+                                <input type="number" class="form-control" id="Mobile" placeholder="Enter Mobile Number"
+                                        required>
+
+                                <button type="submit" class="btn btn-primary form-control" style="margin-top: 15px">Sign
+                                        in</button>
+                                <p></p>
+                                <p>Sign up as Trainer <a routerLink="/TrainerSignUp" class="button">Click here</a></p>
+
+                        </form>
+                </div>
         </div>
-        <div class="col-md-7 rounded" style="background-color: white;border: 1px solid #007bff" >
-                <h3>User Sign-Up</h3>
-                <form>
-                   <label for="Username" class="form-label">Username</label>
-                   
-                   <input type="text" class="form-control" id="Username" placeholder="Enter Username" required>
-
-                   <label for="Email" class="form-label">Email</label>
-
-                   <input type="email" class="form-control" id="Email" placeholder="Enter Email" required>
-
-                   <label for="Password" class="form-label">Password</label>
-                   
-                   <input type="password" class="form-control" id="Password" placeholder="Password" required>
-
-                   <label for="CPassword" class="form-label">Password</label>
-                   
-                   <input type="password" class="form-control" id="CPassword" placeholder="Confirm Password" required>
-
-                   <label for="Fname" class="form-label">First Name</label>
-
-                   <input type="text" class="form-control" id="Fname" placeholder="Enter First Name" required>
-
-                   <label for="Lname" class="form-label">Last Name</label>
-
-                   <input type="text" class="form-control" id="Lname" placeholder="Enter Last Name" required>
-
-                   <label for="Mobile" class="form-label">Mobile Number</label>
-
-                   <input type="number" class="form-control" id="Mobile" placeholder="Enter Mobile Number" required>
-                   
-                   <button type="submit" class="btn btn-primary form-control" style="margin-top: 15px">Sign in</button>    
-                   <p></p>
-                   <p>Sign up as Trainer <a routerLink="/TrainerSignUp" class="button">Click here</a></p>
-
-                </form>
-        </div>
+</div>
+<app-footer></app-footer>

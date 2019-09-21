@@ -14,6 +14,8 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { FormsModule } from '@angular/forms';
+import { NavUserComponent } from './nav-user/nav-user.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     TrainerMenuComponent,
     AdminMenuComponent,
     UserMenuComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    NavUserComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
