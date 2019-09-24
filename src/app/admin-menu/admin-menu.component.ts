@@ -10,6 +10,7 @@ export class AdminMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+   
   }
 
 }

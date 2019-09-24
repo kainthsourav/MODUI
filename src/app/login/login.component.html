@@ -7,7 +7,7 @@
             <div class="col-md-4">
                 <div style="background-color: white; border: 1px solid #007bff"  class="rounded">
                     <form class="form-signin" (submit)="SignUp()"class="rounded" style="    margin-left: 20px;margin: 20px;margin-right: 20px;margin-bottom: 20px;">
-                            <img class="mb-4" src="imgs/login.png" alt="" width="72" height="72">
+                            <img class="mb-4" src="~src\imgs\main.png" alt="" width="72" height="72">
                             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                             <label for="inputEmail" class="sr-only">Email address</label>
                             <input type="email" id="username"  name="username" class="form-control" [(ngModel)]="username" placeholder="Email address"  required>
@@ -33,7 +33,9 @@
         </div>
     </div>
   
-    <app-footer></app-footer>
+    <div style="background-color: #007bff">
+      <app-footer></app-footer>
+      </div>
     
 
     

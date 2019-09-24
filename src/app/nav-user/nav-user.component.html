@@ -6,16 +6,16 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse2">
         <div class="navbar-nav">
-            <a [routerLink]="['']" class="nav-item nav-link active">Home</a>
+            <a routerLink="/UserMenu" class="nav-item nav-link active">Home</a>
             <a  class="nav-item nav-link">About</a>
             <a  class="nav-item nav-link">Products</a>
         </div>
         <form class="form-inline ml-auto">
-            <a class="nav-link rounded" routerLink="/login" routerLinkActive="true">
-                <button class="btn btn-outline-light">Login</button>
+            <a class="nav-link rounded"  routerLinkActive="true">
+                <button class="btn btn-outline-light">Notifications</button>
             </a>
-            <a class="nav-link rounded" routerLink="/signup" routerLinkActive="true">
-            <button class="btn btn-outline-light">Sign Up</button>
+            <a class="nav-link rounded" routerLink="/" routerLinkActive="true">
+            <button class="btn btn-outline-light">Logout</button>
             </a>
         </form>
     </div>
