@@ -12,20 +12,81 @@
                    
                 </div>
                 <div class="col-md-8 text-center">
-                  <button type="button"  routerLink="/" class=" btn btn-outline-dark">Current Trainings</button>
-                  <button type="button" routerLink="/" class=" btn btn-outline-dark" >Completed Trainings</button>
-                  <button type="button" routerLink="/EditSkills" class=" btn btn-outline-dark">Edit Skills</button>
-                  <button type="button" routerLink="/PaymentDetails" class=" btn btn-outline-dark">Payment Details</button>
+                                <button type="button"  routerLink="/TrainerMenu" class=" btn btn-outline-dark">Current Trainings</button>
+                                <button type="button" routerLink="/TcompleteTraining" class=" btn btn-outline-dark" >Completed Trainings</button>
+                                <button type="button" routerLink="/EditSkills" class=" btn btn-outline-dark">Edit Skills</button>
+                                <button type="button" routerLink="/PaymentDetails" class=" btn btn-outline-dark">Payment Details</button>
                 </div>
                 <div class="col-md-2">
   
                 </div>
         </div>
 
-
         <div class="row">
-                <p>Payment Details</p>
+                        
+                        <div class="col-md-12 text-center">
+                        <div class="table-responsive" style="margin-top:30px;"> 
+                                <h4>Payment Management</h4>
+                                  <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                              
+                                <th>Technologhy</th>
+                                <th>Status</th>
+                                <th>Payment Details</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                
+                                <td>C</td>
+                                <td>Pending</td>
+                                <td>
+                                        <button type="button" class="btn btn-primary">See Details</button>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td>OOPS</td>
+                                    <td>Paid</td>
+                                    <td>
+                                            <button type="button" class="btn btn-primary">See Details</button>
+
+                                    </td>
+                            </tr>
+                            <tr>
+                                    <td>Java</td>
+                                    <td>Paid</td>
+                                    <td>
+                                            <button type="button" class="btn btn-primary">See Details</button>
+
+                                    </td>
+                            </tr>
+
+                            <tr>
+                                    <td>PHP</td>
+                                    <td>Pending</td>
+                                    <td>
+                                            <button type="button" class="btn btn-primary">See Details</button>
+
+                                    </td>
+                            </tr>
+
+                            <tr>
+                                    <td>ASP.NET</td>
+                                    <td>Pending</td>
+                                    <td>
+                                            <button type="button" class="btn btn-primary">See Details</button>
+
+                                    </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
         </div>
-      </div>
+</div> 
+</div> 
 
 <app-footer></app-footer>

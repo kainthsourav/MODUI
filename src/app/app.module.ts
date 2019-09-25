@@ -16,11 +16,11 @@ import { FormsModule } from '@angular/forms';
 import { NavUserComponent } from './nav-user/nav-user.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchTrainingsComponent } from './search-trainings/search-trainings.component';
-import { CurrentTrainingsComponent } from './current-trainings/current-trainings.component';
 import { CompletedTrainingsComponent } from './completed-trainings/completed-trainings.component';
 import { HomeFooterComponent } from './home-footer/home-footer.component';
 import { EditSkillsComponent } from './edit-skills/edit-skills.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import { TcompletedTrainingsComponent } from './tcompleted-trainings/tcompleted-trainings.component';
 
 @NgModule({
   declarations: [
@@ -37,11 +37,11 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
     NavUserComponent,
     FooterComponent,
     SearchTrainingsComponent,
-    CurrentTrainingsComponent,
     CompletedTrainingsComponent,
     HomeFooterComponent,
     EditSkillsComponent,
-    PaymentDetailsComponent
+    PaymentDetailsComponent,
+    TcompletedTrainingsComponent
   ],
   imports: [
     BrowserModule,

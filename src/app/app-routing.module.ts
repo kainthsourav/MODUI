@@ -10,9 +10,9 @@ import { TrainerMenuComponent } from './trainer-menu/trainer-menu.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { SearchTrainingsComponent } from './search-trainings/search-trainings.component';
 import { CompletedTrainingsComponent } from './completed-trainings/completed-trainings.component';
-import { CurrentTrainingsComponent } from './current-trainings/current-trainings.component';
 import { EditSkillsComponent } from './edit-skills/edit-skills.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import { TcompletedTrainingsComponent } from './tcompleted-trainings/tcompleted-trainings.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -25,9 +25,9 @@ const routes: Routes = [
   {path:"AdminMenu",component:AdminMenuComponent},
   {path:"SearchTrainings",component:SearchTrainingsComponent},
   {path:"CompletedTrainings",component:CompletedTrainingsComponent},
-  {path:"CurrentTrainings",component:CurrentTrainingsComponent},
   {path:"EditSkills",component:EditSkillsComponent},
-  {path:"PaymentDetails",component:PaymentDetailsComponent}
+  {path:"PaymentDetails",component:PaymentDetailsComponent},
+  {path:"TcompleteTraining",component:TcompletedTrainingsComponent}
 ];
 
 @NgModule({

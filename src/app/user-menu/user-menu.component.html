@@ -11,16 +11,85 @@
              
             </div>
             <div class="col-md-8 text-center">
-              <button type="button"  class="btn btn-outline-dark">Search Trainings</button>
-              <button type="button" routerLink="/CompletedTrainings" class=" btn btn-outline-dark">Current Trainings</button>
-              <button type="button" routerLink="/CurrentTrainings" class="btn btn-outline-dark">Completed Trainings</button>
+              <button type="button" routerLink="/SearchTrainings" class=" btn btn-outline-dark">Search Trainings</button>
+              <button type="button" class=" btn btn-outline-dark">Current Trainings</button>
+              <button type="button" routerLink="/CompletedTrainings" class="btn btn-outline-dark">Completed Trainings</button>
             </div>
             <div class="col-md-2">
 
             </div>
     </div>
-  </div>
-    <app-footer></app-footer>
 
- 
+    <div class="row">
+        
+        <div class="col-md-12 text-center">
+        <div class="table-responsive" style="margin-top:30px;"> 
+                <h4>Current Trainings</h4>
+                  <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              
+                <th>Technologhy</th>
+                <th>Duration</th>
+                <th>Progress</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                
+                <td>C</td>
+                <td>6 Weeks</td>
+                <td>
+                        <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 60%">60%</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                    <td>OOPS</td>
+                    <td>8 Weeks</td>
+                    <td>
+                            <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 10%">10%</div>
+                        </div>
+                    </td>
+            </tr>
+            <tr>
+                    <td>Java</td>
+                    <td>10 Weeks</td>
+                    <td>
+                            <div class="progress">
+                                    <div class="progress-bar bg-danger" style="width: 10%">0%</div>
+                        </div>
+                    </td>
+            </tr>
+
+            <tr>
+                    <td>PHP</td>
+                    <td>6 Weeks</td>
+                    <td>
+                            <div class="progress">
+                             <div class="progress-bar bg-danger" style="width: 10%">0%</div>
+                        </div>
+                    </td>
+            </tr>
+
+            <tr>
+                    <td>ASP.NET</td>
+                    <td>10 Weeks</td>
+                    <td>
+                            <div class="progress">
+                            <div class="progress-bar bg-danger" style="width: 10%">0%</div>
+                        </div>
+                    </td>
+            </tr>
+            
+        </tbody>
+    </table>
+            </div>
+            </div>
+          </div>
+  </div>
+  <app-footer></app-footer>
  
