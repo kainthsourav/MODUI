@@ -1,41 +1,37 @@
 <app-nav-home></app-nav-home>
-<router-outlet></router-outlet>
+<div class="container">
+  <div class="row my-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 ">
+      <div style="background-color: white; border: 1px solid #007bff" class="rounded">
+        <form class="form-signin" (submit)="SignUp()" class="rounded"
+          style="    margin-left: 20px;margin: 20px;margin-right: 20px;margin-bottom: 20px;">
+          <img class="mb-4" src="~src\imgs\main.png" alt="" width="72" height="72">
+          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input type="email" id="username" name="username" class="form-control" [(ngModel)]="username"
+            placeholder="Email address" required>
+          <br>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password"
+            placeholder="Password" required>
+          <br>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
 
-<div class="container text-center my-5">
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <div style="background-color: white; border: 1px solid #007bff"  class="rounded">
-                    <form class="form-signin" (submit)="SignUp()"class="rounded" style="    margin-left: 20px;margin: 20px;margin-right: 20px;margin-bottom: 20px;">
-                            <img class="mb-4" src="~src\imgs\main.png" alt="" width="72" height="72">
-                            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                            <label for="inputEmail" class="sr-only">Email address</label>
-                            <input type="email" id="username"  name="username" class="form-control" [(ngModel)]="username" placeholder="Email address"  required>
-                            <br>
-                            <label for="inputPassword" class="sr-only">Password</label>
-                            <input type="password" id="password"  name="password" class="form-control" [(ngModel)]="password" placeholder="Password"  required>
-                            <br>
-                            <div class="checkbox mb-3">
-                              <label>
-                                <input type="checkbox" value="remember-me"> Remember me
-                              </label>
-                            </div>
+          <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+          <p></p>
+          <p>Trainer Sign In <a routerLink="/TrainerSignIn" class="button">Click Here</a></p>
 
-                            <button class="btn btn-lg btn-success btn-block" type="submit" >Sign in</button>
-                            <p></p>
-                            <p>Trainer Sign In <a  routerLink="/TrainerSignIn" class="button">Click Here</a></p>
-
-                         <p>Don't have account? <a routerLink="/signup"  class="button">Sign Up</a></p>
-                    </form>
-                 </div>
-            </div>
-            <div class="col-md-4"></div>
-        </div>
-    </div>
-  
-    <div style="background-color: #007bff">
-      <app-footer></app-footer>
+          <p>Don't have account? <a routerLink="/signup" class="button">Sign Up</a></p>
+        </form>
       </div>
-    
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
 
-    
+<app-footer></app-footer>
