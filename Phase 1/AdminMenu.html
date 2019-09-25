@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Menu</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+       
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $("#divst").hide();
+                $("#divct").hide();
+                $("#divcurt").hide();
+                $("#footer").hide();
+
+            $("#btnAddRemove").click(function()
+            {
+                $("#divst").show("slow");
+                $("#divcomt").hide(1000);
+                $("#divcurt").hide(1000);
+                $("#footer").show("fast");
+
+
+            });
+           
+            $("#btnBlockUser").click(function()
+            {
+                $("#divcomt").hide(1000);
+                $("#divst").hide(1000);
+                $("#divcurt").show("slow");
+                $("#footer").show("fast");
+
+
+            });
+
+            $("#btnPayment").click(function()
+            {
+                $("#divcomt").show("slow");
+                $("#divst").hide(1000);
+                $("#divcurt").hide(1000);
+                $("#footer").show("fast");
+
+            });
+
+            });
+            </script>
+    </head>
+<body style="background-color:#f5f5f5;">
+        <!---------Nav Start-->
+        <div class="container-fluid pl-0 pr-0">
+            <div>
+                        <nav class="navbar navbar-expand-md navbar navbar-dark bg-success">
+                            <a href="#" class="navbar-brand">Cognizant Trainee</a>
+                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                    
+                            <div class="collapse navbar-collapse" id="navbarCollapse">
+                                    <div class="navbar-nav">
+                                            <a href="AdminMenu.html" class="nav-item nav-link active">Home</a>
+                                            <!-- <a href="#" class="nav-item nav-link">Products</a> -->
+                                    </div>
+
+                                    <form class="form-inline">
+                                        <div class="input-group">                    
+                                            <input type="text" class="form-control" placeholder="Search">
+                                            <div class="input-group-append">
+                                                <button type="button" class="btn btn-secondary">Search</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    
+                                <form class="form-inline ml-auto">
+                                    <a href="#"><button type="button" class=" btn btn-outline-light" data-toggle="modal" data-target="#myModal" style="margin-right: 20px">Notification</button></a>
+
+                                 <a href="Login.html"><button type="button" class=" btn btn-outline-light">Log Out</button></a>
+
+                                </form>
+                            </div>
+                        </nav>
+            </div>
+        <!-------Nav End-->
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+          
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title text-center">Notifications</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+          
+                <!-- Modal body -->
+                <div class="modal-body">
+                  No Notifications
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h3>Admin Menu</h3>      
+            </div>
+        </div>
+
+    <div class="container-fluid">
+      <div class="row">
+              <div class="col-md-2 ">
+                 
+              </div>
+              <div class="col-md-8 text-center">
+                <button type="button" class=" btn btn-outline-dark" style="padding: 15px;margin-right: 15px;margin-top: 5px" id="btnAddRemove">Add/Remove Technologhy</button>
+                <button type="button" class=" btn btn-outline-dark" style="padding: 15px;margin-right: 15px;margin-top: 5px" id="btnBlockUser">Block User/Mentors</button>
+                <button type="button" class=" btn btn-outline-dark"style="padding: 15px;margin-right: 15px;margin-top:5px" id="btnPayment">Manage Payments</button>
+              </div>
+              <div class="col-md-2">
+
+              </div>
+      </div>
+    </div>
+
+     <!---------Add/Remove here-->
+        <div class="container-fluid">
+            <div class="row" id="divst" style="display: none">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8 text-center">
+            <div class="table-responsive" style="margin-top:30px;"> 
+                <h4>Add/Remove Technology</h4>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                              
+                                <th>Technologhy</th>
+                                <th>Duration</th>
+                                <th>Fee</th>
+                                <th>Action</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                
+                                <td>C</td>
+                                <td>6 Weeks</td>
+                                <td>&#x20B9;7000</td>
+                                <td> 
+                                    <button type="button" class="btn btn-success">Edit</button>
+                                    <button type="button" class="btn btn-danger">Remove</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td>OOPS</td>
+                                    <td>8 Weeks</td>
+                                    <td>&#x20B9;12000</td>
+                                    <td> 
+                                            <button type="button" class="btn btn-success">Edit</button>
+                                            <button type="button" class="btn btn-danger">Remove</button>
+                                        </td>
+                            </tr>
+                            <tr>
+                                    <td>Java</td>
+                                    <td>10 Weeks</td>
+                                    <td>&#x20B9;15000</td>
+                                    <td> 
+                                            <button type="button" class="btn btn-success">Edit</button>
+                                            <button type="button" class="btn btn-danger">Remove</button>
+                                        </td>
+                            </tr>
+
+                            <tr>
+                                    <td>PHP</td>
+                                    <td>6 Weeks</td>
+                                    <td>&#x20B9;8000</td>
+                                    <td> 
+                                            <button type="button" class="btn btn-success">Edit</button>
+                                            <button type="button" class="btn btn-danger">Remove</button>
+                                        </td>
+                            </tr>
+
+                            <tr>
+                                    <td>ASP.NET</td>
+                                    <td>10 Weeks</td>
+                                    <td>&#x20B9;15000</td>
+                                    <td> 
+                                            <button type="button" class="btn btn-success">Edit</button>
+                                            <button type="button" class="btn btn-danger">Remove</button>
+                                        </td>
+                            </tr>
+
+                            <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td> 
+                                    <button type="button" class="btn btn-primary btn-block">Add</button>
+                                    </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                </div>
+            </div>  
+
+            
+                <!---------Payment Here here-->
+                <div class="row" id="divcomt" style="display: none">
+                        <div class="col-md-2">
+            
+                        </div>
+                        <div class="col-md-8 text-center">
+                        <div class="table-responsive" style="margin-top:30px;"> 
+                                <h4>Payment Management</h4>
+                                  <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                              
+                                <th>Technologhy</th>
+                                <th>Duration</th>
+                                <th>Payment</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                
+                                <td>C</td>
+                                <td>6 Weeks</td>
+                                <td>
+                                        <button type="button" class="btn btn-primary btn-block">See Details</button>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td>OOPS</td>
+                                    <td>8 Weeks</td>
+                                    <td>
+                                            <button type="button" class="btn btn-primary btn-block">See Details</button>
+
+                                    </td>
+                            </tr>
+                            <tr>
+                                    <td>Java</td>
+                                    <td>10 Weeks</td>
+                                    <td>
+                                            <button type="button" class="btn btn-primary btn-block">See Details</button>
+
+                                    </td>
+                            </tr>
+
+                            <tr>
+                                    <td>PHP</td>
+                                    <td>6 Weeks</td>
+                                    <td>
+                                            <button type="button" class="btn btn-primary btn-block">See Details</button>
+
+                                    </td>
+                            </tr>
+
+                            <tr>
+                                    <td>ASP.NET</td>
+                                    <td>10 Weeks</td>
+                                    <td>
+                                            <button type="button" class="btn btn-primary btn-block">See Details</button>
+
+                                    </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                            </div>
+                            <div class="col-md-2">
+            
+                            </div>
+                            </div>
+                </div>  
+
+                <!---------Block/Unblock here-->
+                <div class="row" id="divcurt" style="display: none">
+                        <div class="col-md-2">
+            
+                        </div>
+                        <div class="col-md-8 text-center">
+                        <div class="table-responsive" style="margin-top:30px;"> 
+                                <h4>Block/Unblock</h4>
+                                  <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                              
+                                <th>Sr.No</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Enrollment Date</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <td>John</td>
+                                <td>John.1708@gmail.com</td>
+                                <td>
+                                        <button type="button" class="btn btn-success">Unblock</button>
+                                        <button type="button" class="btn btn-danger">Block</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <th>2</th>
+                                <td>John</td>
+                                <td>John.1708@gmail.com</td>
+                                <td>
+                                        <button type="button" class="btn btn-success">Unblock</button>
+                                        <button type="button" class="btn btn-danger">Block</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <th>3</th>
+                                <td>John</td>
+                                <td>John.1708@gmail.com</td>
+                                <td>
+                                        <button type="button" class="btn btn-success">Unblock</button>
+                                        <button type="button" class="btn btn-danger">Block</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                    <th>4</th>
+                                    <td>John</td>
+                                    <td>John.1708@gmail.com</td>
+                                    <td>
+                                            <button type="button" class="btn btn-success">Unblock</button>
+                                            <button type="button" class="btn btn-danger">Block</button>
+                                    </td>
+                            </tr>
+
+                            <tr>
+                                    <th>5</th>
+                                    <td>John</td>
+                                    <td>John.1708@gmail.com</td>
+                                    <td>
+                                            <button type="button" class="btn btn-success">Unblock</button>
+                                            <button type="button" class="btn btn-danger">Block</button>
+                                    </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                            </div>
+                            <div class="col-md-2">
+            
+                            </div>
+                            </div>
+                </div>
+    </div>  
+
+       
+</div>
+
+</div>
+<footer class="page-footer font-small blue pt-4" style="background-color: black;color: white;display: none" id="footer">      
+    <div class="footer-copyright text-center py-3">&copy; 2019 Copyright:
+    </div>
+</footer>
+
+</body>
+</html>
