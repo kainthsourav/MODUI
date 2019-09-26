@@ -21,17 +21,8 @@ export class LoginComponent implements OnInit {
   {
     if(this.username!=undefined && this.password!=undefined)
     {
-       //Admin Login 
-    // if(this.username=="Admin"||"admin" && this.password=="Admin"||"admin")
-    // {
-    //   this.router.navigate(['/AdminMenu']); 
-    // }
-    // else
-    // {
+      console.log(" "+this.username +" "+this.password);
       this.router.navigate(['/UserMenu']);
-    // }
-      
-
     }
 
    
