@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  SignUp()
+  SignIn()
   {
     if(this.username!=undefined && this.password!=undefined)
     {
