@@ -23,6 +23,7 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
 import { TcompletedTrainingsComponent } from './tcompleted-trainings/tcompleted-trainings.component';
 import { AdminPayComponent } from './admin-pay/admin-pay.component';
 import { BlockUserComponent } from './block-user/block-user.component';
+import { NavIndexComponent } from './nav-index/nav-index.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { BlockUserComponent } from './block-user/block-user.component';
     PaymentDetailsComponent,
     TcompletedTrainingsComponent,
     AdminPayComponent,
-    BlockUserComponent
+    BlockUserComponent,
+    NavIndexComponent
   ],
   imports: [
     BrowserModule,

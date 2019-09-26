@@ -1,0 +1,21 @@
+.container-fluid
+{
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image:url("../../assets/imgs/bg-banner.jpg");
+    min-height: 610px;
+}
+
+h1{
+    text-align: center;
+    font:font-weight-normal;
+}
+
+.form-signin
+{
+    margin-left: 20px;
+    margin: 20px;
+    margin-right:20px;
+}
