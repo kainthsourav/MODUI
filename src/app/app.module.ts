@@ -21,6 +21,8 @@ import { HomeFooterComponent } from './home-footer/home-footer.component';
 import { EditSkillsComponent } from './edit-skills/edit-skills.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { TcompletedTrainingsComponent } from './tcompleted-trainings/tcompleted-trainings.component';
+import { AdminPayComponent } from './admin-pay/admin-pay.component';
+import { BlockUserComponent } from './block-user/block-user.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { TcompletedTrainingsComponent } from './tcompleted-trainings/tcompleted-
     HomeFooterComponent,
     EditSkillsComponent,
     PaymentDetailsComponent,
-    TcompletedTrainingsComponent
+    TcompletedTrainingsComponent,
+    AdminPayComponent,
+    BlockUserComponent
   ],
   imports: [
     BrowserModule,

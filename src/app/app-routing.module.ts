@@ -13,6 +13,8 @@ import { CompletedTrainingsComponent } from './completed-trainings/completed-tra
 import { EditSkillsComponent } from './edit-skills/edit-skills.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { TcompletedTrainingsComponent } from './tcompleted-trainings/tcompleted-trainings.component';
+import { AdminPayComponent } from './admin-pay/admin-pay.component';
+import { BlockUserComponent } from './block-user/block-user.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path:"CompletedTrainings",component:CompletedTrainingsComponent},
   {path:"EditSkills",component:EditSkillsComponent},
   {path:"PaymentDetails",component:PaymentDetailsComponent},
-  {path:"TcompleteTraining",component:TcompletedTrainingsComponent}
+  {path:"TcompleteTraining",component:TcompletedTrainingsComponent},
+  {path:"AdminPay",component:AdminPayComponent},
+  {path:"blockuser",component:BlockUserComponent}
 ];
 
 @NgModule({
