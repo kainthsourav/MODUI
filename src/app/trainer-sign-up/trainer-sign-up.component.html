@@ -1,107 +1,104 @@
 <app-nav-home></app-nav-home>
 <div class="container-fluid" style="padding-top: 40px;">
-    <div class="row" style="padding-bottom: 50px; ">
-        <div class="col-md-3">
-           
-        </div>
-        <div class="col-md-7 rounded" style="background-color: white;border: 1px solid black" >
-                <h1>Trainer Sign Up</h1>
-                <form>
-                   <label for="TUsername" class="form-label">Username</label>
-                   
-                   <input type="text" class="form-control" id="TUsername" placeholder="Enter Username" required>
+   <div class="row" style="padding-bottom: 50px; ">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-7 rounded" style="background-color: white;border: 1px solid black" >
+         <h1>Trainer Sign Up</h1>
+         <form (submit)="Tsignup()">
+            <label for="TUsername" class="form-label">Username</label>
+            <input type="text" class="form-control" id="Username" placeholder="Enter Username" 
+            name="Username" [(ngModel)]="Username" required>
 
-                   <label for="TEmail" class="form-label">Email</label>
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" placeholder="Enter Email" 
+            name="Email" [(ngModel)]="Email" required>
 
-                   <input type="email" class="form-control" id="TEmail" placeholder="Enter Email" required>
+            <label for="Password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="Password" placeholder="Password" 
+            name="Password" [(ngModel)]="Password"required>
 
-                   <label for="TPassword" class="form-label">Password</label>
-                   
-                   <input type="password" class="form-control" id="TPassword" placeholder="Password" required>
+            <label for="Cpassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="Cpassword" placeholder="Confirm Password"
+            name="Cpassword" [(ngModel)]="Cpassword" required>
 
-                   <label for="TCPassword" class="form-label">Password</label>
-                   
-                   <input type="password" class="form-control" id="TCPassword" placeholder="Confirm Password" required>
+            <label for="Fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="Fname" placeholder="Enter First Name" 
+            name="Fname" [(ngModel)]="Fname" required>
 
-                   <label for="Fname" class="form-label">First Name</label>
+            <label for="Lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="Lname" placeholder="Enter Last Name" 
+            name="Lname" [(ngModel)]="Lname" required>
 
-                   <input type="text" class="form-control" id="Fname" placeholder="Enter First Name" required>
+            <label for="Mobile" class="form-label">Mobile Number</label>
+            <input type="number" class="form-control" id="Mobile" placeholder="Enter Mobile Number"
+            name="Mobile" [(ngModel)]="Mobile" required>
 
-                   <label for="Lname" class="form-label">Last Name</label>
+            <label for="timezone-offset" class="form-label">Please Select Time Zone</label>
+            <select name="timezone_offset" id="timezone-offset" class="form-control">
+               <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+               <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+               <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+               <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+               <option value="-04:50">(GMT -4:30) Caracas</option>
+               <option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+               <option value="-03:50">(GMT -3:30) Newfoundland</option>
+               <option value="-03:00">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+               <option value="+05:50">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+               <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
+               <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+            </select>
 
-                   <input type="text" class="form-control" id="Lname" placeholder="Enter Last Name" required>
+            <label for="Timing" class="form-label">Timing</label>
+            <input type="text" class="form-control" id="Timing" placeholder="Enter Timing" 
+            name="Timing" [(ngModel)]="Timing" required>   
 
-                   <label for="Mobile" class="form-label">Mobile Number</label>
+            <label class="form-label">Technologies</label>
+            <div class="checkbox mb-2" style="padding-right: 2px">
+               <label>
+               <input type="checkbox" value="java">Java
+               </label>
+               <label>
+               <input type="checkbox" value=".Net">.Net
+               </label>
+               <label>
+               <input type="checkbox" value="C#">C#
+               </label>
+               <label>
+               <input type="checkbox" value="TypeScript">TypeScript
+               </label>
+            </div>
+            
+            <input type="text" class="form-control" id="OtherTech" placeholder="Any Other" 
+            name="OtherTech" [(ngModel)]="OtherTech" required> 
 
-                   <input type="number" class="form-control" id="Mobile" placeholder="Enter Mobile Number" required>
+            <label for="facility">Facilities</label><br>
+            <label><input type="checkbox" value="Clab">Cloud lab</label>
+            <label><input type="checkbox" value="mat">Material</label>
+            <label><input type="checkbox" value="ebook">ebooks</label>
+            <label><input type="checkbox" value="mail">Mail support</label>
+            <br>
 
-                   <label for="timezone-offset" class="form-label">Please Select Time Zone</label>
+            <div class="checkbox mb-2">
+               <input type="text"  placeholder="Any Other facilities" class="form-control"
+               name="Facility" [(ngModel)]="Facility" required>
+            </div>
 
-                   <select name="timezone_offset" id="timezone-offset" class="form-control">
-                        <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-                        <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-                        <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-                        <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-                        <option value="-04:50">(GMT -4:30) Caracas</option>
-                        <option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-                        <option value="-03:50">(GMT -3:30) Newfoundland</option>
-                        <option value="-03:00">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-                        <option value="+05:50">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-                        <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
-                        <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-                      </select>
+            <label for="linkdin">Linkedin</label>
+            <input type="text"  placeholder="LinkedIN URL" class="form-control" 
+            name="Linkedin" [(ngModel)]="Linkedin" required> 
 
-                      <label for="Timing" class="form-label">Timing</label>
+            <label for="Exp">Experience</label>
+            <input type="number"  placeholder="Experience (in years)" class="form-control"
+            name="Exp" [(ngModel)]="Exp" required>
 
-                      <input type="text" class="form-control" id="Timing" placeholder="Enter Timing" required>   
-                   
-                      <label class="form-label">Technologies</label>
-
-                      <div class="checkbox mb-2" style="padding-right: 2px">
-                            <label>
-                              <input type="checkbox" value="java">Java
-                            </label>
-                            <label>
-                                <input type="checkbox" value=".Net">.Net
-                            </label>
-                            
-                                <label>
-                                        <input type="checkbox" value="C#">C#
-                                    </label>
-                                    <label>
-                                            <input type="checkbox" value="TypeScript">TypeScript
-                                        </label>
-                          </div>
-
-                          <input type="text" class="form-control" id="OtherTech" placeholder="Any Other" required>   
-
-                          <label for="facility">Facilities</label><br>
-                          <label><input type="checkbox" value="Clab">Cloud lab</label>
-                    <label><input type="checkbox" value="mat">Material</label>
-                    <label><input type="checkbox" value="ebook">ebooks</label>
-                    <label><input type="checkbox" value="mail">Mail support</label>
-                    <br>
-          
-                  <div class="checkbox mb-2">
-                  <input type="text" name="facility" placeholder="Any Other facilities" class="form-control" required>
-                </div>
-          
-          
-           <label for="linkdin">Linkedin</label>
-           <input type="text" name="linkdin" placeholder="LinkedIN URL" class="form-control" required> 
-        
-           <label for="Exp">Experience</label>
-           <input type="number" name="exp" placeholder="Experience (in years)" class="form-control" required>
-        
-           <button type="submit" class="btn btn-success form-control" style="margin-top: 15px">Sign Up</button>    
-                  <p></p>
-                  <p>Already having Account? <a routerLink="/TrainerSignIn" class="button">Login</a></p>
-
-        </form>
-        </div>
-        <!-- <div class="col-md-4">
-      
-        </div> -->
-    </div>
-    </div>
-    <app-footer></app-footer>
+            <button type="submit" class="btn btn-success form-control" style="margin-top: 15px">Sign Up</button>    
+            <p></p>
+            <p>Already having Account? <a routerLink="/TrainerSignIn" class="button">Login</a></p>
+         </form>
+      </div>
+      <!-- <div class="col-md-4">
+         </div> -->
+   </div>
+</div>
+<app-footer></app-footer>
