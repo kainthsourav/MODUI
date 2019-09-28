@@ -15,23 +15,32 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
 import { TcompletedTrainingsComponent } from './tcompleted-trainings/tcompleted-trainings.component';
 import { AdminPayComponent } from './admin-pay/admin-pay.component';
 import { BlockUserComponent } from './block-user/block-user.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignUpComponent},
+
   {path:'TrainerSignIn',component:TrainerSignInComponent},
   {path:'TrainerSignUp',component:TrainerSignUpComponent},
+
   {path:'UserMenu',component:UserMenuComponent},
   {path:"TrainerMenu",component:TrainerMenuComponent},
   {path:"AdminMenu",component:AdminMenuComponent},
+
   {path:"SearchTrainings",component:SearchTrainingsComponent},
   {path:"CompletedTrainings",component:CompletedTrainingsComponent},
+  {path:"TcompleteTraining",component:TcompletedTrainingsComponent},
+
   {path:"EditSkills",component:EditSkillsComponent},
   {path:"PaymentDetails",component:PaymentDetailsComponent},
-  {path:"TcompleteTraining",component:TcompletedTrainingsComponent},
+ 
   {path:"AdminPay",component:AdminPayComponent},
-  {path:"blockuser",component:BlockUserComponent}
+  
+  {path:"blockuser",component:BlockUserComponent},
+
+  {path:"**",component:PageNotFoundComponent}
 ];
 
 @NgModule({

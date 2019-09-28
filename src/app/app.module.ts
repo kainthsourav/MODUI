@@ -23,6 +23,7 @@ import { TcompletedTrainingsComponent } from './tcompleted-trainings/tcompleted-
 import { AdminPayComponent } from './admin-pay/admin-pay.component';
 import { BlockUserComponent } from './block-user/block-user.component';
 import { NavIndexComponent } from './nav-index/nav-index.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { NavIndexComponent } from './nav-index/nav-index.component';
     TcompletedTrainingsComponent,
     AdminPayComponent,
     BlockUserComponent,
-    NavIndexComponent
+    NavIndexComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
