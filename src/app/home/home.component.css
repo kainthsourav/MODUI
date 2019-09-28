@@ -94,10 +94,11 @@ body {
   text-transform: capitalize;
   color: #4b4b4b;
   font-weight: 500;
-  padding: 12px 0px;
+  /* padding: 12px 0px; */
   }
   .pm-staff-profile-bio {
   text-transform: capitalize;
+  font-style: oblique;
   color: #4b4b4b;
   font-weight: 100;
   }
