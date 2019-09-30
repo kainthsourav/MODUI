@@ -14,7 +14,7 @@
           <input type="email" id="username" name="username" class="form-control" 
             placeholder="Email address" required formControlName="username">
             <span *ngIf="!myForm.controls.username.valid && (myForm.controls.username.touched) || status" >
-                Email required</span>
+               * Email required</span>
           <br>
 
           
@@ -23,7 +23,7 @@
             placeholder="Password" required formControlName="password">
 
             <span *ngIf="!myForm.controls.password.valid && (myForm.controls.password.touched) || status" >
-                Password required</span>
+                *Password required</span>
 
           <br>
           <div class="checkbox mb-3">

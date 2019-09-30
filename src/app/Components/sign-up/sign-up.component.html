@@ -3,36 +3,69 @@
    <div class="row">
       <div class="col-md-12 rounded" style="background-color: white;border: 1px solid #007bff">
          <h3>User Sign-Up</h3>
-         <form (submit)="Signup()">
+
+         <form [formGroup]="myForm" (ngSubmit)="UserSignup(myForm)">
             <label for="Username" class="form-label">Username</label>
             <input type="text" class="form-control" id="Username"  placeholder="Enter Username"
-               required name="Username" [(ngModel)]="Username">
+               required name="Username" formControlName="Username">
+               <!-- [(ngModel)]="Username" -->
+               <span *ngIf="!myForm.controls.Username.valid && (myForm.controls.Username.touched) ||status" >
+                     * Username required</span>
+                     <br>
 
             <label for="Email" class="form-label">Email</label>
             <input type="email" class="form-control" id="Email" placeholder="Enter Email" 
-            name="Email" [(ngModel)]="Email" required>
+            name="Email"  required formControlName="Email">
+            <!-- [(ngModel)]="Email" -->
+
+            <span *ngIf="!myForm.controls.Email.valid && (myForm.controls.Email.touched) || status" >
+                  * Email required</span>
+                  <br>
             
             <label for="Password" class="form-label">Password</label>
             <input type="password" class="form-control" id="Password" placeholder="Password"
-               required name="Password" [(ngModel)]="Password"> 
+               required name="Password" formControlName="Password"> 
+               <!-- [(ngModel)]="Password" -->
+               <span *ngIf="!myForm.controls.Password.valid && (myForm.controls.Password.touched)|| status" >
+                     * Password required</span>
+                     <br>
 
-            <label for="CPassword" class="form-label">Password</label>
+            <label for="CPassword" class="form-label">Re-Enter Password</label>
             <input type="password" class="form-control" id="CPassword"
-               placeholder="Confirm Password" required name="CPassword" [(ngModel)]="CPassword">
+               placeholder="Confirm Password" required name="CPassword"
+               formControlName="CPassword">  
+               <!-- [(ngModel)]="CPassword" -->
+               <span *ngIf="!myForm.controls.CPassword.valid && (myForm.controls.CPassword.touched) || status
+               || myForm.value.Password!=myForm.value.CPassword">
+                     * Password and Confirm Password not same</span>
+                    
+                     <br>
 
             <label for="Fname" class="form-label">First Name</label>
             <input type="text" class="form-control" id="Fname" placeholder="Enter First Name"
-               required name="Fname" [(ngModel)]="Fname">
+               required name="Fname"  formControlName="Fname">
+               <!-- [(ngModel)]="Fname" -->
+               <span *ngIf="!myForm.controls.Fname.valid && (myForm.controls.Fname.touched) || status " >
+                     * First Name required</span>
+                     <br>
 
             <label for="Lname" class="form-label">Last Name</label>
             <input type="text" class="form-control" id="Lname" placeholder="Enter Last Name"
-               required name="Lname" [(ngModel)]="Lname">
+               required name="Lname"  formControlName="Lname">
+               <!-- [(ngModel)]="Lname" -->
+               <span *ngIf="!myForm.controls.Lname.valid && (myForm.controls.Lname.touched) || status" >
+                     * Last Name required</span>
+                     <br>
 
             <label for="Mobile" class="form-label">Mobile Number</label>
             <input type="number" class="form-control" id="Mobile" placeholder="Enter Mobile Number"
-               required name="Mobile" [(ngModel)]="Mobile">
+               required name="Mobile"  formControlName="Mobile">
+               <!-- [(ngModel)]="Mobile" -->
+               <span *ngIf="!myForm.controls.Mobile.valid && (myForm.controls.Mobile.touched) || status" >
+                     * Mobile required</span>
+                     <br>
 
-        <button type="submit" class="btn btn-primary form-control" style="margin-top: 15px">Sign in</button>
+        <button type="submit" class="btn btn-primary form-control" style="margin-top: 15px">Sign Up</button>
             <p></p>
             <p>Sign up as Trainer <a routerLink="/TrainerSignUp" class="button">Click here</a></p>
          </form>
