@@ -10,12 +10,12 @@ import { TrainerSignInComponent } from './trainer-sign-in/trainer-sign-in.compon
 import { TrainerSignUpComponent } from './trainer-sign-up/trainer-sign-up.component';
 import { TrainerMenuComponent } from './trainer-menu/trainer-menu.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
-import { UserMenuComponent } from './user-menu/user-menu.component';
+import { UserMenuComponent } from './Components/User/user-menu/user-menu.component';
 import { FormsModule } from '@angular/forms';
 import { NavUserComponent } from './nav-user/nav-user.component';
 import { FooterComponent } from './footer/footer.component';
-import { SearchTrainingsComponent } from './search-trainings/search-trainings.component';
-import { CompletedTrainingsComponent } from './completed-trainings/completed-trainings.component';
+import { SearchTrainingsComponent } from './Components/User/search-trainings/search-trainings.component';
+import { CompletedTrainingsComponent } from './Components/User/completed-trainings/completed-trainings.component';
 import { HomeFooterComponent } from './home-footer/home-footer.component';
 import { EditSkillsComponent } from './edit-skills/edit-skills.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
