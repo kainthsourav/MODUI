@@ -29,10 +29,10 @@ export class TestFormsComponent implements OnInit {
     console.log('Name', form.value.name);
     console.log('Email', form.value.email);
     console.log('Message', form.value.message);
-
+    this.submittry=true;
     }
     else{
-      this.submittry=true;
+      this.submittry=false;
     }
   }
 }

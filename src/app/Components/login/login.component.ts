@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm,FormGroup,FormControl,FormBuilder,Validators} from '@angular/forms';
+import { Builder } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -9,29 +10,35 @@ import { NgForm,FormGroup,FormControl,FormBuilder,Validators} from '@angular/for
 })
 export class LoginComponent implements OnInit {
 
- username:any;
- password:any;
+//  username:any;
+//  password:any;
+myForm:FormGroup;
+status:boolean=false;
 
-  constructor(private router:Router) { }
-
+  constructor(private router:Router,private Fom:FormBuilder) {
+    this.myForm=Fom.group({
+      username: ['', Validators.compose([Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'), Validators.required])],
+      password: ['', [Validators.required]],
+   });
+  }
   ngOnInit() {
+    
   }
 
-  SignIn()
+  SignIn(Form:FormGroup)
   {
-    if(this.username!=undefined && this.password!=undefined)
+    if(Form.valid)
     {
-      console.log(" "+this.username +" "+this.password);
-      this.router.navigate(['/UserMenu']);
+       this.status=false;
+       alert(Form.value.username +" "+Form.value.password);
+       this.router.navigate(['/UserMenu']);
     }
-
-   
     else
     {
-    alert("Please Fill the Correct Username/Password");
+      this.status=true;
     }
-  
-  
+    console.log('Valid?', Form.valid); // true or false
+    
   }
 
 }

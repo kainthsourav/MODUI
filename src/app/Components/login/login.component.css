@@ -3,6 +3,12 @@ input.ng-invalid.ng-touched
    border-color: red;  
 }
 
+span
+{
+  color: red;
+  font-size: 13px;
+}
+
 
 .container-fluid
 {
