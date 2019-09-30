@@ -1,3 +1,9 @@
+input.ng-invalid.ng-touched  
+{  
+   border-color: red;  
+}
+
+
 .container-fluid
 {
     width: 100%;
@@ -19,3 +25,57 @@ h1{
     margin: 20px;
     margin-right:20px;
 }
+
+
+
+
+/* <form class="form-signin rounded" #form="ngForm" (submit)="SignIn(form.value)">
+<!-- <img class="mb-4" src="assests/imgs" alt="" width="72" height="72"> -->
+<h1 class="h3 mb-3">Please Sign in</h1>
+<label for="inputEmail" class="sr-only">Email address</label>
+<input type="email" id="username" name="username" class="form-control" [(ngModel)]="username"
+  placeholder="Email address" required>
+<br>
+<label for="inputPassword" class="sr-only">Password</label>
+<input type="password" id="password" name="password" class="form-control" [(ngModel)]="password"
+  placeholder="Password" required>
+<br>
+<div class="checkbox mb-3">
+  <label>
+    <input type="checkbox" value="remember-me"> Remember me
+  </label>
+</div>
+
+<button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+<p></p>
+<p>Trainer Sign In <a routerLink="/TrainerSignIn" class="button">Click Here</a></p>
+
+<p>Don't have account? <a routerLink="/signup" class="button">Sign Up</a></p>
+</form> */
+
+/* 
+if(this.username!=undefined && this.password!=undefined)
+    {
+     
+      this.router.navigate(['/UserMenu']);
+    }
+
+   
+    else
+    {
+      if(this.username==undefined && this.password==undefined)
+      {
+        this.emailcheck=true;
+        this.passwordcheck=true;
+      }    
+      else if(this.password==undefined)
+      {
+        this.passwordcheck=true;
+        this.emailcheck=false;
+      } 
+     else if(this.username==undefined)
+      {
+        this.emailcheck=false;
+        this.username=true;
+      }
+    // alert("Please Fill the Correct Username/Password"); */

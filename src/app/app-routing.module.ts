@@ -16,6 +16,7 @@ import { TcompletedTrainingsComponent } from './Components/Mentor/tcompleted-tra
 import { AdminPayComponent } from './Components/Admin/admin-pay/admin-pay.component';
 import { BlockUserComponent } from './Components/Admin/block-user/block-user.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { TestFormsComponent } from './test-forms/test-forms.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -41,7 +42,10 @@ const routes: Routes = [
   
   {path:"blockuser",component:BlockUserComponent},
 
+  {path:"Test",component:TestFormsComponent},
   {path:"**",component:PageNotFoundComponent}
+
+ 
 ];
 
 @NgModule({

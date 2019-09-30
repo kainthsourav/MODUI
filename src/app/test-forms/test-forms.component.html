@@ -1,0 +1,27 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <input formControlName="name" placeholder="Your name">
+
+    <!-- <div *ngIf="myForm.get('name').hasError('required')">
+      Oops, please provide a name!
+    </div> -->
+  
+    <input formControlName="email" placeholder="Your email" >
+  
+    <div *ngIf="!myForm.controls.email.valid && (myForm.controls.email.touched) && myForm.get('email').hasError('pattern') || submittry">
+      Oops, wrong pattern buddy!
+    </div>
+  
+    <input formControlName="message" placeholder="Your message">
+  
+    <div *ngIf="!myForm.controls.message.valid  && (myForm.controls.message.touched) || submittry">
+    Message Cannot be Empty
+    </div>
+
+    <div *ngIf="!myForm.controls.name.valid  && (myForm.controls.name.touched) || submittry">
+        Eunice
+    </div>
+  
+    <button type="submit">
+      Send
+    </button>
+  </form>
