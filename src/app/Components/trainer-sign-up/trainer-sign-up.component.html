@@ -5,34 +5,45 @@
       </div>
       <div class="col-md-7 rounded" style="background-color: white;border: 1px solid black" >
          <h1>Trainer Sign Up</h1>
-         <form (submit)="Tsignup()">
+
+         <form  [formGroup]="myForm" (ngSubmit)="MentorSignup(myForm)">
+
             <label for="TUsername" class="form-label">Username</label>
             <input type="text" class="form-control" id="Username" placeholder="Enter Username" 
-            name="Username" [(ngModel)]="Username" required>
+            name="Username"  required formControlName="Username">
+            <!-- [(ngModel)]="Username" -->
+
+            
 
             <label for="Email" class="form-label">Email</label>
             <input type="email" class="form-control" id="Email" placeholder="Enter Email" 
-            name="Email" [(ngModel)]="Email" required>
+            name="Email"  required formControlName="Email">
+            <!-- [(ngModel)]="Email" -->
 
             <label for="Password" class="form-label">Password</label>
             <input type="password" class="form-control" id="Password" placeholder="Password" 
-            name="Password" [(ngModel)]="Password"required>
+            name="Password" required formControlName="Password">
+            <!-- [(ngModel)]="Password" -->
 
             <label for="Cpassword" class="form-label">Password</label>
             <input type="password" class="form-control" id="Cpassword" placeholder="Confirm Password"
-            name="Cpassword" [(ngModel)]="Cpassword" required>
+            name="Cpassword"  required formControlName="Cpassword">
+            <!-- [(ngModel)]="Cpassword" -->
 
             <label for="Fname" class="form-label">First Name</label>
             <input type="text" class="form-control" id="Fname" placeholder="Enter First Name" 
-            name="Fname" [(ngModel)]="Fname" required>
+            name="Fname"  required formControlName="Fname">
+            <!-- [(ngModel)]="Fname" -->
 
             <label for="Lname" class="form-label">Last Name</label>
             <input type="text" class="form-control" id="Lname" placeholder="Enter Last Name" 
-            name="Lname" [(ngModel)]="Lname" required>
+            name="Lname"  required formControlName="Lname">
+            <!-- [(ngModel)]="Lname" -->
 
             <label for="Mobile" class="form-label">Mobile Number</label>
             <input type="number" class="form-control" id="Mobile" placeholder="Enter Mobile Number"
-            name="Mobile" [(ngModel)]="Mobile" required>
+            name="Mobile"  required formControlName="Mobile">
+            <!-- [(ngModel)]="Mobile" -->
 
             <label for="timezone-offset" class="form-label">Please Select Time Zone</label>
             <select name="timezone_offset" id="timezone-offset" class="form-control">
@@ -51,7 +62,8 @@
 
             <label for="Timing" class="form-label">Timing</label>
             <input type="text" class="form-control" id="Timing" placeholder="Enter Timing" 
-            name="Timing" [(ngModel)]="Timing" required>   
+            name="Timing"  required formControlName="Timing">  
+            <!-- [(ngModel)]="Timing"  -->
 
             <label class="form-label">Technologies</label>
             <div class="checkbox mb-2" style="padding-right: 2px">
@@ -70,7 +82,8 @@
             </div>
             
             <input type="text" class="form-control" id="OtherTech" placeholder="Any Other" 
-            name="OtherTech" [(ngModel)]="OtherTech" required> 
+            name="OtherTech"  required formControlName="OtherTech"> 
+            <!-- [(ngModel)]="OtherTech" -->
 
             <label for="facility">Facilities</label><br>
             <label><input type="checkbox" value="Clab">Cloud lab</label>
@@ -81,21 +94,25 @@
 
             <div class="checkbox mb-2">
                <input type="text"  placeholder="Any Other facilities" class="form-control"
-               name="Facility" [(ngModel)]="Facility" required>
+               name="Facility"  required formControlName="Facility">
+               <!-- [(ngModel)]="Facility" -->
             </div>
 
             <label for="linkdin">Linkedin</label>
             <input type="text"  placeholder="LinkedIN URL" class="form-control" 
-            name="Linkedin" [(ngModel)]="Linkedin" required> 
+            name="Linkedin" required formControlName="Linkedin"> 
+            <!-- [(ngModel)]="Linkedin" -->
 
             <label for="Exp">Experience</label>
             <input type="number"  placeholder="Experience (in years)" class="form-control"
-            name="Exp" [(ngModel)]="Exp" required>
+            name="Exp"  required formControlName="Exp">
+            <!-- [(ngModel)]="Exp" -->
 
             <button type="submit" class="btn btn-success form-control" style="margin-top: 15px">Sign Up</button>    
             <p></p>
             <p>Already having Account? <a routerLink="/TrainerSignIn" class="button">Login</a></p>
          </form>
+
       </div>
       <!-- <div class="col-md-4">
          </div> -->
