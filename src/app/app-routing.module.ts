@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { TrainerSignInComponent } from './trainer-sign-in/trainer-sign-in.component';
-import { TrainerSignUpComponent } from './trainer-sign-up/trainer-sign-up.component';
+import { HomeComponent } from './Components/Index/home/home.component';
+import { LoginComponent } from './Components/login/login.component';
+import { SignUpComponent } from './Components/sign-up/sign-up.component';
+import { TrainerSignInComponent } from './Components/trainer-sign-in/trainer-sign-in.component';
+import { TrainerSignUpComponent } from './Components/trainer-sign-up/trainer-sign-up.component';
 import { UserMenuComponent } from './Components/User/user-menu/user-menu.component';
-import { TrainerMenuComponent } from './trainer-menu/trainer-menu.component';
-import { AdminMenuComponent } from './admin-menu/admin-menu.component';
+import { TrainerMenuComponent } from './Components/Mentor/trainer-menu/trainer-menu.component';
+import { AdminMenuComponent } from './Components/Admin/admin-menu/admin-menu.component';
 import { SearchTrainingsComponent } from './Components/User/search-trainings/search-trainings.component';
 import { CompletedTrainingsComponent } from './Components/User/completed-trainings/completed-trainings.component';
-import { EditSkillsComponent } from './edit-skills/edit-skills.component';
-import { PaymentDetailsComponent } from './payment-details/payment-details.component';
-import { TcompletedTrainingsComponent } from './tcompleted-trainings/tcompleted-trainings.component';
-import { AdminPayComponent } from './admin-pay/admin-pay.component';
-import { BlockUserComponent } from './block-user/block-user.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EditSkillsComponent } from './Components/Mentor/edit-skills/edit-skills.component';
+import { PaymentDetailsComponent } from './Components/Mentor/payment-details/payment-details.component';
+import { TcompletedTrainingsComponent } from './Components/Mentor/tcompleted-trainings/tcompleted-trainings.component';
+import { AdminPayComponent } from './Components/Admin/admin-pay/admin-pay.component';
+import { BlockUserComponent } from './Components/Admin/block-user/block-user.component';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
