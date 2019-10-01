@@ -24,9 +24,11 @@ import { AdminPayComponent } from './Components/Admin/admin-pay/admin-pay.compon
 import { BlockUserComponent } from './Components/Admin/block-user/block-user.component';
 import { NavIndexComponent } from './Components/Nav-Bar/nav-index/nav-index.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
-import { TestFormsComponent } from './test-forms/test-forms.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -53,13 +55,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     BlockUserComponent,
     NavIndexComponent,
     PageNotFoundComponent,
-    TestFormsComponent
+    TestComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

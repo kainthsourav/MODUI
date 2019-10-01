@@ -4,40 +4,29 @@
     <div class="col-md-4 ">
       <div style="background-color: white; padding: 20px" class="rounded">
 
-        <!-- <form class="form-signin rounded" (submit)="SignIn()"> -->
-          <form  [formGroup]="myForm" (ngSubmit)="SignIn(myForm)">
-
-          <!-- <img class="mb-4" src="assests/imgs" alt="" width="72" height="72"> -->
-          <h1 class="h3 mb-3">Please Sign in</h1>
-
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="username" name="username" class="form-control" 
-            placeholder="Email address" required formControlName="username">
-            <span *ngIf="!myForm.controls.username.valid && (myForm.controls.username.touched) || status" >
-               * Email required</span>
-          <br>
-
-          
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="password" name="password" class="form-control"
-            placeholder="Password" required formControlName="password">
-
-            <span *ngIf="!myForm.controls.password.valid && (myForm.controls.password.touched) || status" >
-                *Password required</span>
-
-          <br>
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-
-          <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
-          <p></p>
-          <p>Trainer Sign In <a routerLink="/TrainerSignIn" class="button">Click Here</a></p>
-
-          <p>Don't have account? <a routerLink="/signup" class="button">Sign Up</a></p>
+          <form [formGroup]="MyForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && MyForm.controls.email.errors }" />
+                <div *ngIf="submitted &amp;&amp; MyForm.controls.email.errors" class="text-danger">
+                  <div *ngIf="MyForm.controls.email.errors.required">Email is required</div>
+                  <div *ngIf="MyForm.controls.email.errors.email">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && MyForm.controls.password.errors }"  />
+                <div *ngIf="submitted &amp;&amp; MyForm.controls.password.errors" class="text-danger">
+                  <div *ngIf="MyForm.controls.password.errors.required">Password is required</div>
+                  <div *ngIf="MyForm.controls.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </div>
+              <div class="form-group" style="text-align: center">
+                <button class="btn btn-primary">Sign in</button>
+              </div>
+          <p style="text-align: center">Don't have account? <a routerLink="/signup" class="button">Sign Up</a></p>
         </form>
+
       </div>
     </div>
     <div class="col-md-4"></div>
