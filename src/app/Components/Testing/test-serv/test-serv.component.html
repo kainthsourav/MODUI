@@ -1,0 +1,28 @@
+
+<div class="container">
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>first Name</td>
+                <td>Last Name</td>
+                <td>contactNumber</td>
+                <td>Email</td>
+                <td>userName</td>
+                <td>password</td>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let item of list">
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.contactNumber}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.userName}}</td>
+                <td>{{item.password}}</td>
+            </tr>
+        </tbody>
+    </table>
+    {{list|json}}
+</div>
+
