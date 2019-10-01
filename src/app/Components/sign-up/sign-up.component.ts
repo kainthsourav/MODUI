@@ -20,16 +20,15 @@ export class SignUpComponent implements OnInit {
 //  Mobile:string;
 // Validators.compose([Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
 
-
   constructor(private fb:FormBuilder) {
     this.myForm=fb.group({
-      Username: ['', [Validators.required]],
-      Email:['', [Validators.required,Validators.email]],
+      Username: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+      Email:['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       Password:['', [Validators.required]],
       CPassword:['', [Validators.required]],
       Fname:['', [Validators.required]],
       Lname:['', [Validators.required]],
-      Mobile:['', [Validators.required]],
+      Mobile:['', [Validators.required,Validators.minLength(12)]],
    });
    
    }

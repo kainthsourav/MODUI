@@ -1,121 +1,136 @@
 <app-nav-home></app-nav-home>
-<div class="container-fluid" style="padding-top: 40px;">
-   <div class="row" style="padding-bottom: 50px; ">
-      <div class="col-md-3">
-      </div>
-      <div class="col-md-7 rounded" style="background-color: white;border: 1px solid black" >
-         <h1>Trainer Sign Up</h1>
-
-         <form  [formGroup]="myForm" (ngSubmit)="MentorSignup(myForm)">
-
-            <label for="TUsername" class="form-label">Username</label>
-            <input type="text" class="form-control" id="Username" placeholder="Enter Username" 
-            name="Username"  required formControlName="Username">
-            <!-- [(ngModel)]="Username" -->
-
-            
-
-            <label for="Email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="Email" placeholder="Enter Email" 
-            name="Email"  required formControlName="Email">
-            <!-- [(ngModel)]="Email" -->
-
-            <label for="Password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="Password" placeholder="Password" 
-            name="Password" required formControlName="Password">
-            <!-- [(ngModel)]="Password" -->
-
-            <label for="Cpassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="Cpassword" placeholder="Confirm Password"
-            name="Cpassword"  required formControlName="Cpassword">
-            <!-- [(ngModel)]="Cpassword" -->
-
-            <label for="Fname" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="Fname" placeholder="Enter First Name" 
-            name="Fname"  required formControlName="Fname">
-            <!-- [(ngModel)]="Fname" -->
-
-            <label for="Lname" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="Lname" placeholder="Enter Last Name" 
-            name="Lname"  required formControlName="Lname">
-            <!-- [(ngModel)]="Lname" -->
-
-            <label for="Mobile" class="form-label">Mobile Number</label>
-            <input type="number" class="form-control" id="Mobile" placeholder="Enter Mobile Number"
-            name="Mobile"  required formControlName="Mobile">
-            <!-- [(ngModel)]="Mobile" -->
-
-            <label for="timezone-offset" class="form-label">Please Select Time Zone</label>
-            <select name="timezone_offset" id="timezone-offset" class="form-control">
-               <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-               <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-               <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-               <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-               <option value="-04:50">(GMT -4:30) Caracas</option>
-               <option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-               <option value="-03:50">(GMT -3:30) Newfoundland</option>
-               <option value="-03:00">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-               <option value="+05:50">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-               <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
-               <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-            </select>
-
-            <label for="Timing" class="form-label">Timing</label>
-            <input type="text" class="form-control" id="Timing" placeholder="Enter Timing" 
-            name="Timing"  required formControlName="Timing">  
-            <!-- [(ngModel)]="Timing"  -->
-
-            <label class="form-label">Technologies</label>
-            <div class="checkbox mb-2" style="padding-right: 2px">
-               <label>
-               <input type="checkbox" value="java">Java
-               </label>
-               <label>
-               <input type="checkbox" value=".Net">.Net
-               </label>
-               <label>
-               <input type="checkbox" value="C#">C#
-               </label>
-               <label>
-               <input type="checkbox" value="TypeScript">TypeScript
-               </label>
-            </div>
-            
-            <input type="text" class="form-control" id="OtherTech" placeholder="Any Other" 
-            name="OtherTech"  required formControlName="OtherTech"> 
-            <!-- [(ngModel)]="OtherTech" -->
-
-            <label for="facility">Facilities</label><br>
-            <label><input type="checkbox" value="Clab">Cloud lab</label>
-            <label><input type="checkbox" value="mat">Material</label>
-            <label><input type="checkbox" value="ebook">ebooks</label>
-            <label><input type="checkbox" value="mail">Mail support</label>
-            <br>
-
-            <div class="checkbox mb-2">
-               <input type="text"  placeholder="Any Other facilities" class="form-control"
-               name="Facility"  required formControlName="Facility">
-               <!-- [(ngModel)]="Facility" -->
-            </div>
-
-            <label for="linkdin">Linkedin</label>
-            <input type="text"  placeholder="LinkedIN URL" class="form-control" 
-            name="Linkedin" required formControlName="Linkedin"> 
-            <!-- [(ngModel)]="Linkedin" -->
-
-            <label for="Exp">Experience</label>
-            <input type="number"  placeholder="Experience (in years)" class="form-control"
-            name="Exp"  required formControlName="Exp">
-            <!-- [(ngModel)]="Exp" -->
-
-            <button type="submit" class="btn btn-success form-control" style="margin-top: 15px">Sign Up</button>    
-            <p></p>
-            <p>Already having Account? <a routerLink="/TrainerSignIn" class="button">Login</a></p>
-         </form>
-
-      </div>
-      <!-- <div class="col-md-4">
-         </div> -->
-   </div>
-</div>
-<app-footer></app-footer>
+<div class="container-fluid py-3">
+      <div class="row py-5">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+              <div class="card card-signin">
+                  <div class="card-body">
+                      <h3 class="card-title text-center">Trainer Register</h3>
+                      <div class="form-row">
+                          <div class="form-group col">
+                              <form class="form-signin" [formGroup]="UserRegister" autocomplete="off"
+                                  (submit)="onSubmit()">
+                                  <div class="form-row">
+                                      <div class="form-group col required">
+                                          <label>First Name</label>
+                                          <input class="form-control" formControlName="firstName">
+                                          <small class="text-danger"
+                                              *ngIf="UserRegister.get('firstName').touched && UserRegister.get('firstName').errors?.required">This
+                                              field is mandatory</small>
+                                          <small class="text-danger"
+                                              *ngIf="UserRegister.get('firstName').touched && UserRegister.get('firstName').errors?.pattern">firstName
+                                              cannot have special characters or digits</small>
+                                      </div>
+                                      <div class="form-group col required">
+                                          <label>Last Name</label>
+                                          <input class="form-control" formControlName="lastName">
+                                          <small class="text-danger"
+                                              *ngIf="UserRegister.get('lastName').touched && UserRegister.get('lastName').errors?.required">This
+                                              field is mandatory</small>
+                                          <small class="text-danger"
+                                              *ngIf="UserRegister.get('lastName').touched && UserRegister.get('lastName').errors?.pattern">lastName
+                                              cannot have special characters or digits</small>
+                                      </div>
+                                  </div>
+                                  <div class="form-group required">
+                                      <label>Email</label>
+                                      <input class="form-control" formControlName="Email">
+                                      <small class="text-danger"
+                                          *ngIf="UserRegister.get('Email').touched && UserRegister.get('Email').errors?.required">This
+                                          field is mandatory</small>
+                                      <small class="text-danger"
+                                          *ngIf="UserRegister.get('Email').touched && UserRegister.get('Email').errors?.pattern">Invalid
+                                          Email Address</small>
+                                  </div>
+  
+                                  <div class="form-group required">
+                                      <label>Phone Number</label>
+                                      <input class="form-control" formControlName="Phone">
+                                      <small class="text-danger"
+                                          *ngIf="UserRegister.get('Phone').touched && UserRegister.get('Phone').errors?.required">This
+                                          field is mandatory</small>
+                                      <small class="text-danger"
+                                          *ngIf="UserRegister.get('Phone').touched && UserRegister.get('Phone').errors?.pattern">Invalid
+                                          Phone Number</small>
+                                  </div>
+  
+                                  <div class="form-row" formGroupName="Passwords">
+                                      <div class="form-group col required">
+                                          <label>Enter Password</label>
+                                          <input type="password" class="form-control" formControlName="Password">
+                                          <small class="text-danger"
+                                              *ngIf="UserRegister.get('Passwords.Password').touched && UserRegister.get('Passwords.Password').errors?.required">This
+                                              field is mandatory</small>
+                                          <small class="text-danger"
+                                              *ngIf="UserRegister.get('Passwords.Password').touched && UserRegister.get('Passwords.Password').errors?.minlength">Minimun
+                                              8 characters required</small>
+                                      </div>
+                                      <div class="form-group col required">
+                                          <label>Confirm Password</label>
+                                          <input type="password" class="form-control" formControlName="ConfirmPassword">
+                                          <small class="text-danger"
+                                              *ngIf="UserRegister.get('Passwords.ConfirmPassword').touched && UserRegister.get('Passwords.ConfirmPassword').errors?.required">This
+                                              field is mandatory</small>
+                                          <small class="text-danger"
+                                              *ngIf="UserRegister.get('Passwords.ConfirmPassword').touched && UserRegister.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm
+                                              Password does not match</small>
+                                      </div>
+                                  </div>
+  
+                                  <div class="form-group required">
+                                      <label>Linkedin Url</label>
+                                      <input class="form-control" formControlName="LinkedinURL">
+                                      <small class="text-danger"
+                                          *ngIf="UserRegister.get('LinkedinURL').touched && UserRegister.get('LinkedinURL').errors?.required">This
+                                          field is mandatory</small>
+                                      <small class="text-danger"
+                                          *ngIf="UserRegister.get('LinkedinURL').touched && UserRegister.get('LinkedinURL').errors?.pattern">Invalid
+                                          Linkedin Url </small>
+                                  </div>
+                                  <div class="form-group required">
+                                      <label>Experience</label>
+                                      <input class="form-control" formControlName="Experience">
+                                      <small class="text-danger"
+                                          *ngIf="UserRegister.get('Experience').touched && UserRegister.get('Experience').errors?.required">This
+                                          field is mandatory</small>
+                                      <small class="text-danger"
+                                          *ngIf="UserRegister.get('Experience').touched && UserRegister.get('Experience').errors?.pattern">Invalid
+                                          Experience in number
+                                      </small>
+                                  </div>
+                                  <div class="form-row">
+                                      <div class="form-group col required">
+                                          <label>Timings</label>
+                                          <select formControlName="Timings" class=" mb-2 rounded text-center dropdown">
+                                              <option value="9AM - 12PM">9AM - 12PM</option>
+                                              <option value="12PM - 3PM">12PM - 3PM</option>
+                                              <option value="3PM - 6PM">3PM - 6PM</option>
+                                          </select>
+                                          <small class="text-danger"
+                                              *ngIf="UserRegister.get('Timings').touched && UserRegister.get('Timings').errors?.required">This
+                                              field is mandatory</small>
+                                      </div>
+                                      <div class="form-group col required">
+                                          <label>Technology</label>
+                                          <select formControlName="Technology" class=" mb-2 rounded text-center dropdown">
+                                              <option value="Java">Java</option>
+                                              <option value="Dot Net">Dot Net</option>
+                                              <option value="Mean Stack">Mean Stack</option>
+                                          </select>
+                                          <small class="text-danger"
+                                          *ngIf="UserRegister.get('Technology').touched && UserRegister.get('Technology').errors?.required">This
+                                          field is mandatory</small>
+                                      </div>
+                                  </div>
+                                  <div class="form-row my-1">
+                                      <div class="form-group col-md-12">
+                                          <button class="btn btn-lg btn-primary btn-block login"
+                                              [disabled]="!UserRegister.valid">Register</button>
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>

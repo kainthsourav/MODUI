@@ -1,0 +1,40 @@
+.dd-color
+{
+    color:white;
+    border: white;
+}
+
+
+/* <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+    <a [routerLink]="['']" class="navbar-brand">Cognizant Trainee</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse2">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse2">
+        <div class="navbar-nav">
+            <a routerLink="/UserMenu" class="nav-item nav-link active">Home</a>
+            <!-- <a  class="nav-item nav-link">About</a>
+            <a  class="nav-item nav-link">Products</a> -->
+        </div>
+
+        <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Inbox</a>
+                    <a href="#" class="dropdown-item">Sent</a>
+                    <a href="#" class="dropdown-item">Drafts</a>
+                </div>
+        </div>
+
+      
+        <form class="form-inline ml-auto">
+            <a class="nav-link rounded"  routerLinkActive="true">
+                <button class="btn btn-outline-light">Notifications</button>
+            </a>
+            <a class="nav-link rounded" routerLink="/" routerLinkActive="true">
+            <button class="btn btn-outline-light">Logout</button>
+            </a>
+        </form>
+    </div>
+</nav> */

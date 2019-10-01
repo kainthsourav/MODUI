@@ -8,65 +8,47 @@ import { FormGroup,FormBuilder,Validators} from '@angular/forms';
 })
 export class TrainerSignUpComponent implements OnInit {
 
-  // Username:any;
-  // Email:any;
-  // Password:any;
-  // Cpassword:any;
-  // Fname:any;
-  // Lname:any;
-  // Mobile:any;
-  // Timezone:any;
-  // Timing:any;
-  // OtherTech:any;
-  // Facility:any;
-  // Linkedin:any;
-  // Exp:any;
+  UserRegister: FormGroup;
+  submitted = false;
+    constructor(private fb: FormBuilder) { }
 
-  myForm:FormGroup;
-
-  constructor(private fb:FormBuilder) {
-    this.myForm=fb.group({
-      Username:['', [Validators.required]],
-      Email:['', [Validators.required]],
-      Password:['', [Validators.required]],
-      Cpassword:['', [Validators.required]],
-      Fname:['', [Validators.required]],
-      Lname:['', [Validators.required]],
-      Mobile:['', [Validators.required]],
-      Timezone:['', [Validators.required]],
-      Timing:['', [Validators.required]],
-      OtherTech:['', [Validators.required]],
-      Facility:['', [Validators.required]],
-      Linkedin:['', [Validators.required]],
-      Exp:['', [Validators.required]],
-   });
-   }
-
-  ngOnInit() {
+    ngOnInit() {
+      this.UserRegister=this.fb.group({
+        firstName:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+        lastName:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+        Email:['',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+        Phone:['',[Validators.required,Validators.pattern('^([6-9]{1})([0-9]{9})$')]],
+        Passwords:this.fb.group({
+          Password:['',[Validators.required,Validators.minLength(8)]],
+          ConfirmPassword:['',Validators.minLength(8)]
+        },{validator:this.comparePasswords}),
+        LinkedinURL: ['',[Validators.required,Validators.pattern('')]],  
+        Experience:['',[Validators.required,Validators.pattern('^[0-9]{2}$')]], 
+        Timings: ['',[Validators.required]],
+        Technology:['',Validators.required]
+      });
+    }
+    
+  comparePasswords( fb: FormGroup){
+    let confirmPassword=fb.get('ConfirmPassword');
+    if(confirmPassword.errors==null || 'passwordMismatch' in confirmPassword.errors){
+      if(fb.get('Password').value != confirmPassword.value)
+        confirmPassword.setErrors({passwordMismatch:true});
+      else
+        confirmPassword.setErrors(null);
+    }
   }
 
-// Tsignup()
-// {
-//   console.log(this.Username);
-//   console.log(this.Password);
-//   console.log(this.Cpassword);
-//   console.log(this.Fname);
-//   console.log(this.Lname);
-//   console.log(this.Mobile);
-//   console.log(this.Timezone);
-//   console.log(this.Timing);
-//   console.log(this.OtherTech);
-//   console.log(this.Facility);
-//   console.log(this.Linkedin);
-//   console.log(this.Exp)
-// }
+  onSubmit(){
+    this.submitted = true;
+    if (this.UserRegister.invalid) {
+        return;
+    }
+    alert('SUCCESS!!'+JSON.stringify(this.UserRegister.value));
+  }
 
-MentorSignup(myForm)
-{
-  
-    console.log(myForm.value);
-  
-}
-
-
-}
+    onReset() {
+        this.submitted = false;
+        this.UserRegister.reset();
+    }
+  }
