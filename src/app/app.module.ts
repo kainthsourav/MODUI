@@ -27,8 +27,8 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
-import { TestComponent } from './test/test.component';
+import { TestServComponent } from './Components/Testing/test-serv/test-serv.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -55,7 +55,7 @@ import { TestComponent } from './test/test.component';
     BlockUserComponent,
     NavIndexComponent,
     PageNotFoundComponent,
-    TestComponent,
+    TestServComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +63,7 @@ import { TestComponent } from './test/test.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

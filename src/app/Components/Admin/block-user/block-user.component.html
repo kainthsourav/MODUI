@@ -26,63 +26,29 @@
               <table class="table">
     <thead class="thead-dark">
         <tr>
-          
-            <th>Sr.No</th>
-            <th>Name</th>
+            <th>Username</th>
             <th>Email</th>
-            <th>Enrollment Date</th>
+            <th>Contact No</th>
+            <th>Action</th>
            
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th>1</th>
-            <td>John</td>
-            <td>John.1708@gmail.com</td>
-            <td>
-                    <button type="button" class="btn btn-success">Unblock</button>
-                    <button type="button" class="btn btn-danger">Block</button>
-            </td>
-        </tr>
-        <tr>
-                <th>2</th>
-            <td>John</td>
-            <td>John.1708@gmail.com</td>
-            <td>
-                    <button type="button" class="btn btn-success">Unblock</button>
-                    <button type="button" class="btn btn-danger">Block</button>
-            </td>
-        </tr>
-        <tr>
-                <th>3</th>
-            <td>John</td>
-            <td>John.1708@gmail.com</td>
-            <td>
-                    <button type="button" class="btn btn-success">Unblock</button>
-                    <button type="button" class="btn btn-danger">Block</button>
-            </td>
-        </tr>
+            <tr *ngFor="let item of list">
+                    <td>{{item.userName}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.contactNumber}}</td>
+                    <td>
+                        <button type="button" class="btn btn-success"
+                         [disabled]="item.active"
+                         (click)="Unblock(item.id)">Unblock</button>
 
-        <tr>
-                <th>4</th>
-                <td>John</td>
-                <td>John.1708@gmail.com</td>
-                <td>
-                        <button type="button" class="btn btn-success">Unblock</button>
-                        <button type="button" class="btn btn-danger">Block</button>
-                </td>
-        </tr>
-
-        <tr>
-                <th>5</th>
-                <td>John</td>
-                <td>John.1708@gmail.com</td>
-                <td>
-                        <button type="button" class="btn btn-success">Unblock</button>
-                        <button type="button" class="btn btn-danger">Block</button>
-                </td>
-        </tr>
-        
+                        <button type="button" 
+                        class="btn btn-danger" 
+                        [disabled]="!item.active" 
+                        (click)="Block(item.id)">Block</button>
+                    </td>
+            </tr>
     </tbody>
 </table>
 </div>
