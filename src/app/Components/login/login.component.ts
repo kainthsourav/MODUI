@@ -13,24 +13,31 @@ export class LoginComponent implements OnInit {
 //  username:any;
 //  password:any;
 
-constructor(private formBuilder: FormBuilder) { }
-  
-MyForm: FormGroup;
-  submitted = false;
-  ngOnInit() {
-    this.MyForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+constructor(private fb:FormBuilder) { }
+
+UserLogin: FormGroup;
+submitted = false;
+
+
+ngOnInit() {
+  this.UserLogin=this.fb.group({
+    // Name:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+    Email:['',[Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+    Password:['',[Validators.required,Validators.minLength(8)]]
+    // Phone:['',[Validators.required,Validators.pattern('^([6-9]{1})([0-9]{9})$')]],
+    // Passwords:this.fb.group({
+    //   Password:['',[Validators.required,Validators.minLength(8)]],
+    //   ConfirmPassword:['',Validators.minLength(8)]
+    // },{validator:this.comparePasswords})
   });
+}
+
+onSubmit(){
+  this.submitted = true;
+  if (this.UserLogin.invalid) {
+      return;
   }
-  onSubmit() {
-    this.submitted = true;
+  alert('SUCCESS!!'+JSON.stringify(this.UserLogin.value));
+}
 
-    // stop the process here if form is invalid
-    if (this.MyForm.invalid) {
-        return;
-    }
-
-    alert('SUCCESS!!');
-}   
 }

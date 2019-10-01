@@ -4,7 +4,7 @@
       <div class="col-md-12 rounded" style="background-color: white;border: 1px solid #007bff">
          <h3>User Sign-Up</h3>
 
-         <form [formGroup]="myForm" (ngSubmit)="UserSignup(myForm)">
+         <form [formGroup]="myForm" autocomplete="off" (ngSubmit)="UserSignup(myForm)">
             <label for="Username" class="form-label">Username</label>
             <input type="text" class="form-control" id="Username"  placeholder="Enter Username"
                required name="Username" formControlName="Username">
@@ -65,7 +65,7 @@
                      * Mobile required</span>
                      <br>
 
-        <button type="submit" class="btn btn-primary form-control" style="margin-top: 15px">Sign Up</button>
+<button type="submit" class="btn btn-primary form-control" style="margin-top: 15px" [disabled]="!myForm.valid">Sign Up</button>
             <p></p>
             <p>Sign up as Trainer <a routerLink="/TrainerSignUp" class="button">Click here</a></p>
          </form>

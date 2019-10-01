@@ -2,30 +2,32 @@
   <div class="row py-5">
     <div class="col-md-4"></div>
     <div class="col-md-4 ">
-      <div style="background-color: white; padding: 20px" class="rounded">
+      <div style="background-color: white; padding: 20px; margin-top: 50px" class="rounded">
 
-          <form [formGroup]="MyForm" (ngSubmit)="onSubmit()">
-              <div class="form-group">
+          <form [formGroup]="UserLogin" autocomplete="off" (submit)="onSubmit()">
+
+              <div class="form-group required">
                 <label>Email</label>
-                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && MyForm.controls.email.errors }" />
-                <div *ngIf="submitted &amp;&amp; MyForm.controls.email.errors" class="text-danger">
-                  <div *ngIf="MyForm.controls.email.errors.required">Email is required</div>
-                  <div *ngIf="MyForm.controls.email.errors.email">Email must be a valid email address</div>
+                <input class="form-control" formControlName="Email">
+                <small class="text-danger" *ngIf="UserLogin.get('Email').touched && UserLogin.get('Email').errors?.required">This field is mandatory</small>
+                <small class="text-danger" *ngIf="UserLogin.get('Email').touched && UserLogin.get('Email').errors?.pattern">Invalid Email Address</small>
+              </div>
+        
+            <div class="form-group required">
+                  <label>Enter Password</label>
+                  <input type="password" class="form-control" formControlName="Password">
+                  <small class="text-danger" *ngIf="UserLogin.get('Password').touched && UserLogin.get('Password').errors?.required">This field is mandatory</small>
+                  <small class="text-danger" *ngIf="UserLogin.get('Password').touched && UserLogin.get('Password').errors?.minlength">Minimun 8 characters required</small>
+            </div>
+            
+
+              <div class="form-row">
+                <div class="form-group col-md-12" style="text-align: center">
+                  <button class="btn btn-primary" [disabled]="!UserLogin.valid" >Sign in</button>
                 </div>
               </div>
-              <div class="form-group">
-                <label>Password</label>
-                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && MyForm.controls.password.errors }"  />
-                <div *ngIf="submitted &amp;&amp; MyForm.controls.password.errors" class="text-danger">
-                  <div *ngIf="MyForm.controls.password.errors.required">Password is required</div>
-                  <div *ngIf="MyForm.controls.password.errors.minlength">Password must be at least 6 characters</div>
-                </div>
-              </div>
-              <div class="form-group" style="text-align: center">
-                <button class="btn btn-primary">Sign in</button>
-              </div>
-          <p style="text-align: center">Don't have account? <a routerLink="/signup" class="button">Sign Up</a></p>
-        </form>
+            </form>
+    
 
       </div>
     </div>
