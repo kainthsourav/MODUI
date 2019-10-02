@@ -17,7 +17,7 @@
                   <label>Enter Password</label>
                   <input type="password" class="form-control" formControlName="Password">
                   <small class="text-danger" *ngIf="UserLogin.get('Password').touched && UserLogin.get('Password').errors?.required">This field is mandatory</small>
-                  <small class="text-danger" *ngIf="UserLogin.get('Password').touched && UserLogin.get('Password').errors?.minlength">Minimun 8 characters required</small>
+                  <!-- <small class="text-danger" *ngIf="UserLogin.get('Password').touched && UserLogin.get('Password').errors?.minlength">Minimun 8 characters required</small> -->
             </div>
             
 
