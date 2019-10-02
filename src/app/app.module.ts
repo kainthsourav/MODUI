@@ -29,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestServComponent } from './Components/Testing/test-serv/test-serv.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavIndexComponent,
     PageNotFoundComponent,
     TestServComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
