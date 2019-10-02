@@ -36,7 +36,7 @@
                formControlName="CPassword">  
                <!-- [(ngModel)]="CPassword" -->
                <span *ngIf="!myForm.controls.CPassword.valid && (myForm.controls.CPassword.touched) || status
-               || myForm.value.Password!=myForm.value.CPassword">
+               || myForm.value.Password!=myForm.value.CPassword && myForm.controls.CPassword.touched">
                      * Password and Confirm Password not same</span>
                     
                      <br>

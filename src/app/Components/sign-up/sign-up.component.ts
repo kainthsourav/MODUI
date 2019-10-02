@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder,Validators} from '@angular/forms';
+import { FormGroup,FormBuilder,Validators, FormArrayName} from '@angular/forms';
+import { GetUsersService } from '../../Services/get-users.service'
+import { Router } from '@angular/router';
+import { format } from 'url';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,6 +13,7 @@ export class SignUpComponent implements OnInit {
 
   myForm:FormGroup;
   status:boolean=false;
+  Data;
 
 //  Username:string;
 //  Email:string;
@@ -20,7 +24,7 @@ export class SignUpComponent implements OnInit {
 //  Mobile:string;
 // Validators.compose([Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder,private AddService:GetUsersService) {
     this.myForm=fb.group({
       Username: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
       Email:['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
@@ -38,15 +42,26 @@ export class SignUpComponent implements OnInit {
 
   UserSignup(Form:FormGroup)
   {
-
-
     if(Form.valid)
     {
       if(Form.value.Password==Form.value.CPassword)
       {
-        console.log(Form.value);
+        const SignUp={
+            userName:Form.value.Username,
+            password:Form.value.Password,
+            email:Form.value.Email,
+            firstName:Form.value.Fname,
+            lastName:Form.value.Lname,
+            contactNumber:Form.value.Mobile,
+            confirmedSignUp:true,
+            active:true,
+            role: 3
+        };
+        console.log(SignUp);
         this.status=false;
-        console.log('Valid?', Form.valid);
+        this.AddService.Register(JSON.stringify(SignUp)).subscribe((data)=>{this.Data=data});
+      
+
       }
     }
     else
@@ -54,24 +69,5 @@ export class SignUpComponent implements OnInit {
       this.status=true;
       console.log('Valid?', Form.valid);
     }
-    // true or false
-
-
-    // if(this.Username!=undefined && this.Email!=undefined
-    //   && this.Password!=undefined && this.CPassword!=undefined
-    //   && this.Fname!=undefined && this.Lname!=undefined && this.Mobile!=undefined)
-    //   {
-    //       if(this.Password==this.CPassword)
-    //       {
-    //     console.log(this.Username);
-    //     console.log(this.Email);
-    //     console.log(this.Password);
-    //     console.log(this.CPassword);
-    //     console.log(this.Fname);
-    //     console.log(this.Lname);
-    //     console.log(this.Mobile);
-    //       }
-       
-      }
-  
+  }
 }

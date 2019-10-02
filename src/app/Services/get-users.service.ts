@@ -43,8 +43,11 @@ export class GetUsersService {
   }
 
   //Register
-  public Register()
+  public Register(signUpData)
   {
-    return;
+    console.log(signUpData);
+    return this._UserData.post("https://localhost:44383/api/register",signUpData,httpOptions).
+    pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));
   }
+
 }
