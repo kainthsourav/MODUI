@@ -82,8 +82,7 @@ export class LoginComponent implements OnInit {
       {
         alert("Invalid Email and Password");
       }
-
-      });
+  });
 
      
   }

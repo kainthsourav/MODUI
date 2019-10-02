@@ -3,7 +3,7 @@ import { HttpClient,HttpHeaders} from "@angular/common/http";
 import {UserDtl} from '../Models/UserDtl';
 import {map} from 'rxjs/operators';
 
-  import { from } from 'rxjs';
+import { from } from 'rxjs';
 const httpOptions={
   headers:new HttpHeaders({
     "Content-Type":"application/json"
@@ -40,5 +40,11 @@ export class GetUsersService {
   {
     return this._UserData.post("https://localhost:44383/api/login",loginData,httpOptions).
     pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));
+  }
+
+  //Register
+  public Register()
+  {
+    return;
   }
 }
