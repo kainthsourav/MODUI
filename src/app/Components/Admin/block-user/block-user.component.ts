@@ -10,12 +10,15 @@ export class BlockUserComponent implements OnInit {
 
   list;
   msg;
-  constructor(private _service:GetUsersService,private route:Router) { }
+
+  constructor(private _service:GetUsersService,private route:Router) { 
+    this._service.GetAll().subscribe((data)=>this.list=data);
+  
+  }
 
   ngOnInit() {
-    this._service.GetAll().subscribe((data)=>this.list=data);
-    console.log(this.list);
-    
+   
+ 
   }
 
   Unblock(id:any)
