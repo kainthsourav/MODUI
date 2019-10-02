@@ -61,23 +61,30 @@ export class LoginComponent implements OnInit {
       //   password:this.UserLogin.value.Password
       // }
 
-      this.sendlogin.login(JSON.stringify(this.UserLogin.value)).subscribe((data) => {
-        console.log(JSON.stringify(data))
-        this.Data = data
-
-          if (this.Data.role == 1) {
-            this.router.navigate(['\AdminMenu']);
-          }
-          else if (this.Data.role == 2 && this.Data.active == true) {
-            this.router.navigate(['\TrainerMenu']);
-          }
-          else if (this.Data.role == 3 && this.Data.active == true) {
-            this.router.navigate(['\UserMenu']);
-          }
-          else {
-            alert("Account Blocked");
-          }
-         
-          });
+      this.sendlogin.login(JSON.stringify(this.UserLogin.value)).subscribe((data)=>{this.Data=data
+      
+        if(this.Data!=undefined)
+        {
+        if (this.Data.role == 1) {
+          this.router.navigate(['AdminMenu']);
+        }
+        else if (this.Data.role == 2 && this.Data.active == true) {
+          this.router.navigate(['TrainerMenu']);
+        }
+        else if (this.Data.role == 3 && this.Data.active == true) {
+          this.router.navigate(['UserMenu']);
+        }
+        else {
+          alert("Account Blocked");
         }
       }
+      else
+      {
+        alert("Invalid Email and Password");
+      }
+
+      });
+
+     
+  }
+}
