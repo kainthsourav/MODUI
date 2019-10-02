@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators} from '@angular/forms';
+import { GetUsersService } from '../../Services/get-users.service'
 
 @Component({
   selector: 'app-trainer-sign-up',
@@ -10,7 +11,8 @@ export class TrainerSignUpComponent implements OnInit {
 
   UserRegister: FormGroup;
   submitted = false;
-    constructor(private fb: FormBuilder) { }
+  Data;
+    constructor(private fb: FormBuilder,private MentorSignService:GetUsersService) { }
 
     ngOnInit() {
       this.UserRegister=this.fb.group({
@@ -39,16 +41,35 @@ export class TrainerSignUpComponent implements OnInit {
     }
   }
 
-  onSubmit(){
-    this.submitted = true;
-    if (this.UserRegister.invalid) {
-        return;
+  onSubmit()
+  {
+    if(this.UserRegister.valid)
+    {
+      
+        const MentorSignUp={
+           userName:this.UserRegister.value.Email,
+          password:this.UserRegister.value.Passwords.Password,
+          email:this.UserRegister.value.Email,
+          firstName:this.UserRegister.value.firstName,
+          lastName:this.UserRegister.value.lastName,
+         contactNumber:this.UserRegister.value.Phone,
+          linkdinUrl:this.UserRegister.value.LinkedinURL,
+         yearOfExperience:this.UserRegister.value.Experience,
+          active:1,
+          role:2,
+        };
+        console.log(MentorSignUp);
+      
+        this.MentorSignService.Register(JSON.stringify(MentorSignUp)).subscribe((data)=>{this.Data=data
+          console.log(this.Data)
+        });
     }
-    alert('SUCCESS!!'+JSON.stringify(this.UserRegister.value));
+    else
+    {
+      
+      console.log('Valid?', this.UserRegister.valid);
+    }
+  
   }
-
-    onReset() {
-        this.submitted = false;
-        this.UserRegister.reset();
-    }
+  
   }
