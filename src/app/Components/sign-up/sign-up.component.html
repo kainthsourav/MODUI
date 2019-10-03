@@ -5,13 +5,13 @@
          <h3>User Sign-Up</h3>
 
          <form [formGroup]="myForm" autocomplete="off" (ngSubmit)="UserSignup(myForm)">
-            <label for="Username" class="form-label">Username</label>
+            <!-- <label for="Username" class="form-label">Username</label>
             <input type="text" class="form-control" id="Username"  placeholder="Enter Username"
                required name="Username" formControlName="Username">
-               <!-- [(ngModel)]="Username" -->
+               [(ngModel)]="Username"
                <span *ngIf="!myForm.controls.Username.valid && (myForm.controls.Username.touched) ||status" >
                      * Username required</span>
-                     <br>
+                     <br> -->
 
             <label for="Email" class="form-label">Email</label>
             <input type="email" class="form-control" id="Email" placeholder="Enter Email" 

@@ -15,18 +15,9 @@ export class SignUpComponent implements OnInit {
   status:boolean=false;
   Data;
 
-//  Username:string;
-//  Email:string;
-//  Password:string;
-//  CPassword:string;
-//  Fname:string;
-//  Lname:string;
-//  Mobile:string;
-// Validators.compose([Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
-
   constructor(private fb:FormBuilder,private AddService:GetUsersService) {
     this.myForm=fb.group({
-      Username: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+      // Username: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
       Email:['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       Password:['', [Validators.required]],
       CPassword:['', [Validators.required]],
@@ -47,7 +38,7 @@ export class SignUpComponent implements OnInit {
       if(Form.value.Password==Form.value.CPassword)
       {
         const SignUp={
-            userName:Form.value.Username,
+            // userName:Form.value.Username,
             password:Form.value.Password,
             email:Form.value.Email,
             firstName:Form.value.Fname,
