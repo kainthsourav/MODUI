@@ -17,12 +17,52 @@
       <div class="col-md-2"></div>
 </div>
 
+
+
 <div class="container-fluid">
+    <div class="row row2">
+    
+        <div class="col-md-12 text-center">
+        <div class="table-responsive" style="margin-top:30px;"> 
+                <h6>Block/Unblock Users</h6>
+                  <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Contact No</th>
+                <th>Action</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let item of Users">
+                        <td>{{item.userName}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.contactNumber}}</td>
+                        <td>
+                            <button type="button" class="btn btn-success"
+                             [disabled]="item.active"
+                             (click)="Unblock(item.id)">Unblock</button>
+    
+                            <button type="button" 
+                            class="btn btn-danger" 
+                            [disabled]="!item.active" 
+                            (click)="Block(item.id)">Block</button>
+                        </td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+
+
 <div class="row">
 
     <div class="col-md-12 text-center">
     <div class="table-responsive" style="margin-top:30px;"> 
-            <h4>Block/Unblock</h4>
+            <h5>Block/Unblock Mentors</h5>
               <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -34,7 +74,7 @@
         </tr>
     </thead>
     <tbody>
-            <tr *ngFor="let item of list">
+            <tr *ngFor="let item of mentor">
                     <td>{{item.userName}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.contactNumber}}</td>
@@ -54,5 +94,6 @@
 </div>
 </div>
 </div>
-</div>  
+</div>
+
 <app-footer></app-footer>

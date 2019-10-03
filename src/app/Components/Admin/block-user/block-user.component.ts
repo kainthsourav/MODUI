@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {GetUsersService} from '../../../Services/get-users.service'
-import {Route, Router} from '@angular/router'
+import {Route, Router} from '@angular/router';
+import * as _ from 'underscore';
+
 @Component({
   selector: 'app-block-user',
   templateUrl: './block-user.component.html',
@@ -8,18 +10,35 @@ import {Route, Router} from '@angular/router'
 })
 export class BlockUserComponent implements OnInit {
 
-  list;
+  Userlist;
   msg;
+  user;
+  mentor;
 
   constructor(private _service:GetUsersService,private route:Router) { 
-    this._service.GetAll().subscribe((data)=>this.list=data);
+   this.GetAllUsers();
   
   }
 
   ngOnInit() {
-   
- 
   }
+
+  GetAllUsers()
+  {
+    this._service.GetAll().subscribe(data=>
+      {
+        this.Userlist = data;
+        this.onGetUserRole();
+      });
+  }
+
+
+  onGetUserRole() {
+    this.user = _.where(this.Userlist, {role: 3});
+    this.mentor  = _.where(this.Userlist,{role:2});
+    console.log(this.mentor);
+  }
+
 
   Unblock(id:any)
   {
