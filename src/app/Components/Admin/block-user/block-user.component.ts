@@ -42,15 +42,27 @@ export class BlockUserComponent implements OnInit {
 
   Unblock(id:any)
   {
-   this._service.Unblock(id).subscribe((data)=>this.msg=data);
-   alert("Unlocked No "+id);
+   this._service.Unblock(id).subscribe((data)=>
+   {
+     this.msg=data;
+    this.GetAllUsers();
+    this.onGetUserRole();
+    alert(this.msg);
+    });
+  //  alert("Unlocked No "+id);
   //  this.route.navigate(['/blockuser']);
   }
 
   Block(id:any)
   {
-    this._service.Block(id).subscribe((data)=>this.msg=data);
-    alert("Blocked No "+id);
+    this._service.Block(id).subscribe((data)=>
+    {
+      this.msg=data;
+      this.GetAllUsers();
+    this.onGetUserRole();
+    alert(this.msg);
+    });
+    // alert("Blocked No "+id);
     // this.route.navigate(['/blockuser']);
   }
 

@@ -2,100 +2,62 @@
 
 <div class="jumbotron">
     <div class="container text-center">
-        <h3>Admin Menu</h3>      
+        <h3>Admin Menu</h3>
     </div>
 </div>
 
 <div class="container-fluid">
-<div class="row">
-      <div class="col-md-2 "></div>
-      <div class="col-md-8 text-center">
-        <button type="button"   routerLink="/AdminMenu"  class="btn btn-outline-dark">Add/Remove Technologhy</button>
-        <button type="button"  routerLink="/blockuser" class=" btn btn-outline-dark">Block User/Mentors</button>
-        <button type="button" routerLink="/AdminPay" class=" btn btn-outline-dark">Manage Payments</button>
-      </div>
-      <div class="col-md-2"></div>
-</div>
+    <div class="row">
+        <div class="col-md-2 "></div>
+        <div class="col-md-8 text-center">
+            <button type="button" routerLink="/AdminMenu" class="btn btn-outline-dark button">Add/Remove Technologhy</button>
+            <button type="button" routerLink="/blockuser" class=" btn btn-outline-dark button">Block User/Mentors</button>
+            <button type="button" routerLink="/AdminPay" class=" btn btn-outline-dark button">Manage Payments</button>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 
-<div class="row">
-    <div class="col-md-12 text-center">
-    <div class="table-responsive" style="margin-top:30px;"> 
-        <h4>Add/Remove Technology</h4>
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                      
-                        <th>Technologhy</th>
-                        <th>Duration</th>
-                        <th>Fee</th>
-                        <th>Action</th>
-                       
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        
-                        <td>C</td>
-                        <td>6 Weeks</td>
-                        <td>&#x20B9;7000</td>
-                        <td> 
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-danger">Remove</button>
-                        </td>
-                    </tr>
-                    <tr>
-                            <td>OOPS</td>
-                            <td>8 Weeks</td>
-                            <td>&#x20B9;12000</td>
-                            <td> 
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Remove</button>
-                                </td>
-                    </tr>
-                    <tr>
-                            <td>Java</td>
-                            <td>10 Weeks</td>
-                            <td>&#x20B9;15000</td>
-                            <td> 
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Remove</button>
-                                </td>
-                    </tr>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="table-responsive" style="margin-top:30px;">
+                <h4>Add/Remove Technology</h4>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
 
-                    <tr>
-                            <td>PHP</td>
-                            <td>6 Weeks</td>
-                            <td>&#x20B9;8000</td>
-                            <td> 
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Remove</button>
-                                </td>
-                    </tr>
+                            <th>Technologhy</th>
+                            <th>TOC</th>
+                            <th>Prerequisites</th>
+                            <th>Action</th>
 
-                    <tr>
-                            <td>ASP.NET</td>
-                            <td>10 Weeks</td>
-                            <td>&#x20B9;15000</td>
-                            <td> 
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Remove</button>
-                                </td>
-                    </tr>
-
-                    <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td> 
-                            <button type="button" class="btn btn-primary btn-block">Add</button>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input name="name" placeholder="Enter Name" [(ngModel)]="name"></td>
+                            <td><input name="toc" placeholder="Enter Details" [(ngModel)]="toc"></td>
+                            <td><input name="prerequisites" placeholder="Prerequisites" [(ngModel)]="prerequisites">
                             </td>
-                    </tr>
+                            <td><button type="button" class="btn btn-sm btn-success" (click)="Add()">Add</button></td>
+                        </tr>
+                        <tr *ngFor="let item of SkillList">
+                            <td>{{item.name}}</td>
+                            <td>{{item.toc}}</td>
+                            <td>{{item.prerequisites}}</td>
+                            <td>
+                                <!-- <button type="button" class="btn btn-success"
+                                     [disabled]="item.active"
+                                     (click)="Unblock(item.id)">Unblock</button> -->
 
-                </tbody>
-            </table>
+                                <button type="button" class="btn btn-sm btn-danger" (click)="Delete(item.id)">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    </div>  
 </div>
 
 

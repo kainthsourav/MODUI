@@ -10,9 +10,9 @@
 <div class="row">
       <div class="col-md-2 "></div>
       <div class="col-md-8 text-center">
-        <button type="button"   routerLink="/AdminMenu" class="btn btn-outline-dark">Add/Remove Technologhy</button>
-        <button type="button"  routerLink="/blockuser" class=" btn btn-outline-dark">Block User/Mentors</button>
-        <button type="button" routerLink="/AdminPay" class=" btn btn-outline-dark">Manage Payments</button>
+        <button type="button"   routerLink="/AdminMenu" class="btn btn-outline-dark button">Add/Remove Technologhy</button>
+        <button type="button"  routerLink="/blockuser" class=" btn btn-outline-dark button">Block User/Mentors</button>
+        <button type="button" routerLink="/AdminPay" class=" btn btn-outline-dark button">Manage Payments</button>
       </div>
       <div class="col-md-2"></div>
 </div>
@@ -41,12 +41,12 @@
                         <td>{{item.email}}</td>
                         <td>{{item.contactNumber}}</td>
                         <td>
-                            <button type="button" class="btn btn-success"
+                            <button type="button" class="btn btn-sm btn-success"
                              [disabled]="item.active"
                              (click)="Unblock(item.id)">Unblock</button>
     
                             <button type="button" 
-                            class="btn btn-danger" 
+                            class="btn btn-sm btn-danger" 
                             [disabled]="!item.active" 
                             (click)="Block(item.id)">Block</button>
                         </td>

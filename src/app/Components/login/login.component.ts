@@ -29,15 +29,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.UserLogin = this.fb.group({
-      // Name:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+    
       Email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       Password: ['', [Validators.required]]
-      // Validators.minLength(8)
-      // Phone:['',[Validators.required,Validators.pattern('^([6-9]{1})([0-9]{9})$')]],
-      // Passwords:this.fb.group({
-      //   Password:['',[Validators.required,Validators.minLength(8)]],
-      //   ConfirmPassword:['',Validators.minLength(8)]
-      // },{validator:this.comparePasswords})
+    
     });
   }
 
@@ -47,24 +42,11 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-      //assigning values to model
-      //  this.UserDetails.email=this.UserLogin.value.Email;
-      //  this.UserDetails.password=this.UserLogin.value.Password;
-
-      //calling api
-
-      //  this.sendlogin.login(this.UserDetails).subscribe((data)=>this.Data=data);
-      //  console.log("Data is here"+JSON.stringify(this.Data));
-
-      // const user={
-      //   email:this.UserLogin.value.Email,
-      //   password:this.UserLogin.value.Password
-      // }
-
       this.sendlogin.login(JSON.stringify(this.UserLogin.value)).subscribe((data)=>{this.Data=data
-      
+
         if(this.Data!=undefined)
         {
+          console.log(this.Data);
         if (this.Data.role == 1) {
           this.router.navigate(['AdminMenu']);
         }

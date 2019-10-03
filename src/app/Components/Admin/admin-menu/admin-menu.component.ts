@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GetUsersService} from '../../../Services/get-users.service'
 
 @Component({
   selector: 'app-admin-menu',
@@ -7,10 +8,61 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminMenuComponent implements OnInit {
 
-  constructor() { }
+  SkillList;
+  msg;
+  prerequisites;
+  name;
+  toc;
+  status;
+
+
+  constructor(private ServiceSkill:GetUsersService) {
+    this.GetAllSkills();
+   }
 
   ngOnInit() {
-   
+ 
   }
+
+
+  GetAllSkills()
+  {
+    this.ServiceSkill.AllSkills().subscribe(data=>{
+      this.SkillList=data;
+      console.log(this.SkillList||JSON);
+    });
+  }
+
+  Delete(id)
+  {
+   
+    this.ServiceSkill.DeleteSkill(id).subscribe(data=>{
+      this.msg=data;
+      alert(this.msg);
+      // console.log(this.msg);
+      this.GetAllSkills();
+    });
+   
+  
+  }
+
+  Add()
+  {
+    alert("toc : "+this.toc+" name "+this.name+" pre"+this.prerequisites);
+    const info={
+      name:this.name,
+      toc:this.toc,
+      prerequisites:this.prerequisites
+    };
+
+    this.ServiceSkill.AddSkill(JSON.stringify(info)).subscribe(data=>{
+      this.msg=data;
+      console.log(this.msg);
+      
+      this.GetAllSkills();
+    })
+  }
+
+  
 
 }

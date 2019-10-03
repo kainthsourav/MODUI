@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders} from "@angular/common/http";
 import {UserDtl} from '../Models/UserDtl';
 import {map} from 'rxjs/operators';
-
 import { from } from 'rxjs';
 const httpOptions={
   headers:new HttpHeaders({
@@ -48,6 +47,29 @@ export class GetUsersService {
     console.log(signUpData);
     return this._UserData.post("https://localhost:44383/api/register",signUpData,httpOptions).
     pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));
+  }
+
+//Skill Here 
+
+  //getAllSkills
+
+  public AllSkills()
+  {
+    return this._UserData.get("https://localhost:44383/api/getskills");
+  }
+
+  //DeleteSkill
+
+  public DeleteSkill(id)
+  {
+    return this._UserData.get("https://localhost:44383/api/delteteskill/"+id);
+  }
+
+  //AddSkill
+  public AddSkill(data)
+  {
+    return this._UserData.post("https://localhost:44383/api/addskill",data,httpOptions).
+    pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));;
   }
 
 }
