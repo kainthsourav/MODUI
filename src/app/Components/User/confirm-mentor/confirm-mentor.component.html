@@ -1,0 +1,34 @@
+<app-nav-user></app-nav-user>
+<section>
+<div class="container my-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              Confirm Mentor
+        </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Username</li>
+              <li class="list-group-item" *ngIf="MyData">Technology : {{MyData.TrainerTechnology}} </li>
+              <li class="list-group-item"  *ngIf="MyData">Trainer Name :{{MyData.firstName}} {{MyData.lastName}}</li>
+              <li class="list-group-item">
+                  Select Time 
+                    <select class="rounded dropdown" name="timings"  [(ngModel)]="timings"> 
+
+                            <option value="09:00 AM - 12:00 PM">09:00 AM - 12:00 PM</option>
+                            
+                            <option value="12:00 PM - 03:00 PM">12:00 PM - 03:00 PM</option>
+                            
+                            <option value="03:00 PM - 06:00 PM">03:00 PM - 06:00 PM</option>
+                            
+                            <option value="06:00 PM - 09:00 PM">06:00 PM - 09:00 PM</option>
+                    </select>
+              </li>
+              <li class="list-group-item">Start Date</li>
+              <li class="list-group-item">End Date</li>
+            </ul>
+          </div>
+</div>
+</section>
+
+
+<app-footer></app-footer>
