@@ -34,9 +34,10 @@ export class BlockUserComponent implements OnInit {
 
 
   onGetUserRole() {
-    this.user = _.where(this.Userlist, {role: 3});
+    this.user = _.where(this.Userlist,{role: 3});
     this.mentor  = _.where(this.Userlist,{role:2});
     console.log(this.mentor);
+    console.log("Users"+this.user)
   }
 
 

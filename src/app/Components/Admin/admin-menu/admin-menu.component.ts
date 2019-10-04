@@ -15,6 +15,7 @@ export class AdminMenuComponent implements OnInit {
   name;
   toc;
   status;
+  fees;
 
 
   constructor(private ServiceSkill:GetUsersService) {
