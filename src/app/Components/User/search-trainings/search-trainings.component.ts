@@ -62,8 +62,8 @@ export class SearchTrainingsComponent implements OnInit {
   {
   
    const data={
-     ID:id
-    //  Technology:this.Technology
+     ID:id,
+    Technology:this.Technology
   };
 
    this.Route.navigate(['/ConfirmMentor'],{queryParams:data});

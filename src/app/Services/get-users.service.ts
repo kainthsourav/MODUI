@@ -86,4 +86,18 @@ export class GetUsersService {
     return this._UserData.get("https://localhost:44383/api/getuserbyid/"+id);
   }
 
+  //get skill price
+  public skillprice(techname)
+  {
+  return this._UserData.get("https://localhost:44383/api/getskillprice/"+techname);
+  }
+
+  //to training
+
+  public sendTrainingDtls(data)
+  {
+   
+    return this._UserData.post("https://localhost:44383/api/addTraining",data,httpOptions).
+      pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));;
+  }
 }
