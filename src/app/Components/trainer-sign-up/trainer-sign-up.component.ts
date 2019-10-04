@@ -12,7 +12,14 @@ export class TrainerSignUpComponent implements OnInit {
   UserRegister: FormGroup;
   submitted = false;
   Data;
-    constructor(private fb: FormBuilder,private MentorSignService:GetUsersService) { }
+  SKillData;
+    constructor(private fb: FormBuilder,private MentorSignService:GetUsersService) { 
+     
+      this.MentorSignService.AllSkills().subscribe(data=>{
+        this.SKillData=data;
+        console.log(this.SKillData);
+      });
+    }
 
     ngOnInit() {
       this.UserRegister=this.fb.group({
@@ -46,15 +53,17 @@ export class TrainerSignUpComponent implements OnInit {
     if(this.UserRegister.valid)
     {
       
-        const MentorSignUp={
-           userName:this.UserRegister.value.Email,
+      const MentorSignUp={
+          userName:this.UserRegister.value.Email,
           password:this.UserRegister.value.Passwords.Password,
           email:this.UserRegister.value.Email,
           firstName:this.UserRegister.value.firstName,
           lastName:this.UserRegister.value.lastName,
-         contactNumber:this.UserRegister.value.Phone,
+          contactNumber:this.UserRegister.value.Phone,
           linkdinUrl:this.UserRegister.value.LinkedinURL,
-         yearOfExperience:this.UserRegister.value.Experience,
+          yearOfExperience:this.UserRegister.value.Experience,
+          TrainerTimings:this.UserRegister.value.Timings,
+          TrainerTechnology:this.UserRegister.value.Technology,
           active:1,
           role:2,
         };
@@ -66,7 +75,6 @@ export class TrainerSignUpComponent implements OnInit {
     }
     else
     {
-      
       console.log('Valid?', this.UserRegister.valid);
     }
   

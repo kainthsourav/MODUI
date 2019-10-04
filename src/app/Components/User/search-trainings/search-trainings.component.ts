@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetUsersService } from '../../../Services/get-users.service';
 
 @Component({
   selector: 'app-search-trainings',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchTrainingsComponent implements OnInit {
 
-  constructor() { }
+  SKillData;
+  constructor(private SearchTrainingService:GetUsersService) {
+    this.SearchTrainingService.AllSkills().subscribe(data=>{
+      this.SKillData=data;
+      console.log(this.SKillData);
+    })
+   }
 
-  ngOnInit() {
-  }
+  ngOnInit() 
+  { }
 
 }

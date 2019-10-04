@@ -49,18 +49,21 @@ export class AdminMenuComponent implements OnInit {
 
   Add()
   {
-    alert("toc : "+this.toc+" name "+this.name+" pre"+this.prerequisites);
+   
     const info={
       name:this.name,
       toc:this.toc,
       prerequisites:this.prerequisites,
       timings:this.timings
-    };
+               };
 
     this.ServiceSkill.AddSkill(JSON.stringify(info)).subscribe(data=>{
       this.msg=data;
       console.log(this.msg);
-      
+      this.name="";
+      this.toc="";
+      this.prerequisites="";
+      this.timings="";
       this.GetAllSkills();
     })
   }

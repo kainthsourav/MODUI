@@ -19,7 +19,33 @@
 
             </div>
     </div>
+    <hr>
+          <div class="row">
+              <div class="col-md-4"></div>
 
+              <div class="col-md-4 text-center" >
+                   <table style="margin-top: 30px; padding: 2px;">
+                       <tr>
+                           <td>
+                               <select formControlName="Technology" class="form-control rounded text-center dropdown">
+                                   <option disabled>Select Technologhy</option>
+                                   <option *ngFor="let i of SKillData" value="{{i.id}}">{{i.name}}</option>
+                                </select>
+                           </td>
+                           <td>
+                               <select formControlName="Timings" class="form-control rounded text-center dropdown">
+                                   <option disabled>Timings</option>
+                                   <option *ngFor="let i of SKillData" value="{{i.timings}}">{{i.timings}}</option>
+                                </select>
+                           </td>
+                           <td>
+                                <button type="button" class="btn btn-sm btn-primary" >Find</button>
+                           </td>
+                       </tr>
+                   </table>
+              </div>
+              <div class="col-md-4"></div>
+          </div>
     
             <div class="row">
             <div class="col-md-12 text-center">
@@ -30,9 +56,9 @@
                             <tr>
                               
                                 <th>Technologhy</th>
-                                <th>Duration</th>
-                                <th>Fee</th>
-                               
+                                <th>Timing</th>
+                                <th>Mentor</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
