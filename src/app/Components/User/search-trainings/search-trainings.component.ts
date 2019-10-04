@@ -17,7 +17,7 @@ export class SearchTrainingsComponent implements OnInit {
     this.SearchTrainingService.AllSkills().subscribe(data=>{
       this.SKillData=data;
       console.log(this.SKillData);
-    })
+    });
    }
 
   ngOnInit() 
@@ -36,7 +36,7 @@ export class SearchTrainingsComponent implements OnInit {
     };
    console.log(data);
 
-    this.SearchTrainingService.SearchTrainings(data).subscribe(data=>{
+    this.SearchTrainingService.SearchTrainings(JSON.stringify(data)).subscribe(data=>{
       this.msg=data;
       console.log(this.msg);
     });
