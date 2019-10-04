@@ -36,7 +36,7 @@
                                <select name="Timings" [(ngModel)]="Timings" class="form-control rounded text-center dropdown">
                                    <option disabled>Timings</option>
                                    <option *ngFor="let i of SKillData" value="{{i.timings}}">{{i.timings}}</option>
-                                </select>
+                               </select>
                            </td>
                            <td>
                                 <button type="button" class="btn btn-sm btn-primary" (click)="Find()">Find</button>
@@ -49,13 +49,13 @@
     
             <div class="row">
             <div class="col-md-12 text-center">
-            <div class="table-responsive" style="margin-top:30px;"> 
+            <div *ngIf="show" class="table-responsive" style="margin-top:30px;"> 
                 <h4>Search Result for Trainings {{SKillData.name}}</h4>
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
                               
-                                <th>Technologhy</th>
+                                <!-- <th>Technologhy</th> -->
                                 <th>Timing</th>
                                 <th>Mentor</th>
                                 <th>Action</th>
@@ -63,7 +63,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let item of msg">
-                                <td>{{Technology}}</td>
+                                <!-- <td>{{Technology}}</td> -->
                                 <td>{{item. TrainerTimings}}</td>
                                 <td>{{item.firstName}} {{item.lastName}}</td>
                                 <td>More Details</td>
@@ -72,6 +72,28 @@
                         </tbody>
                     </table>
                 </div>
+
+
+                <div *ngIf="show_nodata" class="table-responsive" style="margin-top:30px;"> 
+                    <h4>Search Result for Trainings {{SKillData.name}}</h4>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                  
+                                    <!-- <th>Technologhy</th> -->
+                                    <!-- <th>Timing</th>
+                                    <th>Mentor</th>
+                                    <th>Action</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                               <tr style="text-align: center">
+                                  <h2 style="text-align: center">No Data Found</h2>
+                               </tr>
+    
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>  
 

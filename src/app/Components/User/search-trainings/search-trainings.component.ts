@@ -12,6 +12,8 @@ export class SearchTrainingsComponent implements OnInit {
   Technology:any;
   Timings:any;
   msg;
+  show:boolean=false;
+  show_nodata:boolean=false;
 
   constructor(private SearchTrainingService:GetUsersService) {
     this.SearchTrainingService.AllSkills().subscribe(data=>{
@@ -38,7 +40,18 @@ export class SearchTrainingsComponent implements OnInit {
 
     this.SearchTrainingService.SearchTrainings(JSON.stringify(data)).subscribe(data=>{
       this.msg=data;
-      console.log(this.msg);
+      console.log(Object.keys(this.msg).length);
+      // alert(this.msg);
+      if(Object.keys(this.msg).length>0)
+      {
+        this.show=true;
+        this.show_nodata=false;
+      }
+      else
+      {
+        this.show=false;
+        this.show_nodata=true;
+      }
     });
     }
     else
