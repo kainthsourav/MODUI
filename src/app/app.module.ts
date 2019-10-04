@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestServComponent } from './Components/Testing/test-serv/test-serv.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
     PageNotFoundComponent,
     TestServComponent,
     ProfileComponent,
+    ConfirmMentorComponent,
   ],
   imports: [
     BrowserModule,

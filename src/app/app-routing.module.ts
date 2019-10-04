@@ -18,6 +18,7 @@ import { BlockUserComponent } from './Components/Admin/block-user/block-user.com
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { TestServComponent } from './Components/Testing/test-serv/test-serv.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,8 @@ const routes: Routes = [
    {path:"Test",component:TestServComponent},
 
    {path:"Profile",component:ProfileComponent},
+
+   {path:"ConfirmMentor",component:ConfirmMentorComponent},
 
   {path:"**",component:PageNotFoundComponent}
 

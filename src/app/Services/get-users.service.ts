@@ -74,10 +74,16 @@ export class GetUsersService {
 
 
   //SearchTrainings
-
   public SearchTrainings(data)
   {
-    return this._UserData.post("https://localhost:44383/api/searchtrainings",data,httpOptions).
-    pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));;
+    return this._UserData.get("https://localhost:44383/api/searchtrainings/"+data);
   }
+
+  //getuser by id
+
+  public GetUserById(id)
+  {
+    return this._UserData.get("https://localhost:44383/api/getuserbyid/"+id);
+  }
+
 }

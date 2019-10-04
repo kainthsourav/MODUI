@@ -33,7 +33,7 @@ export class TrainerSignUpComponent implements OnInit {
         },{validator:this.comparePasswords}),
         LinkedinURL: ['',[Validators.required,Validators.pattern('')]],  
         Experience:['',[Validators.required,Validators.pattern('^[0-9]{2}$')]], 
-        Timings: ['',[Validators.required]],
+        // Timings: ['',[Validators.required]],
         Technology:['',Validators.required]
       });
     }
@@ -62,7 +62,7 @@ export class TrainerSignUpComponent implements OnInit {
           contactNumber:this.UserRegister.value.Phone,
           linkdinUrl:this.UserRegister.value.LinkedinURL,
           yearOfExperience:this.UserRegister.value.Experience,
-          TrainerTimings:this.UserRegister.value.Timings,
+          // TrainerTimings:this.UserRegister.value.Timings,
           TrainerTechnology:this.UserRegister.value.Technology,
           active:1,
           role:2,

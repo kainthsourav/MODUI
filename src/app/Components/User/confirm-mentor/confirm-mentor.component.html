@@ -1,0 +1,31 @@
+<section class="my-5 container">
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-header">
+                <h3 class="card-title text-center">Confirm Mentor</h3>
+            </div>
+            <div class="list-group list-group-flush">
+                   
+                <form class="form-signin" (submit)="onLogin()">
+                    <div class="form-label-group py-1">
+                        <label for="UserName"></label>
+                        <select [(ngModel)]="timeSlot" name="timeSlot" class="form-control mb-2 rounded text-center">
+                            <option disabled>Select TimeSlot</option>
+                            <option value="09:00 AM - 12:00 PM">09:00 AM - 12:00 PM</option>
+                            <option value="12:00 PM - 03:00 PM">12:00 PM - 03:00 PM</option>
+                            <option value="03:00 PM - 06:00 PM">03:00 PM - 06:00 PM</option>
+                            <option value="06:00 PM - 09:00 PM">06:00 PM - 09:00 PM</option>
+                        </select>
+                    </div>
+                   
+                    <div *ngIf="MyData" class="form-label-group py-1">
+                        <label for="UserName">Trainer Name</label>
+                        <input type="text" name="mentorName" disabled [(ngModel)]="MyData.userName"
+                            value="{{MyData.firstName}}" class="form-control" required autofocus>
+                    </div>
+    
+                    <button class="my-4 btn btn-lg btn-primary btn-block text-uppercase" type="submit">Send Request</button>
+                </form>
+            </div>
+        </div>
+    
+    </section>

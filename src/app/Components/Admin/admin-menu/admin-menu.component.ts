@@ -11,7 +11,7 @@ export class AdminMenuComponent implements OnInit {
   SkillList;
   msg;
   prerequisites;
-  timings;
+  // timings;
   name;
   toc;
   status;
@@ -54,7 +54,7 @@ export class AdminMenuComponent implements OnInit {
       name:this.name,
       toc:this.toc,
       prerequisites:this.prerequisites,
-      timings:this.timings
+      // timings:this.timings
                };
 
     this.ServiceSkill.AddSkill(JSON.stringify(info)).subscribe(data=>{
@@ -63,7 +63,7 @@ export class AdminMenuComponent implements OnInit {
       this.name="";
       this.toc="";
       this.prerequisites="";
-      this.timings="";
+      // this.timings="";
       this.GetAllSkills();
     });
   }
