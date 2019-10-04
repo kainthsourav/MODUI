@@ -35,11 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><input name="name" placeholder="Enter Name" class="rounded" [(ngModel)]="name"></td>
-                            <td><input name="toc" placeholder="Enter Details" class="rounded" [(ngModel)]="toc"></td>
-                            <td><input name="prerequisites" placeholder="Prerequisites" class="rounded" [(ngModel)]="prerequisites"></td>
-                            <!-- <td>
+                        <!-- <td>
                             <select class="rounded dropdown" name="timings"  [(ngModel)]="timings" >
                                 <option value="09:00 AM - 12:00 PM">09:00 AM - 12:00 PM</option>
                                 
@@ -51,6 +47,11 @@
                               </select>
                             </td> -->
                             <!-- <td><input name="timings" placeholder="Timings" class="rounded"  [(ngModel)]="timings"></td> -->
+                        <tr>
+                            <td><input name="name" placeholder="Enter Name" class="rounded" [(ngModel)]="name"></td>
+                            <td><input name="toc" placeholder="Enter Details" class="rounded" [(ngModel)]="toc"></td>
+                            <td><input name="prerequisites" placeholder="Prerequisites" class="rounded" [(ngModel)]="prerequisites"></td>
+                            
                             <td><button type="button" class="btn btn-sm btn-success" (click)="Add()">Add</button></td>
                         </tr>
                         <tr *ngFor="let item of SkillList">
