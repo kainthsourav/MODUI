@@ -72,4 +72,11 @@ export class GetUsersService {
     pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));;
   }
 
+
+  //SearchTrainings
+
+  public SearchTrainings(data)
+  {
+    return this._UserData.get("https://localhost:44383/api/searchtrainings",data);
+  }
 }

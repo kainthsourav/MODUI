@@ -9,6 +9,10 @@ import { GetUsersService } from '../../../Services/get-users.service';
 export class SearchTrainingsComponent implements OnInit {
 
   SKillData;
+  Technology:any;
+  Timings:any;
+  msg;
+
   constructor(private SearchTrainingService:GetUsersService) {
     this.SearchTrainingService.AllSkills().subscribe(data=>{
       this.SKillData=data;
@@ -19,4 +23,27 @@ export class SearchTrainingsComponent implements OnInit {
   ngOnInit() 
   { }
 
+
+  //Search Trainings
+
+  Find()
+  {
+    if(this.Technology!=undefined && this.Timings!=undefined)
+    {
+    const data={
+      id:this.Technology,
+      timings:this.Timings
+    };
+   console.log(data);
+
+    this.SearchTrainingService.SearchTrainings(data).subscribe(data=>{
+      this.msg=data;
+      console.log(this.msg);
+    });
+    }
+    else
+    {
+      alert("Please Select Technology and Timings");
+    }
+  }
 }
