@@ -76,7 +76,8 @@ export class ConfirmMentorComponent implements OnInit {
       trainerId:this.paramId,
       mentorName: this.mentorData.userName,
       email: this.mentorData.email,
-      accept:false
+      accept:false,
+      rejected:false,
     };
     this.myservice.sendTrainingDtls(data).subscribe(data=>
       {
