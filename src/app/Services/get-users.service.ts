@@ -92,6 +92,12 @@ export class GetUsersService {
   return this._UserData.get("https://localhost:44383/api/getskillprice/"+techname);
   }
 
+  //get skill by id
+  public GetSkillById(id)
+  {
+    return this._UserData.get("https://localhost:44383/api/getskillbyid/"+id);
+  }
+
   //to training
 
   public sendTrainingDtls(data)
@@ -118,4 +124,10 @@ export class GetUsersService {
     return this._UserData.get("https://localhost:44383/api/declinedTraining/"+id)
   }
   
+  //Get Training By id
+  public trainingById(id)
+  {
+    return this._UserData.get("https://localhost:44383/api/trainingById/"+id)
+  }
+
 }

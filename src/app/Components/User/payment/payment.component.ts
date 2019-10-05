@@ -11,17 +11,44 @@ import * as _ from "underscore";
 export class PaymentComponent implements OnInit {
 
   id;
-  constructor(private route:ActivatedRoute,myService:GetUsersService) { }
+  myData:any;
+  skillData;
+  constructor(private route:ActivatedRoute,private myService:GetUsersService) { }
 
   ngOnInit() {
     this.getQueryData();
+    
   }
 
   getQueryData() {
     this.route.queryParams.subscribe(params => {
-      this.id = params["ID"];
-      console.log(this.id);
+      
+      let pid = params["ID"];
+      this.id =  +pid;
+      console.log(typeof(this.id));
+      this.getTrainingById(this.id);
+
     });
   }
+
+  getTrainingById(id)
+  {
+    this.myService.trainingById(id).subscribe(data=>
+      {
+        this.myData=data;
+        console.log(this.myData);
+        console.log(this.myData[0].skillId);
+     this.getSkillDetails(this.myData[0].skillId);
+      });
+  }
+
+  getSkillDetails(id)
+  {
+    this.myService.GetSkillById(id).subscribe(data=>{
+      this.skillData=data;
+      console.log(this.skillData);
+    });
+  }
+
 
 }

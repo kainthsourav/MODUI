@@ -11,24 +11,24 @@ import * as _ from "underscore";
 })
 export class ConfirmMentorComponent implements OnInit {
 
-  paramId: number;
-  trainerTechnology: string;
-  mentorData: any;
-  skillData: any;
-  skill: any;
-  showRequestedCourse;any;
+  paramId;
+  trainerTechnology;
+  mentorData;
+  skillData;
+  skill;
+  showRequestedCourse;
 
-  Time: string;
-  StartDate: Date;
-  EndDate: Date;
-  userName: string;
-  email: string;
-  name: string;
-  fees: string;
-  prerequisites: string;
-  yourName:string;
-  request:Boolean;
-  sentData:any;
+  Time;
+  StartDate;
+  EndDate;
+  userName;
+  email;
+  name;
+  fees;
+  prerequisites;
+  yourName;
+  request;
+  sentData;
 
   constructor(private route: ActivatedRoute, private myservice:GetUsersService) {}
 
