@@ -81,7 +81,8 @@ export class ConfirmMentorComponent implements OnInit {
     this.myservice.sendTrainingDtls(data).subscribe(data=>
       {
         this.sentData=data;
-      });
+        alert(this.sentData)     
+       });
      
   }
 }

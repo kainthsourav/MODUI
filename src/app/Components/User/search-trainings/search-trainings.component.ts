@@ -17,14 +17,16 @@ export class SearchTrainingsComponent implements OnInit {
   show_nodata:boolean=false;
 
   constructor(private SearchTrainingService:GetUsersService,private Route:Router) {
+  
+   }
+
+  ngOnInit() 
+  { 
     this.SearchTrainingService.AllSkills().subscribe(data=>{
       this.SKillData=data;
       console.log(this.SKillData);
     });
-   }
-
-  ngOnInit() 
-  { }
+  }
 
 
   //Search Trainings

@@ -31,6 +31,7 @@ import { TestServComponent } from './Components/Testing/test-serv/test-serv.comp
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
+import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm
     TestServComponent,
     ProfileComponent,
     ConfirmMentorComponent,
+    ViewRequestStatusComponent,
   ],
   imports: [
     BrowserModule,
