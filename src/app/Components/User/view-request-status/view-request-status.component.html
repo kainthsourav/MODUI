@@ -58,8 +58,8 @@
                 <td *ngIf="i.accept"> 
                     <button type="button" class="btn btn-sm btn-success"
                     disabled>Approved</button>
+                    <button type="button" *ngIf="i.accept" class="btn btn-sm btn-success" (click)="Pay(i.id)">Payment</button>
                 </td>
-                
             </tr>
 
             <tr *ngFor="let i of Declined"> 

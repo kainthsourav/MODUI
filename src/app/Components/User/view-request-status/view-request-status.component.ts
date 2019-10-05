@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetUsersService} from '../../../Services/get-users.service';
 import * as _ from "underscore";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-request-status',
@@ -13,7 +14,7 @@ export class ViewRequestStatusComponent implements OnInit {
   Approved;
   Declined;
   Pending;
-  constructor(private myService:GetUsersService) { }
+  constructor(private myService:GetUsersService,private route:Router) { }
 
   ngOnInit() {
  this.getmyData();
@@ -32,6 +33,16 @@ export class ViewRequestStatusComponent implements OnInit {
         console.log("Pending "+JSON.stringify(this.Pending));
       });
 
+  }
+
+  Pay(id)
+  {
+    alert(id);  
+    const data={
+      ID:id,
+   };
+ 
+    this.route.navigate(['/Payment'],{queryParams:data});  
   }
 
 }

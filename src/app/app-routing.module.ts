@@ -21,6 +21,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
 import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
 import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
+import { PaymentComponent } from './components/user/payment/payment.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,8 @@ const routes: Routes = [
    {path:"ViewRequest",component:ViewRequestStatusComponent},
 
    {path:"RequestedTrainings",component:RequestedTrainingsComponent},
+
+   {path:"Payment",component:PaymentComponent},
 
   {path:"**",component:PageNotFoundComponent}
 

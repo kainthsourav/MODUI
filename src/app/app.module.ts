@@ -33,6 +33,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
 import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
 import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
+import { PaymentComponent } from './components/user/payment/payment.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { RequestedTrainingsComponent } from './components/mentor/requested-train
     ConfirmMentorComponent,
     ViewRequestStatusComponent,
     RequestedTrainingsComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
