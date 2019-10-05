@@ -107,4 +107,15 @@ export class GetUsersService {
     return this._UserData.get("https://localhost:44383/api/getapprovals");
     
   }
+  //Approve Training
+  public ApproveTraining(id)
+  {
+    return this._UserData.get("https://localhost:44383/api/approveTraining/"+id)
+  }
+
+  public DeclineTraining(id)
+  {
+    return this._UserData.get("https://localhost:44383/api/declinedTraining/"+id)
+  }
+  
 }

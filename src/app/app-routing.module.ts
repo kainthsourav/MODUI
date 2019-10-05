@@ -20,6 +20,7 @@ import { TestServComponent } from './Components/Testing/test-serv/test-serv.comp
 import { ProfileComponent } from './Components/profile/profile.component';
 import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
 import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
+import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,8 @@ const routes: Routes = [
    {path:"ConfirmMentor",component:ConfirmMentorComponent},
 
    {path:"ViewRequest",component:ViewRequestStatusComponent},
+
+   {path:"RequestedTrainings",component:RequestedTrainingsComponent},
 
   {path:"**",component:PageNotFoundComponent}
 

@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
 import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
+import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ViewRequestStatusComponent } from './components/User/view-request-statu
     ProfileComponent,
     ConfirmMentorComponent,
     ViewRequestStatusComponent,
+    RequestedTrainingsComponent,
   ],
   imports: [
     BrowserModule,
