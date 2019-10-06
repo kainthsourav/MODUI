@@ -55,8 +55,11 @@
                 <div  class="card" style="width: 18rem;">
                         <div class="card-body">
                           <h5 class="card-title">Your Cart</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Technology - {{skillData[0].name}}</h6>
-                          <p class="card-text">Fees - &#8377; {{skillData[0].fees}}</p>
+                          <h6 class="card-subtitle mb-2 text-muted">Technology - {{skillData[0].name}}
+                              <br>
+                              Prerequisites - {{skillData[0].prerequisites}}
+                          </h6>
+                          <p class="card-text">Fees - &#8377; <strong>{{skillData[0].fees}}</strong></p>
                         </div>
                 </div>
         </div>

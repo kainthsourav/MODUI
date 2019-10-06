@@ -130,4 +130,10 @@ export class GetUsersService {
     return this._UserData.get("https://localhost:44383/api/trainingById/"+id)
   }
 
+  //Training Payment
+  public trainingPayment(data)
+  {
+    return this._UserData.post("https://localhost:44383/api/paymentgate",data,httpOptions).
+      pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));;
+  }
 }

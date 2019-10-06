@@ -13,6 +13,7 @@ export class PaymentComponent implements OnInit {
   id;
   myData:any;
   skillData;
+  msg;
   constructor(private route:ActivatedRoute,private myService:GetUsersService) { }
 
   ngOnInit() {
@@ -36,6 +37,7 @@ export class PaymentComponent implements OnInit {
     this.myService.trainingById(id).subscribe(data=>
       {
         this.myData=data;
+        console.log("Training Data");
         console.log(this.myData);
         console.log(this.myData[0].skillId);
      this.getSkillDetails(this.myData[0].skillId);
@@ -46,6 +48,7 @@ export class PaymentComponent implements OnInit {
   {
     this.myService.GetSkillById(id).subscribe(data=>{
       this.skillData=data;
+      console.log("SKill Data");
       console.log(this.skillData);
     });
   }
@@ -54,10 +57,22 @@ export class PaymentComponent implements OnInit {
   {
     const payData={
       id:this.id,
-      userId:this.myData[0].userId
+      txtTpe:"Online",
+      userId:this.myData[0].userId,
+      mentorId:this.myData[0].mentorId,
+      skillId:this.myData[0].skillId,
+      skillName:this.myData[0].skillname,
+      fees:this.skillData[0].fees,
+      mentorfees:'',
+      commision:'',
+      PaymentStatus:true
     };
 
-    console.log(payData);
+    //to payment api
+    this.myService.trainingPayment(payData).subscribe(data=>{
+      this.msg=data;
+      alert(this.msg);
+    });
   }
 
 
