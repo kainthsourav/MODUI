@@ -15,31 +15,31 @@
 
                                   <div class="form-row">
                                         <div class="form-group col required">
-                                            <input class="form-control" placeholder="Name on Card">
+                                            <input  class="form-control" placeholder="Name on Card" required>
                                         </div>
                                   </div> 
 
                                   <div class="form-row">
                                         <div class="form-group col required">
-                                            <input class="form-control" placeholder="Valid Card Number">
+                                            <input class="form-control" placeholder="Valid Card Number" required>
                                         </div>
                                   </div> 
                                   
                                   <div class="form-row">
                                         <div class="form-group col required">
-                                            <input class="form-control" placeholder="MM">
+                                            <input class="form-control" placeholder="MM" required>
                                         </div>
                                     <div class="form-group col required">
-                                        <input class="form-control" placeholder="YY">
+                                        <input class="form-control" placeholder="YY" required>
                                     </div>
                                     <div class="form-group col required">
-                                            <input class="form-control" placeholder="CV CODE">
+                                            <input class="form-control" placeholder="CV CODE" required>
                                     </div>
                                   </div> 
 
                                   <div class="form-row">
                                         <div class="form-group col required">
-                                                <button class="btn btn-lg btn-primary btn-block">Pay</button>
+                                  <button class="btn btn-lg btn-primary btn-block">Pay</button>
                                         </div>
                                   </div>
 
@@ -51,13 +51,13 @@
                   </div>
               </div>
 
-        <div class="col-sm-4"> 
+        <div *ngIf="skillData" class="col-sm-4"> 
                 <div  class="card" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title"></h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Training Name</h6>
-                          <p class="card-text">Some</p>
+                          <h5 class="card-title">Your Cart</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Technology - {{skillData[0].name}}</h6>
+                          <p class="card-text">Fees - &#8377; {{skillData[0].fees}}</p>
                         </div>
-                      </div>
+                </div>
         </div>
 </div>

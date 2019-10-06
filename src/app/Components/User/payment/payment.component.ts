@@ -50,5 +50,15 @@ export class PaymentComponent implements OnInit {
     });
   }
 
+  onSubmit()
+  {
+    const payData={
+      id:this.id,
+      userId:this.myData[0].userId
+    };
+
+    console.log(payData);
+  }
+
 
 }

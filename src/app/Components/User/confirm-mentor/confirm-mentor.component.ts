@@ -49,7 +49,7 @@ export class ConfirmMentorComponent implements OnInit {
   GetUserById() {
     this.myservice.GetUserById(this.paramId).subscribe(data => {
       this.mentorData = data;
-      console.log(this.mentorData);
+      console.log("mentor :"+this.mentorData.userName);
     });
   }
 
@@ -64,22 +64,23 @@ export class ConfirmMentorComponent implements OnInit {
   }
 
   onSubmit() {
-    const data = {
-      Time: this.Time,
-      StartDate: this.StartDate,
-      EndDate: this.EndDate,
-      fees: this.skillData.fees,
-      skillId:this.skillData.id,
-      skillName : this.skillData.name,
-      userId: 1,
-      userName:this.yourName,
-      trainerId:this.paramId,
-      mentorName: this.mentorData.userName,
-      email: this.mentorData.email,
+    const dat = {
+
+      startDate:this.StartDate,
+      endDate:this.EndDate,
+      timeSlot:this.Time,
       accept:false,
-      rejected:false,
+      userId:1,
+      userName:"Sourav",
+      mentorId:this.paramId,
+      skillId:this.skillData.id,
+      skillname:this.skillData.name,
+      rejected :false,
+      mentorName:this.mentorData.userName,
+
     };
-    this.myservice.sendTrainingDtls(data).subscribe(data=>
+     console.log(dat);
+    this.myservice.sendTrainingDtls(dat).subscribe(data=>
       {
         this.sentData=data;
         alert(this.sentData)     
