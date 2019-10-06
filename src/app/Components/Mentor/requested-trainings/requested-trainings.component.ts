@@ -28,12 +28,12 @@ export class RequestedTrainingsComponent implements OnInit {
       {
         this.myData=data;
         console.log(this.myData);
-        this.Requested=_.where(this.myData,{accept:false,rejected:false,mentorId:2});
+        this.Requested=_.where(this.myData,{accept:false,rejected:false,mentorId:3});
 
 
-        this.Approved=_.where(this.myData,{accept:true,rejected:false,mentorId:2});
+        this.Approved=_.where(this.myData,{accept:true,rejected:false,mentorId:3});
 
-        this.Declined=_.where(this.myData,{accept:false,rejected:true,mentorId:2});
+        this.Declined=_.where(this.myData,{accept:false,rejected:true,mentorId:3});
 
         console.log("Requested"+JSON.stringify(this.Approved));
 

@@ -57,7 +57,7 @@ export class PaymentComponent implements OnInit {
   {
     const payData={
       id:this.id,
-      txtTpe:"Online",
+      txtTpe:'Online',
       userId:this.myData[0].userId,
       mentorId:this.myData[0].mentorId,
       skillId:this.myData[0].skillId,
@@ -69,11 +69,22 @@ export class PaymentComponent implements OnInit {
     };
 
     //to payment api
+    
     this.myService.trainingPayment(payData).subscribe(data=>{
       this.msg=data;
       alert(this.msg);
+     this.updatePayStatus();
     });
   }
 
+
+   //update Payment Status
+   updatePayStatus()
+   {
+   this.myService.UpdatePayment(this.id).subscribe(data=>{
+    this.msg=data;
+    alert(this.msg);
+   });
+  }
 
 }
