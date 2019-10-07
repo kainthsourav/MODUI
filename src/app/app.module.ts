@@ -34,6 +34,7 @@ import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm
 import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
 import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
 import { PaymentComponent } from './components/user/payment/payment.component';
+import { NavTrainerComponent } from './Components/nav-bar/nav-trainer/nav-trainer.component';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { PaymentComponent } from './components/user/payment/payment.component';
     ViewRequestStatusComponent,
     RequestedTrainingsComponent,
     PaymentComponent,
+    NavTrainerComponent,
   ],
   imports: [
     BrowserModule,
