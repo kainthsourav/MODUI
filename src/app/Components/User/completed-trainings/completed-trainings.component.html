@@ -29,60 +29,32 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
+              
             <th>Technologhy</th>
+            <th>Trainer Name</th>
             <th>Duration</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>C</td>
-          <td>6 Weeks</td>
-          <td>
-            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-            A+
-            </div>
-          </td>
+            <!-- <th>Timing</th> -->
+            <th>Status</th>
+           
         </tr>
-        <tr>
-          <td>OOPS</td>
-          <td>8 Weeks</td>
-          <td>
-            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-              A
-            </div>
-          </td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of myTrainings">
+            <td>{{i.skillname}}</td>
+            <td>{{i.mentorName}}</td>
+            <td>{{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</td>
+            <!-- <td>{{i.timeSlot}}</td> -->
+            <td *ngIf="i.status!=undefined">
+              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
+                  {{i.status}}
+              </div>
+            </td>
+            <td *ngIf="i.status==undefined">
+                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width: 100%">
+                    Pending
+                </div>
+            </td>
         </tr>
-        <tr>
-                <td>Java</td>
-                <td>10 Weeks</td>
-                <td>
-                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-                                B+
-                            </div>
-                </td>
-        </tr>
-
-        <tr>
-                <td>PHP</td>
-                <td>6 Weeks</td>
-                <td>
-                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-                                A+
-                            </div>
-                </td>
-        </tr>
-
-        <tr>
-                <td>ASP.NET</td>
-                <td>10 Weeks</td>
-                <td>
-                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-                                A+
-                            </div>
-                </td>
-        </tr>
-        
     </tbody>
 </table>
         </div>
