@@ -14,10 +14,14 @@ export class RequestedTrainingsComponent implements OnInit {
   Approved;
   Declined;
   msg;
+  CurrentUser;
+  
  
   constructor(private myService:GetUsersService) { }
 
   ngOnInit() {
+    let i= localStorage.getItem("Id");
+    this.CurrentUser= +i;
  this.getmyData();
 
   }
@@ -28,12 +32,12 @@ export class RequestedTrainingsComponent implements OnInit {
       {
         this.myData=data;
         console.log(this.myData);
-        this.Requested=_.where(this.myData,{accept:false,rejected:false,mentorId:2});
+        this.Requested=_.where(this.myData,{accept:false,rejected:false,mentorId:this.CurrentUser});
 
 
-        this.Approved=_.where(this.myData,{accept:true,rejected:false,mentorId:2});
+        this.Approved=_.where(this.myData,{accept:true,rejected:false,mentorId:this.CurrentUser});
 
-        this.Declined=_.where(this.myData,{accept:false,rejected:true,mentorId:2});
+        this.Declined=_.where(this.myData,{accept:false,rejected:true,mentorId:this.CurrentUser});
 
         console.log("Requested"+JSON.stringify(this.Approved));
 

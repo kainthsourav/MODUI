@@ -12,9 +12,12 @@ export class PaymentDetailsComponent implements OnInit {
   payRecords;
   myPayRecord;
   userData;
+  CurrentUser;
   constructor(private myService:GetUsersService) { }
 
   ngOnInit() {
+    let i= localStorage.getItem("Id");
+    this.CurrentUser= +i;
     this.getPaymentDtls();
   }
 
@@ -23,19 +26,10 @@ export class PaymentDetailsComponent implements OnInit {
   {
     this.myService.AllPayments().subscribe(data=>
       {
-//         PaymentStatus: false
-// commision: ""
-// fees: "10000"
-// id: 1
-// mentorId: 2
-// mentorfees: ""
-// skillId: 11
-// skillName: "Java"
-// txtType: null
-// userId: 1
+
         this.payRecords=data;
         console.log(this.payRecords);
-         this.myPayRecord=_.where(this.payRecords,{mentorId:2});
+         this.myPayRecord=_.where(this.payRecords,{mentorId:this.CurrentUser});
          console.log(this.myPayRecord);
 
       });

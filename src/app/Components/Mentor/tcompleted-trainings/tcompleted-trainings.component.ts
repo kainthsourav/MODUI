@@ -11,9 +11,12 @@ export class TcompletedTrainingsComponent implements OnInit {
 
   myTrainings;
   Data;
+  CurrentUser;
   constructor(private myService:GetUsersService) { }
 
   ngOnInit() {
+    let i= localStorage.getItem("Id");
+    this.CurrentUser= +i;
     this.getTrainings();
   }
 
@@ -21,7 +24,7 @@ export class TcompletedTrainingsComponent implements OnInit {
   getTrainings()
   {
     this.myService.trainingApprovals().subscribe(data=>{
-      this.myTrainings=_.where(data,{accept:true,mentorId:2,PaymentStatus:true});
+      this.myTrainings=_.where(data,{accept:true,mentorId:this.CurrentUser,PaymentStatus:true});
       console.log(this.myTrainings);
      console.log(Object.keys(this.myTrainings).length);
      if(Object.keys(this.myTrainings).length>0)
