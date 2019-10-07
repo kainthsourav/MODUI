@@ -108,6 +108,7 @@ export class GetUsersService {
   }
 
   //get  Training Approvals
+  //get all trainings
   public trainingApprovals()
   {
     return this._UserData.get("https://localhost:44383/api/getapprovals");

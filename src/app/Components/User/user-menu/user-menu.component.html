@@ -10,12 +10,14 @@
             <div class="col-md-2 ">
              
             </div>
+
             <div class="col-md-8 text-center">
               <button type="button" routerLink="/SearchTrainings" class=" btn btn-outline-dark">Search Trainings</button>
               <button type="button" class=" btn btn-outline-dark">Current Trainings</button>
               <button type="button" routerLink="/CompletedTrainings" class="btn btn-outline-dark">Completed Trainings</button>
               <button type="button" routerLink="/ViewRequest" class="btn btn-outline-dark">Approvals</button>
             </div>
+            
             <div class="col-md-2">
 
             </div>
@@ -31,61 +33,19 @@
             <tr>
               
                 <th>Technologhy</th>
+                <th>Trainer Name</th>
                 <th>Duration</th>
-                <th>Progress</th>
+                <th>Timing</th>
                
             </tr>
         </thead>
         <tbody>
-            <tr>
-                
-                <td>C</td>
-                <td>6 Weeks</td>
-                <td>
-                        <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 60%">60%</div>
-                    </div>
-                </td>
+            <tr *ngFor="let i of myTrainings">
+                <td>{{i.skillname}}</td>
+                <td>{{i.mentorName}}</td>
+                <td>{{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</td>
+                <td>{{i.timeSlot}}</td>
             </tr>
-            <tr>
-                    <td>OOPS</td>
-                    <td>8 Weeks</td>
-                    <td>
-                            <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 10%">10%</div>
-                        </div>
-                    </td>
-            </tr>
-            <tr>
-                    <td>Java</td>
-                    <td>10 Weeks</td>
-                    <td>
-                            <div class="progress">
-                                    <div class="progress-bar bg-danger" style="width: 10%">0%</div>
-                        </div>
-                    </td>
-            </tr>
-
-            <tr>
-                    <td>PHP</td>
-                    <td>6 Weeks</td>
-                    <td>
-                            <div class="progress">
-                             <div class="progress-bar bg-danger" style="width: 10%">0%</div>
-                        </div>
-                    </td>
-            </tr>
-
-            <tr>
-                    <td>ASP.NET</td>
-                    <td>10 Weeks</td>
-                    <td>
-                            <div class="progress">
-                            <div class="progress-bar bg-danger" style="width: 10%">0%</div>
-                        </div>
-                    </td>
-            </tr>
-            
         </tbody>
     </table>
             </div>

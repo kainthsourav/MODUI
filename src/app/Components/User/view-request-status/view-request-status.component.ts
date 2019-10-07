@@ -69,16 +69,6 @@ export class ViewRequestStatusComponent implements OnInit {
     
     console.log(this.ReciptData);
 
-    // PaymentStatus: true
-    // commision: ""
-    // fees: "5000"
-    // id: 6
-    // mentorId: 3
-    // mentorfees: ""
-    // skillId: 12
-    // skillName: "C"
-    // txtType: null
-    // userId: 1
 
   }
 

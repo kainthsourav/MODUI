@@ -25,8 +25,8 @@
         </div>
 
         <div class="row">
-                        
-                        <div class="col-md-12 text-center">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 text-center">
                         <div class="table-responsive" style="margin-top:30px;"> 
                                 <h4>Payment Management</h4>
                                   <table class="table">
@@ -34,60 +34,26 @@
                             <tr>
                               
                                 <th>Technologhy</th>
+                                <th>Email</th>
                                 <th>Status</th>
                                 <th>Payment Details</th>
                                
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                
-                                <td>C</td>
-                                <td>Pending</td>
+                            <tr *ngFor="let i of myPayRecord">
+                                <td>{{i.skillName}}</td>
+                                <td></td>
+                                <td><strong style="color: green"> Paid : {{i.fees}}</strong></td>
                                 <td>
-                                        <button type="button" class="btn btn-primary">See Details</button>
-
+                                <button type="button" class="btn btn-primary">See Details</button>
                                 </td>
                             </tr>
-                            <tr>
-                                    <td>OOPS</td>
-                                    <td>Paid</td>
-                                    <td>
-                                            <button type="button" class="btn btn-primary">See Details</button>
-
-                                    </td>
-                            </tr>
-                            <tr>
-                                    <td>Java</td>
-                                    <td>Paid</td>
-                                    <td>
-                                            <button type="button" class="btn btn-primary">See Details</button>
-
-                                    </td>
-                            </tr>
-
-                            <tr>
-                                    <td>PHP</td>
-                                    <td>Pending</td>
-                                    <td>
-                                            <button type="button" class="btn btn-primary">See Details</button>
-
-                                    </td>
-                            </tr>
-
-                            <tr>
-                                    <td>ASP.NET</td>
-                                    <td>Pending</td>
-                                    <td>
-                                            <button type="button" class="btn btn-primary">See Details</button>
-
-                                    </td>
-                            </tr>
-                            
                         </tbody>
                     </table>
                 </div>
         </div>
+        <div class="col-md-1"></div>
 </div> 
 </div> 
 
