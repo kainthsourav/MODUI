@@ -46,6 +46,8 @@ export class LoginComponent implements OnInit {
 
         if(this.Data!=undefined)
         {
+          localStorage.setItem("Id", this.Data.id);
+         
           console.log(this.Data);
         if (this.Data.role == 1) {
           this.router.navigate(['AdminMenu']);

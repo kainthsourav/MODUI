@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GetUsersService} from '../../../Services/get-users.service';
+import {LoginComponent} from '../../login/login.component';
 import * as _ from "underscore";
 
 @Component({
@@ -11,16 +12,19 @@ export class UserMenuComponent implements OnInit {
  
   myTrainings;
   traninerName;
-  constructor(private myService:GetUsersService) { }
+  CurrentUser; 
+  constructor(private myService:GetUsersService,) { }
 
   ngOnInit() {
+    let i= localStorage.getItem("Id");
+    this.CurrentUser= +i;
     this.getTrainings();
   }
 
   getTrainings()
   {
     this.myService.trainingApprovals().subscribe(data=>{
-      this.myTrainings=_.where(data,{accept:true,userId:1,PaymentStatus:true});
+      this.myTrainings=_.where(data,{accept:true,userId:this.CurrentUser,PaymentStatus:true});
       console.log(this.myTrainings);
      // this.getTrainerById();
     });
@@ -35,23 +39,3 @@ export class UserMenuComponent implements OnInit {
     })
   }
 }
-//     PaymentStatus: true
-// accept: true
-// amountReceived: null
-// avaRating: null
-// commisionAmount: null
-// endDate: "2019-12-06T00:00:00"
-// id: 1
-// mentorId: 2
-// mentorName: "Kainth Sourav"
-// progress: null
-// rating: null
-// rejected: false
-// skillId: 11
-// skillname: "Java"
-// startDate: "2019-10-06T00:00:00"
-// status: null
-// timeSlot: "03:00 PM - 06:00 PM"
-// userId: 1
-// userName: "Sourav"
- 

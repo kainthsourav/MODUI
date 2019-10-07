@@ -14,6 +14,8 @@ const httpOptions={
 })
 export class GetUsersService {
 
+  sessionData;
+
   constructor(private _UserData:HttpClient) { }
 
   //show all users

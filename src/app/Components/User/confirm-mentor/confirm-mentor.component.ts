@@ -29,10 +29,13 @@ export class ConfirmMentorComponent implements OnInit {
   yourName;
   request;
   sentData;
-
+  CurrentUser;
   constructor(private route: ActivatedRoute, private myservice:GetUsersService) {}
 
   ngOnInit() {
+    let i= localStorage.getItem("Id");
+    this.CurrentUser= +i;
+
   this.getQueryData();
   this.GetUserById();
   this.getSkill();
@@ -70,7 +73,7 @@ export class ConfirmMentorComponent implements OnInit {
       endDate:this.EndDate,
       timeSlot:this.Time,
       accept:false,
-      userId:1,
+      userId:this.CurrentUser,
       userName:"Sourav",
       mentorId:this.paramId,
       skillId:this.skillData.id,

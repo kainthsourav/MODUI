@@ -17,10 +17,13 @@ export class ViewRequestStatusComponent implements OnInit {
 
   allReciptData;
   ReciptData;
+  CurrentUser;
 
   constructor(private myService:GetUsersService,private route:Router) { }
 
   ngOnInit() {
+    let i= localStorage.getItem("Id");
+    this.CurrentUser= +i;
  this.getmyData();
  this.getPaymentDtls();
 
@@ -32,10 +35,10 @@ export class ViewRequestStatusComponent implements OnInit {
       {
         this.myData=data;
         console.log(this.myData);
-        this.Approved=_.where(this.myData,{accept:true,userId:1});
+        this.Approved=_.where(this.myData,{accept:true,userId:this.CurrentUser});
         console.log(this.Approved);
-         this.Pending=_.where(this.myData,{accept:false,rejected:false,userId:1});
-        this.Declined=_.where(this.myData,{rejected:true,userId:1});
+         this.Pending=_.where(this.myData,{accept:false,rejected:false,userId:this.CurrentUser});
+        this.Declined=_.where(this.myData,{rejected:true,userId:this.CurrentUser});
         console.log("Pending "+JSON.stringify(this.Pending));
        
       });
@@ -65,7 +68,7 @@ export class ViewRequestStatusComponent implements OnInit {
   {
     console.dir(this.allReciptData);
     
-   this.ReciptData=_.where(this.allReciptData,{skillId:id,userId:this.Approved[0].userId,PaymentStatus:true});
+   this.ReciptData=_.where(this.allReciptData,{skillId:id,userId:this.CurrentUser,PaymentStatus:true});
     
     console.log(this.ReciptData);
 
