@@ -11,10 +11,10 @@
              
             </div>
             <div class="col-md-8 text-center">
-                    <button type="button" routerLink="/SearchTrainings" class=" btn btn-outline-dark">Search Trainings</button>
-                    <button type="button" routerLink="/UserMenu" class=" btn btn-outline-dark">Current Trainings</button>
-                    <button type="button" routerLink="/CompletedTrainings" class="btn btn-outline-dark">Completed Trainings</button>
-                    <button type="button" routerLink="/ViewRequest" class="btn btn-outline-dark">Approvals</button>
+                    <button type="button" routerLink="/SearchTrainings" class=" btn btn-outline-dark button">Search Trainings</button>
+                    <button type="button" routerLink="/UserMenu" class=" btn btn-outline-dark button">Current Trainings</button>
+                    <button type="button" routerLink="/CompletedTrainings" class="btn btn-outline-dark button">Completed Trainings</button>
+                    <button type="button" routerLink="/ViewRequest" class="btn btn-outline-dark button">Approvals</button>
             </div>
             <div class="col-md-2">
 
@@ -56,22 +56,26 @@
                         <thead class="thead-dark">
                             <tr>
                               
-                                <!-- <th>Technologhy</th> -->
-                                <!-- <th>Timing</th> -->
+                                
                                 <th>Mentor</th>
-                                <th>Experience</th>
+                                <th>Experience (Years)</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let item of msg">
                                 <!-- <td>{{Technology}}</td> -->
-                                <!-- <td>{{item. TrainerTimings}}</td> -->
-                                <td>{{item.firstName}} {{item.lastName}}</td>
+        
+                                <td>
+                                <img class="img-thumbnail m-3" alt="NA" src="assets/imgs/login.png" width="100" style="height: 100px;"><br>
+                                    {{item.firstName}} {{item.lastName}}
+                                </td>
+
                                 <td>{{item.yearOfExperience}}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-success" (click)="SendToMentor(item.id)">Select Mentor</button>
                                 </td>
+                                <hr>
                             </tr>
 
                         </tbody>

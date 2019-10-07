@@ -44,12 +44,12 @@
             <td>{{i.mentorName}}</td>
             <td>{{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</td>
             <!-- <td>{{i.timeSlot}}</td> -->
-            <td *ngIf="i.status!=undefined">
+            <td *ngIf="i.progress!=undefined">
               <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-                  {{i.status}}
+                  {{i.progress}} %
               </div>
             </td>
-            <td *ngIf="i.status==undefined">
+            <td *ngIf="i.progress==undefined">
                 <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width: 100%">
                     Pending
                 </div>

@@ -32,7 +32,7 @@ export class TrainerSignUpComponent implements OnInit {
           ConfirmPassword:['',Validators.minLength(8)]
         },{validator:this.comparePasswords}),
         LinkedinURL: ['',[Validators.required,Validators.pattern('')]],  
-        Experience:['',[Validators.required,Validators.pattern('^[0-9]{2}$')]], 
+        Experience:['',[Validators.required,Validators.pattern('^[0-9]{1,2}$')]], 
         // Timings: ['',[Validators.required]],
         Technology:['',Validators.required]
       });

@@ -36,6 +36,7 @@
                 <th>Trainer Name</th>
                 <th>Duration</th>
                 <th>Timing</th>
+                <th>Progress</th>
                
             </tr>
         </thead>
@@ -45,6 +46,16 @@
                 <td>{{i.mentorName}}</td>
                 <td>{{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</td>
                 <td>{{i.timeSlot}}</td>
+                <td *ngIf="i.progress!=undefined">
+                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
+                            {{i.progress}} %
+                        </div>
+                </td>
+                <td *ngIf="i.progress==undefined">
+                          <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width: 100%">
+                              Pending
+                          </div>
+                </td>
             </tr>
         </tbody>
     </table>
