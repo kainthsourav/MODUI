@@ -69,7 +69,8 @@ export class TrainerSignUpComponent implements OnInit {
         };
         console.log(MentorSignUp);
       
-        this.MentorSignService.Register(JSON.stringify(MentorSignUp)).subscribe((data)=>{this.Data=data
+        this.MentorSignService.Register(JSON.stringify(MentorSignUp)).subscribe((data)=>{this.Data=data;
+          alert(this.Data);
           console.log(this.Data)
         });
     }

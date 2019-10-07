@@ -20,9 +20,10 @@ export class RequestedTrainingsComponent implements OnInit {
   constructor(private myService:GetUsersService) { }
 
   ngOnInit() {
+
     let i= localStorage.getItem("Id");
     this.CurrentUser= +i;
- this.getmyData();
+    this.getmyData();
 
   }
 

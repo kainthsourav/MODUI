@@ -53,7 +53,6 @@ export class TrainerMenuComponent implements OnInit {
       progress:this.Progress
     };
 
-    // alert(JSON.stringify(data));
   this.myService.trainingProgress(data).subscribe(data=>{
     this.msg=data;
     alert(this.msg);

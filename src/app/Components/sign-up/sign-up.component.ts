@@ -50,7 +50,8 @@ export class SignUpComponent implements OnInit {
         };
         console.log(SignUp);
         this.status=false;
-        this.AddService.Register(JSON.stringify(SignUp)).subscribe((data)=>{this.Data=data
+        this.AddService.Register(JSON.stringify(SignUp)).subscribe((data)=>{this.Data=data;
+          alert(this.Data);
           console.log(this.Data)
         });
       
