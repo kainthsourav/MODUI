@@ -11,6 +11,9 @@ import * as _ from "underscore";
 export class TrainerMenuComponent implements OnInit {
   myTrainings;
   Data;
+  Progress;
+  msg;
+  getId;
   constructor(private myService:GetUsersService) { }
 
   ngOnInit() {
@@ -33,5 +36,26 @@ export class TrainerMenuComponent implements OnInit {
        this.Data=true;
      }
     });
+  }
+
+  Update(id)
+  { 
+    this.getId=id;
+  }
+
+  Mainupdate()
+  {
+    let data={
+      id:this.getId,
+      progress:this.Progress
+    };
+
+    // alert(JSON.stringify(data));
+  this.myService.trainingProgress(data).subscribe(data=>{
+    this.msg=data;
+    alert(this.msg);
+    this.Progress='';
+    this.getTrainings();
+  });
   }
 }
