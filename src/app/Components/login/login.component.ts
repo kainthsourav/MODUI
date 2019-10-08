@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserDtl } from '../../Models/UserDtl';
 import { GetUsersService } from '../../Services/get-users.service'
 
 
@@ -21,7 +20,7 @@ export class LoginComponent implements OnInit {
   Data;
 
   constructor(private fb: FormBuilder, private sendlogin: GetUsersService, private router: Router) {
-    this.UserDetails = new UserDtl();
+    
   }
 
 

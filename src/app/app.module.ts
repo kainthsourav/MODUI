@@ -29,13 +29,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestServComponent } from './Components/Testing/test-serv/test-serv.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProfileComponent } from './Components/profile/profile.component';
 import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
 import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
 import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
 import { PaymentComponent } from './components/user/payment/payment.component';
 import { NavTrainerComponent } from './Components/nav-bar/nav-trainer/nav-trainer.component';
 import { CurrentComponent } from './Components/admin/current/current.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 
 @NgModule({
@@ -63,13 +63,13 @@ import { CurrentComponent } from './Components/admin/current/current.component';
     NavIndexComponent,
     PageNotFoundComponent,
     TestServComponent,
-    ProfileComponent,
     ConfirmMentorComponent,
     ViewRequestStatusComponent,
     RequestedTrainingsComponent,
     PaymentComponent,
     NavTrainerComponent,
-    CurrentComponent
+    CurrentComponent,
+    ProfileComponent
     ],
   imports: [
     BrowserModule,

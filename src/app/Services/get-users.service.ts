@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders} from "@angular/common/http";
-import {UserDtl} from '../Models/UserDtl';
 import {map} from 'rxjs/operators';
 import { from } from 'rxjs';
 const httpOptions={

@@ -17,12 +17,12 @@ import { AdminPayComponent } from './Components/Admin/admin-pay/admin-pay.compon
 import { BlockUserComponent } from './Components/Admin/block-user/block-user.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { TestServComponent } from './Components/Testing/test-serv/test-serv.component';
-import { ProfileComponent } from './Components/profile/profile.component';
 import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
 import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
 import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
 import { PaymentComponent } from './components/user/payment/payment.component';
 import { CurrentComponent } from './Components/admin/current/current.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 
 const routes: Routes = [
@@ -48,21 +48,21 @@ const routes: Routes = [
   {path:"AdminPay",component:AdminPayComponent},
   
   {path:"blockuser",component:BlockUserComponent},
-   {path:"Test",component:TestServComponent},
-
-   {path:"Profile",component:ProfileComponent},
-
-   {path:"ConfirmMentor",component:ConfirmMentorComponent},
-
-   {path:"ViewRequest",component:ViewRequestStatusComponent},
-
-   {path:"RequestedTrainings",component:RequestedTrainingsComponent},
+  
+  {path:"Test",component:TestServComponent},
+  
+  {path:"ConfirmMentor",component:ConfirmMentorComponent},
+  
+  {path:"ViewRequest",component:ViewRequestStatusComponent},
+  {path:"RequestedTrainings",component:RequestedTrainingsComponent},
 
    {path:"Payment",component:PaymentComponent},
 
    {path:"admincurrent",component:CurrentComponent},
+  
+   {path:"userprofile",component:ProfileComponent},
 
-  {path:"**",component:PageNotFoundComponent}
+   {path:"**",component:PageNotFoundComponent}
 
  
 ];
