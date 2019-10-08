@@ -55,20 +55,26 @@ export class AdminMenuComponent implements OnInit {
       name:this.name,
       toc:this.toc,
       prerequisites:this.prerequisites,
-      // timings:this.timings
-               };
+      fees:this.fees,
+      };
 
-    this.ServiceSkill.AddSkill(JSON.stringify(info)).subscribe(data=>{
+    if(this.name!=undefined && this.toc!=undefined && this.prerequisites!=undefined && this.fees!=undefined)
+    {
+       this.ServiceSkill.AddSkill(JSON.stringify(info)).subscribe(data=>{
       this.msg=data;
       console.log(this.msg);
       this.name="";
       this.toc="";
       this.prerequisites="";
+      this.fees=""
       // this.timings="";
       this.GetAllSkills();
     });
+     }
+
+     else
+     {
+       alert("Fields cannot be empty");
+     }
   }
-
-  
-
 }

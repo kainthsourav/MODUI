@@ -72,22 +72,22 @@ export class ConfirmMentorComponent implements OnInit {
 
     let Date_Start=moment(this.StartDate).format("DD-MM-YYYY");
     let Date_End=moment(this.EndDate).format("DD-MM-YYYY");
-    if(Date_Start>Date_End)
-    {
-     alert("Please select the valid Start and End Date");
-    }
-    else
-    {
+    // if(Date_Start>Date_End)
+    // {
+    //  alert("Please select the valid Start and End Date");
+    // }
+    // else
+    // {
 
-    var a = moment(this.StartDate);
-      var b = moment(this.EndDate);
-     var x= a.diff(b, 'days')
-       if(x<30)
-    {
-      alert("Minimum Training Cannot be less then Month");
-    }
-    else
-    {
+    // var a = moment(this.StartDate);
+    //   var b = moment(this.EndDate);
+    //  var x= a.diff(b, 'days')
+    //    if(x<30)
+    // {
+    //   alert("Minimum Training Cannot be less then Month");
+    // }
+    // else
+    // {
          const dat = {
       startDate:this.StartDate,
       endDate:this.EndDate,
@@ -111,8 +111,8 @@ export class ConfirmMentorComponent implements OnInit {
        });
      
   }
-    }
+   // }
       
-    }
+  //  }
  
 }
