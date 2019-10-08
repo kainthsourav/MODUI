@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {GetUsersService} from '../../../Services/get-users.service';
 @Component({
   selector: 'app-current',
   templateUrl: './current.component.html',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrentComponent implements OnInit {
 
-  constructor() { }
+  CurrentTrainings;
+  constructor(private myService:GetUsersService) { }
 
   ngOnInit() {
+    this.getAllTrainings();
   }
 
+
+  getAllTrainings()
+  {
+    this.myService.trainingApprovals().subscribe(data=>
+      {
+        this.CurrentTrainings=data;
+        console.log(this.CurrentTrainings);
+      });
+  }
 }

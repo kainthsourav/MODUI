@@ -65,6 +65,7 @@ export class AdminPayComponent implements OnInit {
         this.Response=data;
         alert(this.Response);
         this.getPaymentDtls();
+        this.Commision="";
       });
     }
     else

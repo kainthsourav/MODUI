@@ -18,7 +18,7 @@ export class UserMenuComponent implements OnInit {
       if(localStorage.getItem("Id")==undefined)
     {
       alert("Please login");
-      //this.router.navigate(['login']);
+      this.router.navigate(['login']);
     }
   }
 
