@@ -89,7 +89,6 @@ export class ConfirmMentorComponent implements OnInit {
     else
     {
          const dat = {
-
       startDate:this.StartDate,
       endDate:this.EndDate,
       timeSlot:this.Time,
