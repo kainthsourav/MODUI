@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute,Router} from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import{GetUsersService} from '../../../Services/get-users.service';
 import * as _ from "underscore";
@@ -16,16 +16,17 @@ export class PaymentComponent implements OnInit {
   myData:any;
   skillData;
   msg;
-  constructor(private route:ActivatedRoute,private myService:GetUsersService,private fb: FormBuilder) { }
+  constructor(private route:ActivatedRoute,private myService:GetUsersService,private fb: FormBuilder,
+  private AfterPay:Router) { }
 
   ngOnInit() {
     this.getQueryData();
      this.PaymentForm = this.fb.group({
-       Name:['',[Validators.required]],
-       Card:['',[Validators.required]],
-       mm:['',[Validators.required]],
-       yy:['',[Validators.required]],
-       cv:['',[Validators.required]]
+       Name:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+       Card:['',[Validators.required,Validators.pattern('^[0-9]{13}$')]],
+       mm:['',[Validators.required,Validators.pattern('^[0-9]{2}$')]],
+       yy:['',[Validators.required,Validators.pattern('^[0-9]{2}$')]],
+       cv:['',[Validators.required,Validators.pattern('^[0-9]{3}$')]],
     });
     
   }
@@ -81,7 +82,7 @@ export class PaymentComponent implements OnInit {
     
     this.myService.trainingPayment(payData).subscribe(data=>{
       this.msg=data;
-      alert(this.msg);
+    //  alert(this.msg);
      this.updatePayStatus();
     });
   }
@@ -93,7 +94,7 @@ export class PaymentComponent implements OnInit {
    this.myService.UpdatePayment(this.id).subscribe(data=>{
     this.msg=data;
     alert(this.msg);
-  
+   this.AfterPay.navigate(['/ViewRequest']);  
    });
   }
 
