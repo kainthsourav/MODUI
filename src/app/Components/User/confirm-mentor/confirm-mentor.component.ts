@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import{GetUsersService} from '../../../Services/get-users.service';
 import * as _ from "underscore";
+import * as moment from 'moment';
 
 
 @Component({
@@ -67,7 +68,27 @@ export class ConfirmMentorComponent implements OnInit {
   }
 
   onSubmit() {
-    const dat = {
+
+
+    let Date_Start=moment(this.StartDate).format("DD-MM-YYYY");
+    let Date_End=moment(this.EndDate).format("DD-MM-YYYY");
+    if(Date_Start>Date_End)
+    {
+     alert("Please select the valid Start and End Date");
+    }
+    else
+    {
+
+    var a = moment(this.StartDate);
+      var b = moment(this.EndDate);
+     var x= a.diff(b, 'days')
+       if(x<30)
+    {
+      alert("Minimum Training Cannot be less then Month");
+    }
+    else
+    {
+         const dat = {
 
       startDate:this.StartDate,
       endDate:this.EndDate,
@@ -86,8 +107,13 @@ export class ConfirmMentorComponent implements OnInit {
     this.myservice.sendTrainingDtls(dat).subscribe(data=>
       {
         this.sentData=data;
-        alert(this.sentData)     
+        alert(this.sentData)  
+           
        });
      
   }
+    }
+      
+    }
+ 
 }
