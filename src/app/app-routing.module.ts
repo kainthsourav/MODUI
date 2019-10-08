@@ -22,6 +22,7 @@ import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm
 import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
 import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
 import { PaymentComponent } from './components/user/payment/payment.component';
+import { CurrentComponent } from './Components/admin/current/current.component';
 
 
 const routes: Routes = [
@@ -58,6 +59,8 @@ const routes: Routes = [
    {path:"RequestedTrainings",component:RequestedTrainingsComponent},
 
    {path:"Payment",component:PaymentComponent},
+
+   {path:"admincurrent",component:CurrentComponent},
 
   {path:"**",component:PageNotFoundComponent}
 

@@ -35,6 +35,7 @@ import { ViewRequestStatusComponent } from './components/User/view-request-statu
 import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
 import { PaymentComponent } from './components/user/payment/payment.component';
 import { NavTrainerComponent } from './Components/nav-bar/nav-trainer/nav-trainer.component';
+import { CurrentComponent } from './Components/admin/current/current.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { NavTrainerComponent } from './Components/nav-bar/nav-trainer/nav-traine
     RequestedTrainingsComponent,
     PaymentComponent,
     NavTrainerComponent,
-  ],
+    CurrentComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

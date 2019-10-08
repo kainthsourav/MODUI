@@ -11,7 +11,6 @@ export class AdminMenuComponent implements OnInit {
   SkillList;
   msg;
   prerequisites;
-  // timings;
   name;
   toc;
   status;
@@ -66,8 +65,7 @@ export class AdminMenuComponent implements OnInit {
       this.name="";
       this.toc="";
       this.prerequisites="";
-      this.fees=""
-      // this.timings="";
+      this.fees="";
       this.GetAllSkills();
     });
      }
