@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {GetUsersService} from '../../../Services/get-users.service';
+import * as _ from "underscore";
+
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  CurrentUser;
+  ProfileData;
+  TrainingDtls;
+
+  constructor(private myService:GetUsersService) { }
 
   ngOnInit() {
+    let i= localStorage.getItem("Id");
+    this.CurrentUser= +i;
+    this.getUserProfile();
+    this.getTrainingDtls();
   }
+
+getUserProfile()
+{
+  this.myService.GetUserById(this.CurrentUser).subscribe(data=>
+    {
+      this.ProfileData=data;
+      console.log(this.ProfileData);
+      
+    })
+}
+
+getTrainingDtls()
+{
+  this.myService.trainingApprovals().subscribe(data=>
+    {
+      this.TrainingDtls=_.where(data,{accept:true,userId:this.CurrentUser,PaymentStatus:true});
+      console.log(this.TrainingDtls);
+    });
+}
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {GetUsersService} from '../../../Services/get-users.service';
-import {LoginComponent} from '../../login/login.component';
 import * as _ from "underscore";
 import { Router } from '@angular/router';
 
@@ -15,7 +14,7 @@ export class UserMenuComponent implements OnInit {
   traninerName;
   CurrentUser; 
   constructor(private myService:GetUsersService,private router:Router) { 
-      if(localStorage.getItem("Id")==undefined)
+    if(localStorage.getItem("Id")==undefined)
     {
       alert("Please login");
       this.router.navigate(['login']);
