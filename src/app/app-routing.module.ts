@@ -23,6 +23,7 @@ import { RequestedTrainingsComponent } from './components/mentor/requested-train
 import { PaymentComponent } from './components/user/payment/payment.component';
 import { CurrentComponent } from './Components/admin/current/current.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import { TrainerProfileComponent } from './components/mentor/trainer-profile/trainer-profile.component';
 
 
 const routes: Routes = [
@@ -61,6 +62,7 @@ const routes: Routes = [
    {path:"admincurrent",component:CurrentComponent},
   
    {path:"userprofile",component:ProfileComponent},
+   {path:"trainerprofile",component:TrainerProfileComponent},
 
    {path:"**",component:PageNotFoundComponent}
 

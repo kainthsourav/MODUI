@@ -36,6 +36,7 @@ import { PaymentComponent } from './components/user/payment/payment.component';
 import { NavTrainerComponent } from './Components/nav-bar/nav-trainer/nav-trainer.component';
 import { CurrentComponent } from './Components/admin/current/current.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import { TrainerProfileComponent } from './components/mentor/trainer-profile/trainer-profile.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     PaymentComponent,
     NavTrainerComponent,
     CurrentComponent,
-    ProfileComponent
+    ProfileComponent,
+    TrainerProfileComponent
     ],
   imports: [
     BrowserModule,
