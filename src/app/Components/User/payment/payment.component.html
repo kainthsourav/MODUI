@@ -1,66 +1,70 @@
 <app-nav-user></app-nav-user>
-
 <div class="container-fluid py-3">
-      <div class="row py-5">
-          <div class="col-sm-3"></div>
-          <div class="col-sm-4">
-              <div class="card">
-                  <div class="card-body">
-                      <h3 class="card-title text-center">Payment</h3>
-                      <div class="form-row">
-                          <div class="form-group col">
-                                <!-- [formGroup]="Payment" -->
-                              <form class="form-Payment"  autocomplete="off"
-                                  (submit)="onSubmit()">
-
-                                  <div class="form-row">
-                                        <div class="form-group col required">
-                                            <input  class="form-control" placeholder="Name on Card" required>
-                                        </div>
-                                  </div> 
-
-                                  <div class="form-row">
-                                        <div class="form-group col required">
-                                            <input class="form-control" placeholder="Valid Card Number" required>
-                                        </div>
-                                  </div> 
-                                  
-                                  <div class="form-row">
-                                        <div class="form-group col required">
-                                            <input class="form-control" placeholder="MM" required>
-                                        </div>
-                                    <div class="form-group col required">
-                                        <input class="form-control" placeholder="YY" required>
-                                    </div>
-                                    <div class="form-group col required">
-                                            <input class="form-control" placeholder="CV CODE" required>
-                                    </div>
-                                  </div> 
-
-                                  <div class="form-row">
-                                        <div class="form-group col required">
-                                  <button class="btn btn-lg btn-primary btn-block">Pay</button>
-                                        </div>
-                                  </div>
-
-                                </form>  
-                            </div>
-                       
-                          </div>
-                      </div>
+<div class="row py-5">
+   <div class="col-sm-3"></div>
+   <div class="col-sm-4">
+      <div class="card">
+         <div class="card-body">
+            <h3 class="card-title text-center">Payment</h3>
+            <div class="form-row">
+               <div class="form-group col">
+                  <!-- [formGroup]="Payment" -->
+                  <form class="form-Payment"  autocomplete="off"
+                  [formGroup]="PaymentForm"  (submit)="onSubmit()">
+                 
+                  <div class="form-row">
+                     <div class="form-group col required">
+                        <input  class="form-control" formControlName="Name" placeholder="Name on Card" required>
+                        <small class="text-danger" *ngIf="PaymentForm.get('Name').touched && PaymentForm.get('Name').errors?.required">This field is mandatory</small>
+                     </div>
                   </div>
-              </div>
 
-        <div *ngIf="skillData" class="col-sm-4"> 
-                <div  class="card" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Your Cart</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Technology - {{skillData[0].name}}
-                              <br>
-                              Prerequisites - {{skillData[0].prerequisites}}
-                          </h6>
-                          <p class="card-text">Fees - &#8377; <strong>{{skillData[0].fees}}</strong></p>
-                        </div>
-                </div>
-        </div>
+                  <div class="form-row">
+                     <div class="form-group col required">
+                        <input class="form-control" placeholder="Valid Card Number" 
+                           formControlName="Card" required>
+                        <small class="text-danger" *ngIf="PaymentForm.get('Card').touched && PaymentForm.get('Card').errors?.required">This field is mandatory</small>
+                     </div>
+                     </div>
+
+                  <div class="form-row">
+                     <div class="form-group col required">
+                        <input class="form-control" placeholder="MM"  formControlName="mm" required>
+                        <small class="text-danger" *ngIf="PaymentForm.get('mm').touched && PaymentForm.get('mm').errors?.required">This field is mandatory</small>
+                     </div>
+
+                     <div class="form-group col required">
+                        <input class="form-control" placeholder="YY" formControlName="yy" required>
+                        <small class="text-danger" *ngIf="PaymentForm.get('yy').touched && PaymentForm.get('yy').errors?.required">This field is mandatory</small>
+                     </div>
+
+                     <div class="form-group col required">
+                        <input class="form-control"  formControlName="cv" placeholder="CV CODE" required>
+                        <small class="text-danger" *ngIf="PaymentForm.get('cv').touched && PaymentForm.get('cv').errors?.required">This field is mandatory</small>
+                     </div>
+
+                  </div>
+                  <div class="form-row">
+                     <div class="form-group col required">
+                        <button class="btn btn-lg btn-primary btn-block"  [disabled]="!PaymentForm.valid">Pay</button>
+                     </div>
+                  </div>
+                  </form>  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div *ngIf="skillData" class="col-sm-4">
+      <div  class="card" style="width: 18rem;">
+         <div class="card-body">
+            <h5 class="card-title">Your Cart</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Technology - {{skillData[0].name}}
+               <br>
+               Prerequisites - {{skillData[0].prerequisites}}
+            </h6>
+            <p class="card-text">Fees - &#8377; <strong>{{skillData[0].fees}}</strong></p>
+         </div>
+      </div>
+   </div>
 </div>

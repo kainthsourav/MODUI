@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import{GetUsersService} from '../../../Services/get-users.service';
 import * as _ from "underscore";
 
@@ -11,13 +12,21 @@ import * as _ from "underscore";
 export class PaymentComponent implements OnInit {
 
   id;
+  PaymentForm:FormGroup;
   myData:any;
   skillData;
   msg;
-  constructor(private route:ActivatedRoute,private myService:GetUsersService) { }
+  constructor(private route:ActivatedRoute,private myService:GetUsersService,private fb: FormBuilder) { }
 
   ngOnInit() {
     this.getQueryData();
+     this.PaymentForm = this.fb.group({
+       Name:['',[Validators.required]],
+       Card:['',[Validators.required]],
+       mm:['',[Validators.required]],
+       yy:['',[Validators.required]],
+       cv:['',[Validators.required]]
+    });
     
   }
 
@@ -84,6 +93,7 @@ export class PaymentComponent implements OnInit {
    this.myService.UpdatePayment(this.id).subscribe(data=>{
     this.msg=data;
     alert(this.msg);
+  
    });
   }
 
