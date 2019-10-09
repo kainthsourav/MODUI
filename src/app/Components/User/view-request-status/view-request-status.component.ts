@@ -76,8 +76,7 @@ export class ViewRequestStatusComponent implements OnInit {
 
 
   Pay(id)
-  {
-    alert(id);  
+  {  
     const data={
       ID:id,
    };

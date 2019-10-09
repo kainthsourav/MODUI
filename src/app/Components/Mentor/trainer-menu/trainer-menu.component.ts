@@ -59,12 +59,20 @@ export class TrainerMenuComponent implements OnInit {
       id:this.getId,
       progress:this.Progress
     };
-
-  this.myService.trainingProgress(data).subscribe(data=>{
-    this.msg=data;
-    alert(this.msg);
-    this.Progress='';
-    this.getTrainings();
-  });
+  if(this.Progress<=100)
+  {
+    this.myService.trainingProgress(data).subscribe(data=>{
+      this.msg=data;
+      alert(this.msg);
+      this.Progress='';
+      this.getTrainings();
+    });
+  }
+  else
+  {
+    alert("Cannot be greater then 100");
+    this.Progress="";
+  }
+ 
   }
 }

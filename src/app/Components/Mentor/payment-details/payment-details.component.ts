@@ -42,6 +42,7 @@ export class PaymentDetailsComponent implements OnInit {
          if(Object.keys(this.myPayRecord).length>0)
          {
            this.show=false;
+          
          }
          else
          {
@@ -56,6 +57,7 @@ export class PaymentDetailsComponent implements OnInit {
     this.myService.GetUserById(id).subscribe(data=>
       {
          this.userData=data;
+         console.log(this.userData);
       })
   }
 
