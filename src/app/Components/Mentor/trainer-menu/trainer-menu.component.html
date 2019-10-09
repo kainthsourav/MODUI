@@ -52,16 +52,22 @@
                         (click)="Update(i.id)">Update</button>
                        </td>
                     </tr>
-
-                <tr *ngIf="Data" style="text-align: center">
-                    <div>
-                            <h2>No Records Found</h2>
-                    </div>
-                  
-                </tr>
             </tbody>
         </table>
-                </div>
+</div>
+ </div>
+</div>
+
+
+<div class="row" style="text-align: center" *ngIf="Data">
+    <div class="col-md-12">
+        <div style="margin-top: 10px">
+        <h4>No Records Found</h4>
+        <img src="../../../../assets/imgs/user_menu_not_found.png">
+        </div>
+    </div>
+</div>
+
                 <!-- Model Starts Here -->
                 <div id="myModal" class="modal fade" role="dialog">
                         <div class="modal-dialog">
@@ -86,8 +92,7 @@
                         </div>
                       </div>
                   <!-- Model End -->
-                </div>
-              </div>
-      </div>
+</div>
+             
 
 <app-footer></app-footer>
