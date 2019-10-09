@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import{GetUsersService} from '../../../Services/get-users.service';
 import * as _ from "underscore";
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -31,10 +32,16 @@ export class ConfirmMentorComponent implements OnInit {
   request;
   sentData;
   CurrentUser;
-  constructor(private route: ActivatedRoute, private myservice:GetUsersService) {}
+  constructor(private route: ActivatedRoute, private myservice:GetUsersService,private router:Router) {
+    if(localStorage.getItem("userid")==undefined)
+    {
+      alert("Please login");
+      this.router.navigate(['login']);
+    }
+  }
 
   ngOnInit() {
-    let i= localStorage.getItem("Id");
+    let i= localStorage.getItem("userid");
     this.CurrentUser= +i;
 
   this.getQueryData();
@@ -72,22 +79,7 @@ export class ConfirmMentorComponent implements OnInit {
 
     let Date_Start=moment(this.StartDate).format("DD-MM-YYYY");
     let Date_End=moment(this.EndDate).format("DD-MM-YYYY");
-    // if(Date_Start>Date_End)
-    // {
-    //  alert("Please select the valid Start and End Date");
-    // }
-    // else
-    // {
 
-    // var a = moment(this.StartDate);
-    //   var b = moment(this.EndDate);
-    //  var x= a.diff(b, 'days')
-    //    if(x<30)
-    // {
-    //   alert("Minimum Training Cannot be less then Month");
-    // }
-    // else
-    // {
          const dat = {
       startDate:this.StartDate,
       endDate:this.EndDate,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetUsersService} from '../../../Services/get-users.service';
 import * as _ from "underscore";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-trainer-profile',
@@ -16,14 +17,16 @@ export class TrainerProfileComponent implements OnInit {
 
   msg;
 
-
-
-
-
-  constructor(private myService:GetUsersService) { }
+  constructor(private myService:GetUsersService,private route:Router) {
+    if(localStorage.getItem("trainerid")==undefined)
+    {
+      alert("Please login");
+      this.route.navigate(['login']);
+    }
+   }
 
   ngOnInit() {
-    let i= localStorage.getItem("Id");
+    let i= localStorage.getItem("trainerid");
     this.CurrentUser= +i;
     this.getUserProfile();
   

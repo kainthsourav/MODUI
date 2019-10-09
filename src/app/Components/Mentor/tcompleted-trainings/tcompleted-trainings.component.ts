@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetUsersService} from '../../../Services/get-users.service';
 import * as _ from "underscore";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tcompleted-trainings',
@@ -12,10 +13,16 @@ export class TcompletedTrainingsComponent implements OnInit {
   myTrainings;
   Data;
   CurrentUser;
-  constructor(private myService:GetUsersService) { }
+  constructor(private myService:GetUsersService,private router:Router) {
+    if(localStorage.getItem("trainerid")==undefined)
+    {
+      alert("Please login");
+      this.router.navigate(['login']);
+    }
+   }
 
   ngOnInit() {
-    let i= localStorage.getItem("Id");
+    let i= localStorage.getItem("trainerid");
     this.CurrentUser= +i;
     this.getTrainings();
   }

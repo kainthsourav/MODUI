@@ -16,7 +16,8 @@ export class NavUserComponent implements OnInit {
 
 logout()
 {
-  localStorage.removeItem("Id");
+  
+  localStorage.removeItem("userid");
  this.router.navigate(['login']);
  alert("Successfully logged out");
 }

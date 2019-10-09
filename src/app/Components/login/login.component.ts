@@ -45,16 +45,27 @@ export class LoginComponent implements OnInit {
 
         if(this.Data!=undefined)
         {
-          localStorage.setItem("Id", this.Data.id);
+         
          
           console.log(this.Data);
-        if (this.Data.role == 1) {
-          this.router.navigate(['AdminMenu']);
+        if (this.Data.role == 1)
+         {
+          //Admin ID
+
+          localStorage.setItem("adminid", this.Data.id);
+
+          this.router.navigate(['adminMenu']);
         }
         else if (this.Data.role == 2 && this.Data.active == true) {
+          //Trainer ID 
+
+          localStorage.setItem("trainerid", this.Data.id);
+
           this.router.navigate(['TrainerMenu']);
         }
         else if (this.Data.role == 3 && this.Data.active == true) {
+          //User ID
+          localStorage.setItem("userid", this.Data.id);
           this.router.navigate(['UserMenu']);
         }
         else {
@@ -66,7 +77,5 @@ export class LoginComponent implements OnInit {
         alert("Invalid Email and Password");
       }
   });
-
-     
-  }
+ }
 }

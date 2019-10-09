@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetUsersService} from '../../../Services/get-users.service';
 import * as _ from "underscore";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-pay',
@@ -17,7 +18,13 @@ export class AdminPayComponent implements OnInit {
   Fee;
   Commision;
   Id;
-  constructor(private myService:GetUsersService) { }
+  constructor(private myService:GetUsersService,private router:Router) { 
+    if(localStorage.getItem("adminid")==undefined)
+    {
+      alert("Please login");
+      this.router.navigate(['login']);
+    } 
+  }
 
   ngOnInit() {
     // let i= localStorage.getItem("Id");
@@ -75,6 +82,13 @@ export class AdminPayComponent implements OnInit {
   
 
    }
+
+   logout()
+{
+  localStorage.removeItem("adminid");
+ this.router.navigate(['login']);
+ alert("Successfully logged out");
+}
 }
 
 

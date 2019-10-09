@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-trainer',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavTrainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
+
+
+  
+logout()
+{
+  
+ localStorage.removeItem("trainerid");
+ this.router.navigate(['login']);
+ alert("Successfully logged out");
+}
 
 }

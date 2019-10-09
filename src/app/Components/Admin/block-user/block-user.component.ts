@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GetUsersService} from '../../../Services/get-users.service'
-import {Route, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import * as _ from 'underscore';
 
 @Component({
@@ -16,6 +16,11 @@ export class BlockUserComponent implements OnInit {
   mentor;
 
   constructor(private _service:GetUsersService,private route:Router) { 
+    if(localStorage.getItem("adminid")==undefined)
+    {
+      alert("Please login");
+      this.route.navigate(['login']);
+    } 
    this.GetAllUsers();
   
   }
@@ -66,5 +71,12 @@ export class BlockUserComponent implements OnInit {
     // alert("Blocked No "+id);
     // this.route.navigate(['/blockuser']);
   }
+
+  logout()
+{
+  localStorage.removeItem("adminid");
+ this.route.navigate(['login']);
+ alert("Successfully logged out");
+}
 
 }

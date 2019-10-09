@@ -17,7 +17,12 @@ export class SearchTrainingsComponent implements OnInit {
   show_nodata:boolean=false;
 
   constructor(private SearchTrainingService:GetUsersService,private Route:Router) {
-  
+    if(localStorage.getItem("userid")==undefined)
+    {
+      alert("Please login");
+      this.Route.navigate(['login']);
+    }
+
    }
 
   ngOnInit() 

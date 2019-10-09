@@ -14,7 +14,7 @@ export class UserMenuComponent implements OnInit {
   traninerName;
   CurrentUser; 
   constructor(private myService:GetUsersService,private router:Router) { 
-    if(localStorage.getItem("Id")==undefined)
+    if(localStorage.getItem("userid")==undefined)
     {
       alert("Please login");
       this.router.navigate(['login']);
@@ -22,7 +22,7 @@ export class UserMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    let i= localStorage.getItem("Id");
+    let i= localStorage.getItem("userid");
     this.CurrentUser= +i;
   
     this.getTrainings();

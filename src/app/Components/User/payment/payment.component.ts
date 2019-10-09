@@ -17,7 +17,13 @@ export class PaymentComponent implements OnInit {
   skillData;
   msg;
   constructor(private route:ActivatedRoute,private myService:GetUsersService,private fb: FormBuilder,
-  private AfterPay:Router) { }
+  private AfterPay:Router) { 
+    if(localStorage.getItem("userid")==undefined)
+    {
+      alert("Please login");
+      this.AfterPay.navigate(['login']);
+    }
+  }
 
   ngOnInit() {
     this.getQueryData();

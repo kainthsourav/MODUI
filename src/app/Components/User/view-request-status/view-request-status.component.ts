@@ -19,13 +19,20 @@ export class ViewRequestStatusComponent implements OnInit {
   ReciptData;
   CurrentUser;
 
-  constructor(private myService:GetUsersService,private route:Router) { }
+  constructor(private myService:GetUsersService,private route:Router) {
+    if(localStorage.getItem("userid")==undefined)
+    {
+      alert("Please login");
+      this.route.navigate(['login']);
+    }
+
+   }
 
   ngOnInit() {
-    let i= localStorage.getItem("Id");
-    this.CurrentUser= +i;
- this.getmyData();
- this.getPaymentDtls();
+  let i= localStorage.getItem("userid");
+  this.CurrentUser= +i;
+  this.getmyData();
+  this.getPaymentDtls();
 
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GetUsersService} from '../../../Services/get-users.service'
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-menu',
@@ -17,7 +18,12 @@ export class AdminMenuComponent implements OnInit {
   fees;
 
 
-  constructor(private ServiceSkill:GetUsersService) {
+  constructor(private ServiceSkill:GetUsersService,private router:Router) {
+    if(localStorage.getItem("adminid")==undefined)
+    {
+      alert("Please login");
+      this.router.navigate(['login']);
+    } 
     this.GetAllSkills();
    }
 
@@ -75,4 +81,12 @@ export class AdminMenuComponent implements OnInit {
        alert("Fields cannot be empty");
      }
   }
+
+  logout()
+{
+  localStorage.removeItem("adminid");
+ this.router.navigate(['login']);
+ alert("Successfully logged out");
+}
+
 }
