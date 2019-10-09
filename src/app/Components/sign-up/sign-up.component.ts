@@ -15,7 +15,7 @@ export class SignUpComponent implements OnInit {
   status:boolean=false;
   Data;
 
-  constructor(private fb:FormBuilder,private AddService:GetUsersService) {
+  constructor(private fb:FormBuilder,private AddService:GetUsersService,private route:Router) {
     this.myForm=fb.group({
       // Username: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
       Email:['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
@@ -52,7 +52,10 @@ export class SignUpComponent implements OnInit {
         this.status=false;
         this.AddService.Register(JSON.stringify(SignUp)).subscribe((data)=>{this.Data=data;
           alert(this.Data);
-          console.log(this.Data)
+          if (this.Data=="Registered Successfully")
+            {
+                 this.route.navigate(['login']);
+            }
         });
       
 
