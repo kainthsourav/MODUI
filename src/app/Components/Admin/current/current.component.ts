@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class CurrentComponent implements OnInit {
 
   CurrentTrainings;
-  show;
+  show:boolean=true;
   constructor(private myService:GetUsersService,private router:Router) {
     if(localStorage.getItem("adminid")==undefined)
     {

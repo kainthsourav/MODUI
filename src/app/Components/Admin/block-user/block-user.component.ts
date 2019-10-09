@@ -14,8 +14,8 @@ export class BlockUserComponent implements OnInit {
   msg;
   user;
   mentor;
-  show_user;
-  show_mentor;
+  show_user:boolean=true;
+  show_mentor:boolean=true;
 
   constructor(private _service:GetUsersService,private route:Router) { 
     if(localStorage.getItem("adminid")==undefined)

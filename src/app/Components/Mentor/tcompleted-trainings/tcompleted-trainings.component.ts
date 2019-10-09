@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class TcompletedTrainingsComponent implements OnInit {
 
   myTrainings;
-  Data;
+  Data:boolean=true;
   CurrentUser;
   constructor(private myService:GetUsersService,private router:Router) {
     if(localStorage.getItem("trainerid")==undefined)

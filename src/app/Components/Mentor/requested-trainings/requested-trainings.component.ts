@@ -16,7 +16,7 @@ export class RequestedTrainingsComponent implements OnInit {
   Declined;
   msg;
   CurrentUser;
-  show;
+  show:boolean=true;
   
  
   constructor(private myService:GetUsersService,private route:Router) {

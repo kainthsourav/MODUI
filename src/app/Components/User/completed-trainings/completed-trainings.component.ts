@@ -12,7 +12,7 @@ export class CompletedTrainingsComponent implements OnInit {
 
   myTrainings;
   CurrentUser; 
-  show; 
+  show:boolean=true; 
   constructor(private myService:GetUsersService,private router:Router) { 
    if(localStorage.getItem("userid")==undefined)
   {

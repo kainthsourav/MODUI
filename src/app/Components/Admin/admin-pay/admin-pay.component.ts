@@ -18,7 +18,7 @@ export class AdminPayComponent implements OnInit {
   Fee;
   Commision;
   Id;
-  show;
+  show:boolean=true;
   constructor(private myService:GetUsersService,private router:Router) { 
     if(localStorage.getItem("adminid")==undefined)
     {
