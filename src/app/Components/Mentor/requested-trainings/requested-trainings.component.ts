@@ -16,6 +16,7 @@ export class RequestedTrainingsComponent implements OnInit {
   Declined;
   msg;
   CurrentUser;
+  show;
   
  
   constructor(private myService:GetUsersService,private route:Router) {
@@ -47,6 +48,15 @@ export class RequestedTrainingsComponent implements OnInit {
 
         this.Declined=_.where(this.myData,{accept:false,rejected:true,mentorId:this.CurrentUser});
 
+        if(Object.keys(this.Requested).length>0 ||
+            Object.keys(this.Approved).length>0 ||
+            Object.keys(this.Declined).length>0)
+            {
+              this.show=false;
+            }
+            else{
+              this.show=true;
+            }
         console.log("Requested"+JSON.stringify(this.Approved));
 
 
