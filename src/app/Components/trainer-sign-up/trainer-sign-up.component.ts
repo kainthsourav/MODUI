@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { GetUsersService } from '../../Services/get-users.service'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-trainer-sign-up',
@@ -13,7 +14,7 @@ export class TrainerSignUpComponent implements OnInit {
   submitted = false;
   Data;
   SKillData;
-    constructor(private fb: FormBuilder,private MentorSignService:GetUsersService) { 
+    constructor(private fb: FormBuilder,private MentorSignService:GetUsersService,private route:Router) { 
      
       this.MentorSignService.AllSkills().subscribe(data=>{
         this.SKillData=data;
@@ -71,7 +72,10 @@ export class TrainerSignUpComponent implements OnInit {
       
         this.MentorSignService.Register(JSON.stringify(MentorSignUp)).subscribe((data)=>{this.Data=data;
           alert(this.Data);
-          console.log(this.Data)
+          if (this.Data=="Registered Successfully")
+          {
+               this.route.navigate(['login']);
+          }
         });
     }
     else
