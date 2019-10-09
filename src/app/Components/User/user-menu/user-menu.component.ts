@@ -13,6 +13,8 @@ export class UserMenuComponent implements OnInit {
   myTrainings;
   traninerName;
   CurrentUser; 
+  show:boolean=true;
+
   constructor(private myService:GetUsersService,private router:Router) { 
     if(localStorage.getItem("userid")==undefined)
     {
@@ -33,6 +35,14 @@ export class UserMenuComponent implements OnInit {
     this.myService.trainingApprovals().subscribe(data=>{
       this.myTrainings=_.where(data,{accept:true,userId:this.CurrentUser,PaymentStatus:true});
       console.log(this.myTrainings);
+      if(Object.keys(this.myTrainings).length>0)
+      {
+        this.show=false;
+      }
+      else
+      {
+        this.show=true;
+      }
      // this.getTrainerById();
     });
   }

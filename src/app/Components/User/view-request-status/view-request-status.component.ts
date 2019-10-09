@@ -19,6 +19,8 @@ export class ViewRequestStatusComponent implements OnInit {
   ReciptData;
   CurrentUser;
 
+  show:boolean=true;
+
   constructor(private myService:GetUsersService,private route:Router) {
     if(localStorage.getItem("userid")==undefined)
     {
@@ -47,6 +49,18 @@ export class ViewRequestStatusComponent implements OnInit {
          this.Pending=_.where(this.myData,{accept:false,rejected:false,userId:this.CurrentUser});
         this.Declined=_.where(this.myData,{rejected:true,userId:this.CurrentUser});
         console.log("Pending "+JSON.stringify(this.Pending));
+
+        if(
+          Object.keys(this.Pending).length>0 ||
+          Object.keys(this.Declined).length>0 ||
+          Object.keys(this.Approved).length>0)
+        {
+          this.show=false;
+        }
+        else
+        {
+         this.show=true;
+        }
        
       });
   }

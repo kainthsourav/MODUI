@@ -12,6 +12,7 @@ export class CompletedTrainingsComponent implements OnInit {
 
   myTrainings;
   CurrentUser; 
+  show; 
   constructor(private myService:GetUsersService,private router:Router) { 
    if(localStorage.getItem("userid")==undefined)
   {
@@ -21,7 +22,11 @@ export class CompletedTrainingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    let i= localStorage.getItem("userid");
+    this.CurrentUser= +i;
+    console.log(this.CurrentUser);
     this.getTrainings();
+   
   }
 
 
@@ -29,6 +34,14 @@ export class CompletedTrainingsComponent implements OnInit {
   {
     this.myService.trainingApprovals().subscribe(data=>{
       this.myTrainings=_.where(data,{accept:true,userId:this.CurrentUser,PaymentStatus:true});
+      if(Object.keys(this.myTrainings).length>0)
+      {
+        this.show=false;
+      }
+      else
+      {
+        this.show=true;
+      }
       console.log(this.myTrainings);
     });
   }
