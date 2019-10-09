@@ -18,6 +18,7 @@ export class AdminPayComponent implements OnInit {
   Fee;
   Commision;
   Id;
+  show;
   constructor(private myService:GetUsersService,private router:Router) { 
     if(localStorage.getItem("adminid")==undefined)
     {
@@ -41,6 +42,14 @@ export class AdminPayComponent implements OnInit {
         this.payRecords=data;
         console.log(this.payRecords);
          console.log(this.myPayRecord);
+         if(Object.keys(this.payRecords).length>0)
+         {
+           this.show=false;
+         }
+         else
+         {
+            this.show=true;
+         }
 
       });
   }

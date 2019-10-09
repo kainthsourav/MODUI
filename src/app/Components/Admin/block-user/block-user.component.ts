@@ -14,6 +14,8 @@ export class BlockUserComponent implements OnInit {
   msg;
   user;
   mentor;
+  show_user;
+  show_mentor;
 
   constructor(private _service:GetUsersService,private route:Router) { 
     if(localStorage.getItem("adminid")==undefined)
@@ -41,6 +43,24 @@ export class BlockUserComponent implements OnInit {
   onGetUserRole() {
     this.user = _.where(this.Userlist,{role: 3});
     this.mentor  = _.where(this.Userlist,{role:2});
+    if(Object.keys(this.user).length>0)
+    {
+      this.show_user=false;
+    }
+    else{
+      this.show_user=true;
+    }
+
+    if(Object.keys(this.mentor).length>0)
+    {
+      this.show_mentor=false;
+    }
+    else
+    {
+      this.show_mentor=true;
+    }
+
+
     console.log(this.mentor);
     console.log("Users"+this.user)
   }

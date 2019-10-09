@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class CurrentComponent implements OnInit {
 
   CurrentTrainings;
+  show;
   constructor(private myService:GetUsersService,private router:Router) {
     if(localStorage.getItem("adminid")==undefined)
     {
@@ -28,6 +29,14 @@ export class CurrentComponent implements OnInit {
     this.myService.trainingApprovals().subscribe(data=>
       {
         this.CurrentTrainings=data;
+        if(Object.keys(this.CurrentTrainings).length>0)
+        {
+          this.show=false;
+        }
+        else
+        {
+           this.show=true;
+        }
         console.log(this.CurrentTrainings);
       });
   }
