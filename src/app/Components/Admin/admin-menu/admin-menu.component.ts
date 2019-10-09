@@ -67,6 +67,7 @@ export class AdminMenuComponent implements OnInit {
     {
        this.ServiceSkill.AddSkill(JSON.stringify(info)).subscribe(data=>{
       this.msg=data;
+      alert(this.msg.message);
       console.log(this.msg);
       this.name="";
       this.toc="";
