@@ -76,11 +76,42 @@ export class ConfirmMentorComponent implements OnInit {
 
   onSubmit() {
 
+    let Date1 = moment(this.StartDate).format("DD-MM-YYYY");
+    let Date2 = moment(this.EndDate).format("DD-MM-YYYY");
+    function compare(Date1, Date2)
+     {
+      var a = moment(Date1, "DD/MM/YYYY");
+      var b = moment(Date2, "DD/MM/YYYY");
+      if (a >b) 
+      {
+        return 1;
+      }
+      else if (a < b) 
+      {
+        return -1;
+      }
+      else 
+      {
+        return 0;
+      }
+    }
 
+    let dateNum = compare(Date1, Date2);
+
+    if (dateNum == 1)
+    {
+      alert("End date should be greater than start date");
+    } 
+    else if (dateNum == 0) 
+    {
+      alert("Start date and End date same");
+    } 
+    else 
+    {
     let Date_Start=moment(this.StartDate).format("DD-MM-YYYY");
     let Date_End=moment(this.EndDate).format("DD-MM-YYYY");
-
-         const dat = {
+    
+    const dat = {
       startDate:this.StartDate,
       endDate:this.EndDate,
       timeSlot:this.Time,
@@ -99,12 +130,11 @@ export class ConfirmMentorComponent implements OnInit {
       {
         this.sentData=data;
         alert(this.sentData)  
-           
+        if(this.sentData=="Sent")
+        {
+          this.router.navigate(['ViewRequest']);
+        }
        });
-     
-  }
-   // }
-      
-  //  }
- 
+   }
+  } 
 }

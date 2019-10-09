@@ -15,7 +15,7 @@ export class PaymentDetailsComponent implements OnInit {
   userData;
   CurrentUser;
   constructor(private myService:GetUsersService,private router:Router) { 
-    if(localStorage.getItem("ttrainerid")==undefined)
+    if(localStorage.getItem("trainerid")==undefined)
     {
       alert("Please login");
       this.router.navigate(['login']);

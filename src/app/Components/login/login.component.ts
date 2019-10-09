@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
         if(this.Data!=undefined)
         {
          
-         
           console.log(this.Data);
         if (this.Data.role == 1)
          {
@@ -54,7 +53,7 @@ export class LoginComponent implements OnInit {
 
           localStorage.setItem("adminid", this.Data.id);
 
-          this.router.navigate(['adminMenu']);
+          this.router.navigate(['AdminMenu']);
         }
         else if (this.Data.role == 2 && this.Data.active == true) {
           //Trainer ID 
