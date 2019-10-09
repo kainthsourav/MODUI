@@ -46,7 +46,10 @@
                                 <!-- <td></td> -->
                                 <td><strong style="color: green"> Paid : {{i.fees}}</strong></td>
                                 <td>
-                                <button type="button" class="btn btn-primary">See Details</button>
+                                <button type="button" class="btn btn-primary" 
+                                 data-toggle="modal" data-target="#myModal" (click)="getDetails(i.id)">
+                                    See Details
+                                </button>
                                 </td>
                             </tr>
                         </tbody>
@@ -55,6 +58,34 @@
         </div>
         <div class="col-md-1"></div>
 </div> 
+
+<!-- Model Starts Here -->
+<div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div *ngIf="myPayRecord"class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Payment Recipt</h4>
+            </div>
+          <div class="modal-body" *ngFor="let i of myPayRecord" style="text-align: left">
+            <h6>Training - {{i.skillName}}</h6>
+            <hr>
+              <p *ngIf="i.PaymentStatus">Payment Status - <span style="color:green">Confirmed</span></p>
+              <hr>
+              <p>Amount Paid -<span style="color:green">&#8377;{{i.fees}}</span> </p>
+              <p *ngIf="userData">By {{userData.userName}} </p>
+              <p *ngIf="userData">{{userData.email}} </p>
+            
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+  <!-- Model End -->
 
 
 <div class="row" style="text-align: center" *ngIf="show">

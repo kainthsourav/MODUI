@@ -15,6 +15,7 @@ export class PaymentDetailsComponent implements OnInit {
   userData;
   CurrentUser;
   show;
+  Uid;
   constructor(private myService:GetUsersService,private router:Router) { 
     if(localStorage.getItem("trainerid")==undefined)
     {
@@ -52,6 +53,17 @@ export class PaymentDetailsComponent implements OnInit {
       });
   }
 
+
+  getDetails(rowId)
+  {
+   
+    this.myPayRecord=_.where(this.payRecords,{id:rowId});
+    let uid=this.myPayRecord[0].userId;
+    this.Uid= +uid;
+    this.getUserById(this.Uid);
+
+  }
+
   getUserById(id)
   {
     this.myService.GetUserById(id).subscribe(data=>
@@ -60,6 +72,5 @@ export class PaymentDetailsComponent implements OnInit {
          console.log(this.userData);
       })
   }
-
 
 }
