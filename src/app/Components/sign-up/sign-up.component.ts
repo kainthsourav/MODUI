@@ -48,7 +48,7 @@ export class SignUpComponent implements OnInit {
             active:true,
             role: 3
         };
-        console.log(SignUp);
+        // console.log(SignUp);
         this.status=false;
         this.AddService.Register(JSON.stringify(SignUp)).subscribe((data)=>{this.Data=data;
           alert(this.Data);
@@ -64,7 +64,7 @@ export class SignUpComponent implements OnInit {
     else
     {
       this.status=true;
-      console.log('Valid?', Form.valid);
+      // console.log('Valid?', Form.valid);
     }
   }
 }

@@ -34,7 +34,7 @@ export class UserMenuComponent implements OnInit {
   {
     this.myService.trainingApprovals().subscribe(data=>{
       this.myTrainings=_.where(data,{accept:true,userId:this.CurrentUser,PaymentStatus:true});
-      console.log(this.myTrainings);
+    //  console.log(this.myTrainings);
       if(Object.keys(this.myTrainings).length>0)
       {
         this.show=false;
@@ -52,7 +52,7 @@ export class UserMenuComponent implements OnInit {
     this.myService.GetAll().subscribe(data=>
     {
       this.traninerName=data;
-      console.log(this.traninerName);
+     // console.log(this.traninerName);
     })
   }
 }

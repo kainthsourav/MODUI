@@ -36,7 +36,7 @@ export class AdminMenuComponent implements OnInit {
   {
     this.ServiceSkill.AllSkills().subscribe(data=>{
       this.SkillList=data;
-      console.log(this.SkillList||JSON);
+      // console.log(this.SkillList||JSON);
     });
   }
 
@@ -68,7 +68,7 @@ export class AdminMenuComponent implements OnInit {
        this.ServiceSkill.AddSkill(JSON.stringify(info)).subscribe(data=>{
       this.msg=data;
       alert(this.msg.message);
-      console.log(this.msg);
+      // console.log(this.msg);
       this.name="";
       this.toc="";
       this.prerequisites="";

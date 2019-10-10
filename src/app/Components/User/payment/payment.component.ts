@@ -42,7 +42,7 @@ export class PaymentComponent implements OnInit {
       
       let pid = params["ID"];
       this.id =  +pid;
-      console.log(typeof(this.id));
+     // console.log(typeof(this.id));
       this.getTrainingById(this.id);
 
     });
@@ -53,9 +53,9 @@ export class PaymentComponent implements OnInit {
     this.myService.trainingById(id).subscribe(data=>
       {
         this.myData=data;
-        console.log("Training Data");
-        console.log(this.myData);
-        console.log(this.myData[0].skillId);
+        // console.log("Training Data");
+        // console.log(this.myData);
+        // console.log(this.myData[0].skillId);
      this.getSkillDetails(this.myData[0].skillId);
       });
   }
@@ -64,8 +64,8 @@ export class PaymentComponent implements OnInit {
   {
     this.myService.GetSkillById(id).subscribe(data=>{
       this.skillData=data;
-      console.log("SKill Data");
-      console.log(this.skillData);
+      // console.log("SKill Data");
+      // console.log(this.skillData);
     });
   }
 

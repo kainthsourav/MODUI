@@ -24,7 +24,7 @@ export class CompletedTrainingsComponent implements OnInit {
   ngOnInit() {
     let i= localStorage.getItem("userid");
     this.CurrentUser= +i;
-    console.log(this.CurrentUser);
+    // console.log(this.CurrentUser);
     this.getTrainings();
    
   }
@@ -42,7 +42,7 @@ export class CompletedTrainingsComponent implements OnInit {
       {
         this.show=true;
       }
-      console.log(this.myTrainings);
+      // console.log(this.myTrainings);
     });
   }
 }

@@ -44,8 +44,8 @@ export class AdminPayComponent implements OnInit {
       {
 
         this.payRecords=data;
-        console.log(this.payRecords);
-         console.log(this.myPayRecord);
+        // console.log(this.payRecords);
+        //  console.log(this.myPayRecord);
          if(Object.keys(this.payRecords).length>0)
          {
            this.show=false;
@@ -63,9 +63,9 @@ export class AdminPayComponent implements OnInit {
 
     this.Id=id;
     this.myPayRecord=_.where(this.payRecords,{id:id});
-    console.log(this.myPayRecord);
+    // console.log(this.myPayRecord);
     this.FeeData=_.where(this.payRecords,{id:id});
-    console.log(this.Fee);
+    // console.log(this.Fee);
     this.Fee=this.FeeData[0].fees;
     let cal_1=this.Fee;
     this.cfee= +cal_1;
@@ -78,7 +78,7 @@ export class AdminPayComponent implements OnInit {
       let cal_2=this.Commision;
       this.commi = +cal_2;
       this.tfee=this.cfee - this.commi;
-      console.log(this.tfee);
+      // console.log(this.tfee);
       
       const data={
         id:this.Id,

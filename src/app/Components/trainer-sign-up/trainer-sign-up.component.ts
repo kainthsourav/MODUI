@@ -18,7 +18,7 @@ export class TrainerSignUpComponent implements OnInit {
      
       this.MentorSignService.AllSkills().subscribe(data=>{
         this.SKillData=data;
-        console.log(this.SKillData);
+        // console.log(this.SKillData);
       });
     }
 
@@ -80,7 +80,7 @@ export class TrainerSignUpComponent implements OnInit {
     }
     else
     {
-      console.log('Valid?', this.UserRegister.valid);
+      // console.log('Valid?', this.UserRegister.valid);
     }
   
   }

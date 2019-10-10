@@ -36,7 +36,7 @@ getUserProfile()
   this.myService.GetUserById(this.CurrentUser).subscribe(data=>
     {
       this.ProfileData=data;
-      console.log(this.ProfileData);
+     // console.log(this.ProfileData);
       
     })
 }
@@ -46,7 +46,7 @@ getTrainingDtls()
   this.myService.trainingApprovals().subscribe(data=>
     {
       this.TrainingDtls=_.where(data,{accept:true,userId:this.CurrentUser,PaymentStatus:true});
-      console.log(this.TrainingDtls);
+      //console.log(this.TrainingDtls);
     });
 }
 

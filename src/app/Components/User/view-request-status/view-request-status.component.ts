@@ -43,12 +43,12 @@ export class ViewRequestStatusComponent implements OnInit {
     this.myService.trainingApprovals().subscribe(data=>
       {
         this.myData=data;
-        console.log(this.myData);
+//console.log(this.myData);
         this.Approved=_.where(this.myData,{accept:true,userId:this.CurrentUser});
-        console.log(this.Approved);
+       // console.log(this.Approved);
          this.Pending=_.where(this.myData,{accept:false,rejected:false,userId:this.CurrentUser});
         this.Declined=_.where(this.myData,{rejected:true,userId:this.CurrentUser});
-        console.log("Pending "+JSON.stringify(this.Pending));
+      //  console.log("Pending "+JSON.stringify(this.Pending));
 
         if(
           Object.keys(this.Pending).length>0 ||
@@ -86,11 +86,11 @@ export class ViewRequestStatusComponent implements OnInit {
 
   SeeRecipt(id)
   {
-    console.dir(this.allReciptData);
+  //  console.dir(this.allReciptData);
     
    this.ReciptData=_.where(this.allReciptData,{skillId:id,userId:this.CurrentUser,PaymentStatus:true});
     
-    console.log(this.ReciptData);
+   // console.log(this.ReciptData);
 
 
   }

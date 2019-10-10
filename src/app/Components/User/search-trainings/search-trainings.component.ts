@@ -41,11 +41,11 @@ export class SearchTrainingsComponent implements OnInit {
     // this.Timings!=undefined
     if(this.Technology!=undefined)
     {
-   console.log(this.Technology);
+   //console.log(this.Technology);
 
     this.SearchTrainingService.SearchTrainings(this.Technology).subscribe(data=>{
       this.msg=data;
-      console.log(this.msg);
+    //  console.log(this.msg);
       if(Object.keys(this.msg).length>0)
       {
         this.show=true;

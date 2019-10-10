@@ -40,7 +40,7 @@ export class RequestedTrainingsComponent implements OnInit {
     this.myService.trainingApprovals().subscribe(data=>
       {
         this.myData=data;
-        console.log(this.myData);
+        // console.log(this.myData);
         this.Requested=_.where(this.myData,{accept:false,rejected:false,mentorId:this.CurrentUser});
 
 
@@ -57,7 +57,7 @@ export class RequestedTrainingsComponent implements OnInit {
             else{
               this.show=true;
             }
-        console.log("Requested"+JSON.stringify(this.Approved));
+        // console.log("Requested"+JSON.stringify(this.Approved));
 
 
       });

@@ -37,7 +37,7 @@ getUserProfile()
   this.myService.GetUserById(this.CurrentUser).subscribe(data=>
     {
       this.ProfileData=data;
-      console.log(this.ProfileData);
+      // console.log(this.ProfileData);
       
     })
 }

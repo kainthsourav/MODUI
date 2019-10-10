@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         if(this.Data!=undefined)
         {
          
-          console.log(this.Data);
+          // console.log(this.Data);
         if (this.Data.role == 1)
          {
           //Admin ID

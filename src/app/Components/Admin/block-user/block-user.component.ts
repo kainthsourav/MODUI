@@ -61,8 +61,8 @@ export class BlockUserComponent implements OnInit {
     }
 
 
-    console.log(this.mentor);
-    console.log("Users"+this.user)
+    // console.log(this.mentor);
+    // console.log("Users"+this.user)
   }
 
 

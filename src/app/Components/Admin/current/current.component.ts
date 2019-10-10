@@ -37,7 +37,7 @@ export class CurrentComponent implements OnInit {
         {
            this.show=true;
         }
-        console.log(this.CurrentTrainings);
+        // console.log(this.CurrentTrainings);
       });
   }
 

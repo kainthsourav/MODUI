@@ -32,8 +32,8 @@ export class TcompletedTrainingsComponent implements OnInit {
   {
     this.myService.trainingApprovals().subscribe(data=>{
       this.myTrainings=_.where(data,{accept:true,mentorId:this.CurrentUser,PaymentStatus:true});
-      console.log(this.myTrainings);
-     console.log(Object.keys(this.myTrainings).length);
+      // console.log(this.myTrainings);
+    //  console.log(Object.keys(this.myTrainings).length);
      if(Object.keys(this.myTrainings).length>0)
      {
        this.Data=false;

@@ -56,7 +56,7 @@ export class ConfirmMentorComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.paramId = params["ID"];
       this.trainerTechnology = params["Technology"];
-      console.log(this.paramId + "  " + this.trainerTechnology);
+   //   console.log(this.paramId + "  " + this.trainerTechnology);
     });
   }
 
@@ -73,7 +73,7 @@ export class ConfirmMentorComponent implements OnInit {
   GetUserById() {
     this.myservice.GetUserById(this.paramId).subscribe(data => {
       this.mentorData = data;
-      console.log("mentor :"+this.mentorData.userName);
+    //  console.log("mentor :"+this.mentorData.userName);
     });
   }
 
@@ -83,7 +83,7 @@ export class ConfirmMentorComponent implements OnInit {
       this.skillData = _.findWhere(this.skill, {
         name: this.trainerTechnology
       });
-      console.log(this.skillData.id);
+   //   console.log(this.skillData.id);
     });
   }
 
@@ -138,7 +138,7 @@ export class ConfirmMentorComponent implements OnInit {
       mentorName:this.mentorData.userName,
 
     };
-     console.log(dat);
+    // console.log(dat);
     this.myservice.sendTrainingDtls(dat).subscribe(data=>
       {
         this.sentData=data;
