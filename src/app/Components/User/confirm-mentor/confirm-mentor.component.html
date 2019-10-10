@@ -29,11 +29,11 @@
                                 autofocus>
                         </div>
 
-                        <div class="form-label-group py-1">
+                        <!-- <div class="form-label-group py-1" *ngIf="UserName_Cur">
                             <label for="yourName">Your Name</label>
-                            <input type="text" name="Name" disabled value="sourav" class="form-control" required
+                            <input type="text" name="Name" disabled value="{{UserName_Cur.userName}}" class="form-control" required
                                 autofocus>
-                        </div>
+                        </div> -->
 
                         <div *ngIf="mentorData" class="form-label-group py-1">
                             <label for="UserName">Trainer Name</label>

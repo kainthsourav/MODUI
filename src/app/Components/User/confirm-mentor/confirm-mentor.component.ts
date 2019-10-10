@@ -62,7 +62,7 @@ export class ConfirmMentorComponent implements OnInit {
 
   GetUserName()
   {
-   this.myservice.GetUserById(localStorage.getItem("userid")).subscribe(data=>
+   this.myservice.GetUserById(this.CurrentUser).subscribe(data=>
     {
       this.UserName_Cur=data;
      
