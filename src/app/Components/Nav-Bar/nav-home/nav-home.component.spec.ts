@@ -5,6 +5,7 @@ import { NavHomeComponent } from './nav-home.component';
 describe('NavHomeComponent', () => {
   let component: NavHomeComponent;
   let fixture: ComponentFixture<NavHomeComponent>;
+  
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
