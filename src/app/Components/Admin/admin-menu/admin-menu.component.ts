@@ -16,7 +16,14 @@ export class AdminMenuComponent implements OnInit {
   toc;
   status;
   fees;
+  Update:boolean=false;
+ 
+  Edit_Show:boolean=false;
+  Delete_Show:boolean=false;
 
+  Save_Show:boolean=true;
+  Cancel_show:boolean=true;
+  
 
   constructor(private ServiceSkill:GetUsersService,private router:Router) {
     if(localStorage.getItem("adminid")==undefined)
@@ -90,4 +97,57 @@ export class AdminMenuComponent implements OnInit {
  alert("Successfully logged out");
 }
 
+
+Edit()
+{
+  this.Update=true;
+
+  this.Edit_Show=true;
+  this.Delete_Show=true;
+  this.Cancel_show=false;
+  this.Save_Show=false;
+}
+
+Cancel()
+{
+  this.Edit_Show=false;
+  this.Delete_Show=false;
+  this.Cancel_show=true;
+  this.Save_Show=true;
+  this.Update=false;
+}
+Save(id,toc,pre,fee)
+{
+  
+  this.Edit_Show=false;
+  this.Delete_Show=false;
+  this.Cancel_show=true;
+  this.Save_Show=true;
+  this.Update=false;
+  //Edit logic
+
+if(id!=undefined  && toc!=undefined && pre!=undefined && fee!=undefined)
+{
+  const info={
+    id:id,
+    toc:toc,
+    prerequisites:pre,
+    fees:fee,
+    };
+
+    this.ServiceSkill.UpdateSkill(info).subscribe(data=>{
+      alert(data);
+      this.GetAllSkills();
+    });
+
+    
+}
+else
+{
+alert("Invalid data entered")
+}
+
+  
+  
+}
 }

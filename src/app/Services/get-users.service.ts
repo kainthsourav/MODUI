@@ -73,6 +73,13 @@ export class GetUsersService {
     pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));;
   }
 
+  //Edit/Update Skill
+  public UpdateSkill(data)
+  {
+    return this._UserData.post("https://localhost:44383/api/updateskill",data,httpOptions).
+    pipe(map(data1=>(data1=JSON.parse(JSON.stringify(data1)))));;
+  }
+
 
   //SearchTrainings
   public SearchTrainings(data)
