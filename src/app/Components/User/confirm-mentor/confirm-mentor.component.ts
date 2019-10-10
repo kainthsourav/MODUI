@@ -32,6 +32,8 @@ export class ConfirmMentorComponent implements OnInit {
   request;
   sentData;
   CurrentUser;
+
+  UserName_Cur;
   constructor(private route: ActivatedRoute, private myservice:GetUsersService,private router:Router) {
     if(localStorage.getItem("userid")==undefined)
     {
@@ -47,6 +49,7 @@ export class ConfirmMentorComponent implements OnInit {
   this.getQueryData();
   this.GetUserById();
   this.getSkill();
+  this.GetUserName();
   }
 
   getQueryData() {
@@ -56,6 +59,16 @@ export class ConfirmMentorComponent implements OnInit {
       console.log(this.paramId + "  " + this.trainerTechnology);
     });
   }
+
+  GetUserName()
+  {
+   this.myservice.GetUserById(localStorage.getItem("userid")).subscribe(data=>
+    {
+      this.UserName_Cur=data;
+     
+    });
+  }
+
 
   GetUserById() {
     this.myservice.GetUserById(this.paramId).subscribe(data => {
@@ -117,7 +130,7 @@ export class ConfirmMentorComponent implements OnInit {
       timeSlot:this.Time,
       accept:false,
       userId:this.CurrentUser,
-      userName:"Sourav",
+      userName:this.UserName_Cur.userName,
       mentorId:this.paramId,
       skillId:this.skillData.id,
       skillname:this.skillData.name,
@@ -129,9 +142,10 @@ export class ConfirmMentorComponent implements OnInit {
     this.myservice.sendTrainingDtls(dat).subscribe(data=>
       {
         this.sentData=data;
-        alert(this.sentData)  
+      
         if(this.sentData=="Sent")
         {
+          alert("Request Sent for approval");
           this.router.navigate(['ViewRequest']);
         }
        });
