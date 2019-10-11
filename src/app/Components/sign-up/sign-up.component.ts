@@ -23,7 +23,8 @@ export class SignUpComponent implements OnInit {
       CPassword:['', [Validators.required]],
       Fname:['', [Validators.required]],
       Lname:['', [Validators.required]],
-      Mobile:['', [Validators.required,Validators.minLength(12)]],
+      Mobile:['', [Validators.required,Validators.pattern('^([6-9]{1})([0-9]{9})$')]],
+
    });
    
    }
