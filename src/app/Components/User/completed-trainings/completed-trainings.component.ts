@@ -33,7 +33,8 @@ export class CompletedTrainingsComponent implements OnInit {
   getTrainings()
   {
     this.myService.trainingApprovals().subscribe(data=>{
-      this.myTrainings=_.where(data,{accept:true,userId:this.CurrentUser,PaymentStatus:true});
+      this.myTrainings=_.where(data,{accept:true,userId:this.CurrentUser,PaymentStatus:true,progress:100});
+      console.log(this.myTrainings);
       if(Object.keys(this.myTrainings).length>0)
       {
         this.show=false;
