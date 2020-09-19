@@ -1,101 +1,113 @@
-<app-nav-user></app-nav-user>
+<!-- Admin Nav Start -->
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+        <a [routerLink]="['/AdminMenu']" class="navbar-brand">Cognizant Trainee</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarCollapse2">
+            <div class="navbar-nav">
+                <a routerLink="/AdminMenu" class="nav-item nav-link active">Home</a>
+                <!-- <a  class="nav-item nav-link">About</a>
+                <a  class="nav-item nav-link">Products</a> -->
+            </div>  
+            <form class="form-inline ml-auto">
+                    <div class="nav-item dropdown" style="margin-right: 25px">
+                            <a class="nav-link text-white dropdown-toggle" data-toggle="dropdown">My Account</a>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item">Notifications</a>
+                            <a class="dropdown-item" (click)="logout()" routerLinkActive="true">Logout</a>
+                    </div>
+                    </div>
+                    <div>
+                      </div>
+                    <div></div>
+            </form>
+          
+        </div>
+    </nav>
+<!-- Admin Nav End -->
 
 <div class="jumbotron">
     <div class="container text-center">
-        <h3>Admin Menu</h3>      
+        <h3>Admin Menu</h3>
     </div>
 </div>
 
 <div class="container-fluid">
-<div class="row">
-      <div class="col-md-2 "></div>
-      <div class="col-md-8 text-center">
-        <button type="button"   routerLink="/AdminMenu"  class="btn btn-outline-dark">Add/Remove Technologhy</button>
-        <button type="button"  routerLink="/blockuser" class=" btn btn-outline-dark">Block User/Mentors</button>
-        <button type="button" routerLink="/AdminPay" class=" btn btn-outline-dark">Manage Payments</button>
-      </div>
-      <div class="col-md-2"></div>
-</div>
+    <div class="row">
+        <div class="col-md-2 "></div>
+        <div class="col-md-8 text-center">
+            <button type="button" routerLink="/AdminMenu" class="btn btn-outline-dark button">Add/Remove Technologhy</button>
+            <button type="button" routerLink="/admincurrent" class="btn btn-outline-dark button">Trainings</button>
+            <button type="button" routerLink="/blockuser" class=" btn btn-outline-dark button">Block User/Mentors</button>
+            <button type="button" routerLink="/AdminPay" class=" btn btn-outline-dark button">Manage Payments</button>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 
-<div class="row">
-    <div class="col-md-12 text-center">
-    <div class="table-responsive" style="margin-top:30px;"> 
-        <h4>Add/Remove Technology</h4>
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                      
-                        <th>Technologhy</th>
-                        <th>Duration</th>
-                        <th>Fee</th>
-                        <th>Action</th>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="table-responsive" style="margin-top:30px;">
+                <h4>Add/Remove Technology</h4>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+
+                            <th>Technologhy</th>
+                            <th>TOC</th>
+                            <th>Prerequisites</th>
+                             <th>Fees</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        
-                        <td>C</td>
-                        <td>6 Weeks</td>
-                        <td>&#x20B9;7000</td>
-                        <td> 
-                            <button type="button" class="btn btn-success">Edit</button>
-                            <button type="button" class="btn btn-danger">Remove</button>
-                        </td>
-                    </tr>
-                    <tr>
-                            <td>OOPS</td>
-                            <td>8 Weeks</td>
-                            <td>&#x20B9;12000</td>
-                            <td> 
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Remove</button>
-                                </td>
-                    </tr>
-                    <tr>
-                            <td>Java</td>
-                            <td>10 Weeks</td>
-                            <td>&#x20B9;15000</td>
-                            <td> 
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Remove</button>
-                                </td>
-                    </tr>
+                        <tr>
+                            <td><input name="name" placeholder="Enter Name" class="form-control rounded" [(ngModel)]="name"></td>
+                            <td><input name="toc" placeholder="Enter Details" class=" form-control rounded" [(ngModel)]="toc"></td>
+                            <td><input name="prerequisites" placeholder="Prerequisites" class="form-control rounded" [(ngModel)]="prerequisites"></td>
+                            <td><input name="fees" placeholder="Fees" class="form-control rounded" [(ngModel)]="fees"></td>
+ 
+                            <td><button type="button" class="btn btn-sm btn-success" (click)="Add()">Add</button></td>
+                        </tr>
+                        <tr *ngFor="let item of SkillList">
+                            <td>{{item.name}}</td>
 
-                    <tr>
-                            <td>PHP</td>
-                            <td>6 Weeks</td>
-                            <td>&#x20B9;8000</td>
-                            <td> 
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Remove</button>
-                                </td>
-                    </tr>
+                            <td *ngIf="!Update">{{item.toc}}</td>
 
-                    <tr>
-                            <td>ASP.NET</td>
-                            <td>10 Weeks</td>
-                            <td>&#x20B9;15000</td>
-                            <td> 
-                                    <button type="button" class="btn btn-success">Edit</button>
-                                    <button type="button" class="btn btn-danger">Remove</button>
-                                </td>
-                    </tr>
-
-                    <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td> 
-                            <button type="button" class="btn btn-primary btn-block">Add</button>
+                            <td *ngIf="Update">
+                                <input type="text" [(ngModel)]="item.toc"  name="toc" class="form-control rounded" />
                             </td>
-                    </tr>
 
-                </tbody>
-            </table>
+                            <td *ngIf="!Update">{{item.prerequisites}}</td>
+
+                            <td *ngIf="Update">
+                                <input type="text" [(ngModel)]="item.prerequisites"  name="prerequisites" class="form-control rounded" />
+                            </td>
+
+                            <td *ngIf="!Update"> &#8377;{{item.fees}}</td>
+
+                            <td *ngIf="Update">
+                                <input type="text" [(ngModel)]="item.fees"  name="fees" class="form-control rounded" />
+                            </td>
+
+                            
+                            <td>
+                            <button class="btn btn-sm btn-info" style="margin-right: 10px" [hidden]="Edit_Show" (click)="Edit()">Edit</button>
+                            <button class="btn btn-sm btn-info" style="margin-right: 10px" [hidden]="Cancel_show" (click)="Cancel()">Cancel</button>
+                            <button class="btn btn-sm btn-info" style="margin-right: 10px" [hidden]="Save_Show"
+                             (click)="Save(item.id,item.toc,item.prerequisites,item.fees)">Save</button>
+                            <button type="button" class="btn btn-sm btn-danger" [hidden]="Delete_Show" (click)="Delete(item.id)">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    </div>  
 </div>
 
 

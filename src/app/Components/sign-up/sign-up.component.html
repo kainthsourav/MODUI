@@ -1,17 +1,19 @@
 <app-nav-home></app-nav-home>
 <div class="container my-5">
    <div class="row">
-      <div class="col-md-12 rounded" style="background-color: white;border: 1px solid #007bff">
-         <h3>User Sign-Up</h3>
+         <!-- border: 1px solid #007bff; -->
+      <div class="col-md-3"></div>
+      <div class="col-md-6 rounded" style="background-color: white;padding: 100px;">
+         <h3 style="text-align: center">User Sign-Up</h3>
 
          <form [formGroup]="myForm" autocomplete="off" (ngSubmit)="UserSignup(myForm)">
-            <label for="Username" class="form-label">Username</label>
+            <!-- <label for="Username" class="form-label">Username</label>
             <input type="text" class="form-control" id="Username"  placeholder="Enter Username"
                required name="Username" formControlName="Username">
-               <!-- [(ngModel)]="Username" -->
+               [(ngModel)]="Username"
                <span *ngIf="!myForm.controls.Username.valid && (myForm.controls.Username.touched) ||status" >
                      * Username required</span>
-                     <br>
+                     <br> -->
 
             <label for="Email" class="form-label">Email</label>
             <input type="email" class="form-control" id="Email" placeholder="Enter Email" 
@@ -36,7 +38,7 @@
                formControlName="CPassword">  
                <!-- [(ngModel)]="CPassword" -->
                <span *ngIf="!myForm.controls.CPassword.valid && (myForm.controls.CPassword.touched) || status
-               || myForm.value.Password!=myForm.value.CPassword">
+               || myForm.value.Password!=myForm.value.CPassword && myForm.controls.CPassword.touched">
                      * Password and Confirm Password not same</span>
                     
                      <br>
@@ -59,17 +61,19 @@
 
             <label for="Mobile" class="form-label">Mobile Number</label>
             <input type="number" class="form-control" id="Mobile" placeholder="Enter Mobile Number"
-               required name="Mobile"  formControlName="Mobile">
-               <!-- [(ngModel)]="Mobile" -->
-               <span *ngIf="!myForm.controls.Mobile.valid && (myForm.controls.Mobile.touched) ||  status" >
-                     * Mobile required</span>
-                     <br>
+            required name="Mobile"  formControlName="Mobile">
+            <!-- [(ngModel)]="Mobile" -->
+            <span *ngIf="!myForm.controls.Mobile.valid && (myForm.controls.Mobile.touched)  &&
+            myForm.get('Mobile').errors?.pattern ||  status" >
+                  * Mobile required</span>
+                  <br>
 
 <button type="submit" class="btn btn-primary form-control" style="margin-top: 15px" [disabled]="!myForm.valid">Sign Up</button>
             <p></p>
             <p>Sign up as Trainer <a routerLink="/TrainerSignUp" class="button">Click here</a></p>
          </form>
       </div>
+      <div class="col-md-3"></div>
    </div>
 </div>
 <app-footer></app-footer>

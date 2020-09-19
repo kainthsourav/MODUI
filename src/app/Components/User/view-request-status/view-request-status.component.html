@@ -1,0 +1,125 @@
+<app-nav-user></app-nav-user>
+<div class="jumbotron">
+    <div class="container text-center">
+        <h3>User Menu</h3>      
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+            <div class="col-md-2 ">
+             
+            </div>
+            <div class="col-md-8 text-center">
+              <button type="button" routerLink="/SearchTrainings" class=" btn btn-outline-dark">Search Trainings</button>
+              <button type="button" class=" btn btn-outline-dark">Current Trainings</button>
+              <button type="button" routerLink="/CompletedTrainings" class="btn btn-outline-dark">Completed Trainings</button>
+              <button type="button" routerLink="/ViewRequest" class="btn btn-outline-dark">Approvals</button>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+    </div>
+
+    <div class="row">
+        
+        <div class="col-md-12 text-center">
+        <div class="table-responsive" style="margin-top:30px;"> 
+                <h4>Approvals Status</h4>
+                  <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              
+                <th>Technologhy</th>
+                <th>Mentor</th>
+                <th>Date</th>
+                <th>Status</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+
+                <tr *ngFor="let i of Pending"> 
+                
+                        <td>{{i.skillname}}</td>
+                        <td>{{i.mentorName}}</td>
+                        <td>{{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</td>
+                        <td> 
+                            <button type="button" class="btn btn-sm btn-info"
+                            disabled>Pending</button>
+                        </td>
+                </tr>
+
+            <tr *ngFor="let i of Approved"> 
+                
+                <td>{{i.skillname}}</td>
+                <td>{{i.mentorName}}</td>
+                <td>{{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</td>
+                <td *ngIf="i.accept"> 
+                    <button type="button" class="btn btn-sm btn-success"
+                    disabled>Approved</button>
+                    <button type="button" *ngIf="!i.PaymentStatus" class="btn btn-sm btn-success" (click)="Pay(i.id)">Payment</button>
+                    <button type="button" *ngIf="i.PaymentStatus" class="btn btn-sm btn-success" 
+                    data-toggle="modal" data-target="#myModal"
+                    (click)="SeeRecipt(i.skillId)">See Recipt</button>
+                   
+                </td>
+            </tr>
+
+            <!-- Model Starts Here -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+              
+                  <!-- Modal content-->
+                  <div *ngIf="ReciptData"class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Payment Recipt</h4>
+                    </div>
+                  <div class="modal-body" *ngFor="let i of ReciptData" style="text-align: left">
+                    <h6>Training - {{i.skillName}}</h6>
+                    <hr>
+                      <p *ngIf="i.PaymentStatus">Payment Status - <span style="color:green">Confirmed</span></p>
+                      <hr>
+                      <p>Amount Paid -<span style="color:green">&#8377;{{i.fees}}</span> </p>
+                    
+                  </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+              
+                </div>
+              </div>
+          <!-- Model End -->
+
+            <tr *ngFor="let i of Declined"> 
+                
+                    <td>{{i.skillname}}</td>
+                    <td>{{i.mentorName}}</td>
+                    <td>{{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</td>
+                    <td *ngIf="i.rejected"> 
+                        <button type="button" class="btn btn-sm btn-danger"
+                        disabled>Rejected</button>
+                    </td>
+            </tr>
+            
+            
+        </tbody>
+    </table>
+
+</div>
+</div>
+</div>
+
+<div class="row" style="text-align: center" *ngIf="show">
+    <div class="col-md-12">
+        <div style="margin-top: 10px">
+        <h3>No Pending/Approvals Request</h3>
+        <img src="../../../../assets/imgs/user_menu_not_found.png">
+        </div>
+    </div>
+</div>
+
+</div>
+  <!-- <app-footer></app-footer> -->
+ 

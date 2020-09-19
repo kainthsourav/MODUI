@@ -1,4 +1,32 @@
-<app-nav-user></app-nav-user>
+<!-- Admin Nav Start -->
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+    <a [routerLink]="['/AdminMenu']" class="navbar-brand">Cognizant Trainee</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse2">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse2">
+        <div class="navbar-nav">
+            <a routerLink="/AdminMenu" class="nav-item nav-link active">Home</a>
+            <!-- <a  class="nav-item nav-link">About</a>
+            <a  class="nav-item nav-link">Products</a> -->
+        </div>  
+        <form class="form-inline ml-auto">
+                <div class="nav-item dropdown" style="margin-right: 25px">
+                        <a class="nav-link text-white dropdown-toggle" data-toggle="dropdown">My Account</a>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item">Notifications</a>
+                        <a class="dropdown-item"  (click)="logout()" routerLinkActive="true">Logout</a>
+                </div>
+                </div>
+                <div>
+                  </div>
+                <div></div>
+        </form>
+      
+    </div>
+</nav>
+<!-- Admin Nav End -->
 
 <div class="jumbotron">
     <div class="container text-center">
@@ -10,77 +38,84 @@
 <div class="row">
       <div class="col-md-2 "></div>
       <div class="col-md-8 text-center">
-        <button type="button"   routerLink="/AdminMenu" class="btn btn-outline-dark">Add/Remove Technologhy</button>
-        <button type="button"  routerLink="/blockuser" class=" btn btn-outline-dark">Block User/Mentors</button>
-        <button type="button" routerLink="/AdminPay" class=" btn btn-outline-dark">Manage Payments</button>
+          <button type="button" routerLink="/AdminMenu" class="btn btn-outline-dark button">Add/Remove Technologhy</button>
+          <button type="button" routerLink="/admincurrent" class="btn btn-outline-dark button">Trainings</button>
+          <button type="button" routerLink="/blockuser" class=" btn btn-outline-dark button">Block User/Mentors</button>
+          <button type="button" routerLink="/AdminPay" class=" btn btn-outline-dark button">Manage Payments</button>
       </div>
       <div class="col-md-2"></div>
 </div>
 
 <div class="row">
-    <div class="col-md-12 text-center">
-    <div class="table-responsive" style="margin-top:30px;"> 
-            <h4>Payment Management</h4>
-              <table class="table">
-    <thead class="thead-dark">
-        <tr>
-          
-            <th>Technologhy</th>
-            <th>Duration</th>
-            <th>Payment</th>
-           
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            
-            <td>C</td>
-            <td>6 Weeks</td>
-            <td>
-                    <button type="button" class="btn btn-primary btn-block">See Details</button>
-
-            </td>
-        </tr>
-        <tr>
-                <td>OOPS</td>
-                <td>8 Weeks</td>
+        <div class="col-md-1"></div>
+        <div class="col-md-10 text-center">
+        <div class="table-responsive" style="margin-top:30px;"> 
+                <h4>Payment Management</h4>
+                  <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              
+                <th>Technology</th>
+                <th>Commision</th>
+                <th>Status</th>
+                <th>Payment Details</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of payRecords">
+                <td>{{i.skillName}}</td>
+                <td>{{i.commision}}</td>
+                <td><strong style="color: green"> Paid : {{i.fees}}</strong></td>
                 <td>
-                        <button type="button" class="btn btn-primary btn-block">See Details</button>
-
+                 <button type="button" class="btn btn-sm btn-success" 
+                  data-toggle="modal" data-target="#myModal"
+                  (click)="update(i.id)">Update</button> 
                 </td>
-        </tr>
-        <tr>
-                <td>Java</td>
-                <td>10 Weeks</td>
-                <td>
-                        <button type="button" class="btn btn-primary btn-block">See Details</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-                </td>
-        </tr>
+   <!-- Model Starts Here -->
+   <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+              
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Update Commision</h4>
+                    </div>
+                  <div class="modal-body" style="text-align: left">
+                    <h6>Add Commision</h6>
+                    <hr>
+                    <input name="Commision" placeholder="Enter Commision" class="rounded" [(ngModel)]="Commision">
+                    <br><br> 
+                    <input name="Fee"  class="rounded" [(ngModel)]="Fee" disabled>
+                    <br><br>
+                    <button type="button" class="btn btn-sm btn-success"(click)="Mainupdate()">Save</button>
+               
+                  </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+              
+                </div>
+              </div>
+          <!-- Model End -->
+</div>
+<div class="col-md-1"></div>
+</div> 
 
-        <tr>
-                <td>PHP</td>
-                <td>6 Weeks</td>
-                <td>
-                        <button type="button" class="btn btn-primary btn-block">See Details</button>
-
-                </td>
-        </tr>
-
-        <tr>
-                <td>ASP.NET</td>
-                <td>10 Weeks</td>
-                <td>
-                        <button type="button" class="btn btn-primary btn-block">See Details</button>
-
-                </td>
-        </tr>
-        
-    </tbody>
-</table>
+<div class="row" style="text-align: center" *ngIf="show">
+    <div class="col-md-12">
+        <div style="margin-top: 10px">
+        <h4>No Records Found</h4>
+        <img src="../../../../assets/imgs/user_menu_not_found.png">
         </div>
 </div>
-</div> 
+
 </div>
 
 

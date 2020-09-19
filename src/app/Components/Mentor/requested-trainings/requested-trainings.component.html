@@ -1,0 +1,102 @@
+<app-nav-trainer></app-nav-trainer>
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h3>Trainer Menu</h3>      
+    </div>
+</div>
+
+<div class="container-fluid">
+        <div class="row">
+                <div class="col-md-2 ">
+                   
+                </div>
+                <div class="col-md-8 text-center">
+                        <button type="button"  routerLink="/TrainerMenu" class=" btn btn-outline-dark">Current Trainings</button>
+                        <button type="button" routerLink="/TcompleteTraining" class=" btn btn-outline-dark" >Completed Trainings</button>
+                        <!-- <button type="button" routerLink="/EditSkills" class=" btn btn-outline-dark">Edit Skills</button> -->
+                        <button type="button" routerLink="/RequestedTrainings" class=" btn btn-outline-dark">Training Requested</button>
+                        <button type="button" routerLink="/PaymentDetails" class=" btn btn-outline-dark">Payment Details</button>
+
+                </div>
+                <div class="col-md-2">
+  
+                </div>
+        </div>
+      
+        <div class="row">
+                
+                        <div class="col-md-4">
+                        <div class="table-responsive" style="margin-top:30px;"> 
+                               
+                                  <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Requested</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let i of Requested">
+                                <p><strong>{{i.userName}} Requested {{i.skillname}} from {{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</strong></p>
+                                <p>
+                    <button type="button" class="btn btn-sm btn-success" (click)="RequestApproved(i.id)">Approve</button>
+
+                    <button type="button" class="btn btn-sm btn-danger"(click)="RequestDeclined(i.id)">Decline</button>
+                                </p>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-4 text-center">
+                    <div class="table-responsive" style="margin-top:30px;"> 
+                              <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                          <th>Approved</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr *ngFor="let i of Approved">
+                                    <p><strong>- {{i.userName}} Approved for {{i.skillname}} from {{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</strong></p>
+                                  
+                                </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 text-center">
+                <div class="table-responsive" style="margin-top:30px;"> 
+                        <table class="table">
+              <thead class="thead-dark">
+                  <tr>
+                    <th>Rejected</th>
+                  </tr>
+              </thead>
+              <tbody>
+                      <tr *ngFor="let i of Declined">
+                              <p><strong>- Rejected {{i.userName}} for {{i.skillname}} from {{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</strong></p>
+                          </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
+
+   </div> 
+
+
+   <div class="row" style="text-align: center" *ngIf="show">
+        <div class="col-md-12">
+            <div style="margin-top: 10px">
+            <h4>No Training Requests Found</h4>
+            <img src="../../../../assets/imgs/user_menu_not_found.png">
+            </div>
+        </div>
+</div>
+
+
+</div> 
+

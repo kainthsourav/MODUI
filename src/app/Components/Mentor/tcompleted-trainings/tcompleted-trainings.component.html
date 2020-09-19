@@ -1,4 +1,4 @@
-<app-nav-user></app-nav-user>
+<app-nav-trainer></app-nav-trainer>
 
 <div class="jumbotron">
     <div class="container text-center">
@@ -12,15 +12,16 @@
                    
                 </div>
                 <div class="col-md-8 text-center">
-                  <button type="button"  routerLink="/TrainerMenu" class=" btn btn-outline-dark">Current Trainings</button>
-                  <button type="button" routerLink="/TcompleteTraining" class=" btn btn-outline-dark" >Completed Trainings</button>
-                  <button type="button" routerLink="/EditSkills" class=" btn btn-outline-dark">Edit Skills</button>
-                  <button type="button" routerLink="/PaymentDetails" class=" btn btn-outline-dark">Payment Details</button>
+                        <button type="button"  routerLink="/TrainerMenu" class=" btn btn-outline-dark">Current Trainings</button>
+                        <button type="button" routerLink="/TcompleteTraining" class=" btn btn-outline-dark" >Completed Trainings</button>
+                        <!-- <button type="button" routerLink="/EditSkills" class=" btn btn-outline-dark">Edit Skills</button> -->
+                        <button type="button" routerLink="/RequestedTrainings" class=" btn btn-outline-dark">Training Requested</button>
+                        <button type="button" routerLink="/PaymentDetails" class=" btn btn-outline-dark">Payment Details</button>
                 </div>
                 <div class="col-md-2">
   
                 </div>
-        </div>
+         </div>
 
         <div class="row">
                 <div class="col-md-12 text-center">
@@ -31,46 +32,42 @@
                     <tr>
                       
                         <th>Technologhy</th>
-                        <th>Duration</th>
+                        <th>Username</th>
+                        <th>End Date</th>
                         <th>Progress</th>
                        
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        
-                        <td>C</td>
-                        <td>6 Weeks</td>
-                        <td>
-                                <div class="progress">
-                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">Completed</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                            <td>OOPS</td>
-                            <td>8 Weeks</td>
-                            <td>
-                                    <div class="progress">
-                                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">Completed</div>
-                                </div>
-                            </td>
-                    </tr>
-
-                    <tr>
-                            <td>Angular</td>
-                            <td>4 Weeks</td>
-                            <td>
-                                    <div class="progress">
-                                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">Completed</div>
-                                </div>
-                            </td>
-                    </tr>
-                       
+                        <tr *ngFor="let i of myTrainings">
+                                <td>{{i.skillname}}</td>
+                                <td>{{i.userName}}</td>
+                                <td>{{i.endDate | date: 'dd/MM/yyyy'}}</td>
+                                <!-- <td>{{i.timeSlot}}</td> -->
+                                <td *ngIf="i.progress!=undefined">
+                                  <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
+                                      {{i.progress}} %
+                                  </div>
+                                </td>
+                                <td *ngIf="i.progress==undefined">
+                                    <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width: 100%">
+                                        Pending
+                                    </div>
+                                </td>
+                            </tr>
                 </tbody>
             </table>
             </div>
         </div>
+    </div>
+
+    <div class="row" style="text-align: center" *ngIf="Data">
+            <div class="col-md-12">
+                <div style="margin-top: 10px">
+                <h4>No Records Found</h4>
+                <img src="../../../../assets/imgs/user_menu_not_found.png">
+                </div>
+            </div>
     </div>
 </div>
 

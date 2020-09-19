@@ -14,6 +14,7 @@
               <button type="button" routerLink="/SearchTrainings" class=" btn btn-outline-dark">Search Trainings</button>
               <button type="button" routerLink="/UserMenu" class=" btn btn-outline-dark">Current Trainings</button>
               <button type="button" routerLink="/CompletedTrainings" class="btn btn-outline-dark">Completed Trainings</button>
+              <button type="button" routerLink="/ViewRequest" class="btn btn-outline-dark">Approvals</button>
             </div>
             <div class="col-md-2">
 
@@ -28,66 +29,46 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th>Technologhy</th>
+              
+            <th>Technology</th>
+            <th>Trainer Name</th>
             <th>Duration</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>C</td>
-          <td>6 Weeks</td>
-          <td>
-            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-            A+
-            </div>
-          </td>
+            <!-- <th>Timing</th> -->
+            <th>Status</th>
+           
         </tr>
-        <tr>
-          <td>OOPS</td>
-          <td>8 Weeks</td>
-          <td>
-            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-              A
-            </div>
-          </td>
-        </tr>
-        <tr>
-                <td>Java</td>
-                <td>10 Weeks</td>
-                <td>
-                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-                                B+
-                            </div>
-                </td>
-        </tr>
-
-        <tr>
-                <td>PHP</td>
-                <td>6 Weeks</td>
-                <td>
-                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-                                A+
-                            </div>
-                </td>
-        </tr>
-
-        <tr>
-                <td>ASP.NET</td>
-                <td>10 Weeks</td>
-                <td>
-                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
-                                A+
-                            </div>
-                </td>
-        </tr>
-        
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of myTrainings">
+            <td>{{i.skillname}}</td>
+            <td>{{i.mentorName}}</td>
+            <td>{{i.startDate | date: 'dd/MM/yyyy'}} to {{i.endDate | date: 'dd/MM/yyyy'}}</td>
+            <!-- <td>{{i.timeSlot}}</td> -->
+            <td *ngIf="i.progress!=undefined">
+              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width: 100%">
+                  {{i.progress}} %
+              </div>
+            </td>
+            <td *ngIf="i.progress==undefined">
+                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" style="width: 100%">
+                    Pending
+                </div>
+            </td>
     </tbody>
 </table>
-        </div>
-       
-        </div>
+</div>
+</div>
 </div>  
+
+<div class="row" style="text-align: center" *ngIf="show">
+    <div class="col-md-12">
+        <div style="margin-top: 10px">
+        <h4>You have not Completed any Training yet</h4>
+        <img src="../../../../assets/imgs/user_menu_not_found.png">
+        </div>
+    </div>
+</div>
+
 </div>
 
   <app-footer></app-footer>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators} from '@angular/forms';
+import { GetUsersService } from '../../Services/get-users.service'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-trainer-sign-up',
@@ -10,7 +12,15 @@ export class TrainerSignUpComponent implements OnInit {
 
   UserRegister: FormGroup;
   submitted = false;
-    constructor(private fb: FormBuilder) { }
+  Data;
+  SKillData;
+    constructor(private fb: FormBuilder,private MentorSignService:GetUsersService,private route:Router) { 
+     
+      this.MentorSignService.AllSkills().subscribe(data=>{
+        this.SKillData=data;
+        // console.log(this.SKillData);
+      });
+    }
 
     ngOnInit() {
       this.UserRegister=this.fb.group({
@@ -23,8 +33,8 @@ export class TrainerSignUpComponent implements OnInit {
           ConfirmPassword:['',Validators.minLength(8)]
         },{validator:this.comparePasswords}),
         LinkedinURL: ['',[Validators.required,Validators.pattern('')]],  
-        Experience:['',[Validators.required,Validators.pattern('^[0-9]{2}$')]], 
-        Timings: ['',[Validators.required]],
+        Experience:['',[Validators.required,Validators.pattern('^[0-9]{1,2}$')]], 
+        // Timings: ['',[Validators.required]],
         Technology:['',Validators.required]
       });
     }
@@ -39,16 +49,39 @@ export class TrainerSignUpComponent implements OnInit {
     }
   }
 
-  onSubmit(){
-    this.submitted = true;
-    if (this.UserRegister.invalid) {
-        return;
+  onSubmit()
+  {
+    if(this.UserRegister.valid)
+    {
+      
+      const MentorSignUp={
+          userName:this.UserRegister.value.Email,
+          password:this.UserRegister.value.Passwords.Password,
+          email:this.UserRegister.value.Email,
+          firstName:this.UserRegister.value.firstName,
+          lastName:this.UserRegister.value.lastName,
+          contactNumber:this.UserRegister.value.Phone,
+          linkdinUrl:this.UserRegister.value.LinkedinURL,
+          yearOfExperience:this.UserRegister.value.Experience,
+          // TrainerTimings:this.UserRegister.value.Timings,
+          TrainerTechnology:this.UserRegister.value.Technology,
+          active:1,
+          role:2,
+        };
+        console.log(MentorSignUp);
+      
+        this.MentorSignService.Register(JSON.stringify(MentorSignUp)).subscribe((data)=>{this.Data=data;
+          alert(this.Data);
+          if (this.Data=="Registered Successfully")
+          {
+               this.route.navigate(['login']);
+          }
+        });
     }
-    alert('SUCCESS!!'+JSON.stringify(this.UserRegister.value));
-  }
-
-    onReset() {
-        this.submitted = false;
-        this.UserRegister.reset();
+    else
+    {
+      // console.log('Valid?', this.UserRegister.valid);
     }
+  
   }
+}

@@ -1,76 +1,86 @@
 <app-nav-user></app-nav-user>
 <div class="jumbotron">
     <div class="container text-center">
-        <h3>User Menu</h3>      
+        <h3>User Menu</h3>
     </div>
 </div>
-
 <div class="container-fluid">
     <div class="row">
-            <div class="col-md-2 ">
-             
-            </div>
-            <div class="col-md-8 text-center">
-                    <button type="button" routerLink="/SearchTrainings" class=" btn btn-outline-dark">Search Trainings</button>
-                    <button type="button" routerLink="/UserMenu" class=" btn btn-outline-dark">Current Trainings</button>
-                    <button type="button" routerLink="/CompletedTrainings" class="btn btn-outline-dark">Completed Trainings</button>
-            </div>
-            <div class="col-md-2">
-
-            </div>
+        <div class="col-md-2 ">
+        </div>
+        <div class="col-md-8 text-center">
+            <button type="button" routerLink="/SearchTrainings" class=" btn btn-outline-dark button">Search Trainings</button>
+            <button type="button" routerLink="/UserMenu" class=" btn btn-outline-dark button">Current Trainings</button>
+            <button type="button" routerLink="/CompletedTrainings" class="btn btn-outline-dark button">Completed Trainings</button>
+            <button type="button" routerLink="/ViewRequest" class="btn btn-outline-dark button">Approvals</button>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+    <hr>
+    <div class="row" style="text-align: center">
+        <div class="col-md-12">
+            <select name="Technology" [(ngModel)]="Technology" class="rounded text-center dropdown ">
+            <option disabled>Select Technology</option>
+            <option *ngFor="let i of SKillData" value="{{i.name}}">{{i.name}}</option>
+            </select>
+            <button type="button" class="btn btn-sm btn-primary" (click)="Find()">Find</button>
+        </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div *ngIf="show" class="table-responsive" style="margin-top:30px;">
+                <h4>Search Result for Trainings {{SKillData.name}}</h4>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Mentor</th>
+                            <th>Experience (Years)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of msg">
+                            <!-- <td>{{Technology}}</td> -->
+                            <td>
+                                <img class="img-thumbnail m-3" alt="NA" src="assets/imgs/login.png" width="100" style="height: 100px;"><br>
+                                {{item.firstName}} {{item.lastName}}
+                            </td>
+                            <td>{{item.yearOfExperience}}</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-success" (click)="SendToMentor(item.id)">Select Mentor</button>
+                            </td>
+                            <hr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="text-align: center" *ngIf="!show && !show_nodata">
+            <div class="col-md-12">
+                <div style="margin-top: 10px">
+                <h3>Search for Trainings Here</h3>
+                <img src="../../../../assets/imgs/user_menu_not_found.png">
+                </div>
+            </div>
+        </div>
+        
+
     
-            <div class="row">
-            <div class="col-md-12 text-center">
-            <div class="table-responsive" style="margin-top:30px;"> 
-                <h4>Search Result for Trainings</h4>
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                              
-                                <th>Technologhy</th>
-                                <th>Duration</th>
-                                <th>Fee</th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                
-                                <td>C</td>
-                                <td>6 Weeks</td>
-                                <td>&#x20B9;7000</td>
-                            </tr>
-                            <tr>
-                                    <td>OOPS</td>
-                                    <td>8 Weeks</td>
-                                    <td>&#x20B9;12000</td>
-                            </tr>
-                            <tr>
-                                    <td>Java</td>
-                                    <td>10 Weeks</td>
-                                    <td>&#x20B9;15000</td>
-                            </tr>
-
-                            <tr>
-                                    <td>PHP</td>
-                                    <td>6 Weeks</td>
-                                    <td>&#x20B9;8000</td>
-                            </tr>
-
-                            <tr>
-                                    <td>ASP.NET</td>
-                                    <td>10 Weeks</td>
-                                    <td>&#x20B9;15000</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-                </div>
-            </div>  
-
+    <div class="row" style="text-align: center" *ngIf="show_nodata">
+        <div class="col-md-12">
+            <div style="margin-top: 10px">
+            <h3>Search Result for Trainings {{SKillData.name}}</h3>
+            <h4>No Trainer Available</h4>
+            <img src="../../../../assets/imgs/user_menu_not_found.png">
+            </div>
+        </div>
+    </div>
+            
+                      
 </div>
-<app-footer></app-footer>
- 
+      
+<!-- <app-footer></app-footer> -->

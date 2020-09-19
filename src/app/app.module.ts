@@ -27,8 +27,16 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
-import { TestComponent } from './test/test.component';
+import { TestServComponent } from './Components/Testing/test-serv/test-serv.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ConfirmMentorComponent } from './components/user/confirm-mentor/confirm-mentor.component';
+import { ViewRequestStatusComponent } from './components/User/view-request-status/view-request-status.component';
+import { RequestedTrainingsComponent } from './components/mentor/requested-trainings/requested-trainings.component';
+import { PaymentComponent } from './components/user/payment/payment.component';
+import { NavTrainerComponent } from './Components/nav-bar/nav-trainer/nav-trainer.component';
+import { CurrentComponent } from './Components/admin/current/current.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { TrainerProfileComponent } from './components/mentor/trainer-profile/trainer-profile.component';
 
 
 @NgModule({
@@ -55,15 +63,23 @@ import { TestComponent } from './test/test.component';
     BlockUserComponent,
     NavIndexComponent,
     PageNotFoundComponent,
-    TestComponent,
-  ],
+    TestServComponent,
+    ConfirmMentorComponent,
+    ViewRequestStatusComponent,
+    RequestedTrainingsComponent,
+    PaymentComponent,
+    NavTrainerComponent,
+    CurrentComponent,
+    ProfileComponent,
+    TrainerProfileComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

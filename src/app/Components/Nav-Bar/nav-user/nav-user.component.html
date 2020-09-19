@@ -1,38 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-    <a [routerLink]="['']" class="navbar-brand">Cognizant Trainee</a>
+    <a [routerLink]="['/UserMenu']" class="navbar-brand">Cognizant Trainee</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse2">
-        <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarCollapse2">
-        <div class="navbar-nav">
-            <a routerLink="/UserMenu" class="nav-item nav-link active">Home</a>
-            <!-- <a  class="nav-item nav-link">About</a>
-            <a  class="nav-item nav-link">Products</a> -->
+      <div class="navbar-nav">
+        <a routerLink="/UserMenu" class="nav-item nav-link active">Home</a>
+      </div>
+      <form class="form-inline ml-auto">
+        <div>
+          <a routerLink='/userprofile' class="nav-item nav-link active" style="color: white">My Profile</a>
         </div>
-      
-
-        
-        <form class="form-inline ml-auto">
-
-          
-                <div class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle" data-toggle="dropdown">My Account</a>
-                        <div class="dropdown-menu">
-                        <a class="dropdown-item">Notifications</a>
-                        <a class="dropdown-item">My Profile</a>
-                        <a class="dropdown-item" routerLink="/" routerLinkActive="true">Logout</a>
-                            <!-- <a href="#" class="dropdown-item">Drafts</a> -->
-                        </div>
-                </div>
-            
-                
-            <!-- <a class="nav-link rounded"  routerLinkActive="true">
-                <button class="btn btn-outline-light">Notifications</button>
-            </a> -->
-            <!-- <a class="nav-link rounded" routerLink="/" routerLinkActive="true">
-            <button class="btn btn-outline-light">Logout</button>
-            </a> -->
-        </form>
+        <div class="nav-item dropdown" style="margin-right: 25px">
+          <a class="nav-link text-white dropdown-toggle" data-toggle="dropdown">My Account</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item">Notifications</a>
+            <a class="dropdown-item"  (click)="logout()" routerLinkActive="true">Logout</a>
+          </div>
+        </div>
+        <div>
+        </div>
+        <div></div>
+      </form>
     </div>
-</nav>
+  </nav>

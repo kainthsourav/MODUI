@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NavUserComponent } from './nav-user.component';
+import { from } from 'rxjs';
 
 describe('NavUserComponent', () => {
   let component: NavUserComponent;

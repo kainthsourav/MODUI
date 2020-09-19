@@ -1,4 +1,4 @@
-<app-nav-user></app-nav-user>
+<app-nav-trainer></app-nav-trainer>
 
 <div class="jumbotron">
     <div class="container text-center">
@@ -12,10 +12,12 @@
                    
                 </div>
                 <div class="col-md-8 text-center">
-                                <button type="button"  routerLink="/TrainerMenu" class=" btn btn-outline-dark">Current Trainings</button>
-                                <button type="button" routerLink="/TcompleteTraining" class=" btn btn-outline-dark" >Completed Trainings</button>
-                                <button type="button" routerLink="/EditSkills" class=" btn btn-outline-dark">Edit Skills</button>
-                                <button type="button" routerLink="/PaymentDetails" class=" btn btn-outline-dark">Payment Details</button>
+                         <button type="button"  routerLink="/TrainerMenu" class=" btn btn-outline-dark blue button">Current Trainings</button>
+                        <button type="button" routerLink="/TcompleteTraining" class=" btn btn-outline-dark blue button" >Completed Trainings</button>
+                        <!-- <button type="button" routerLink="/EditSkills" class=" btn btn-outline-dark">Edit Skills</button> -->
+                        <button type="button" routerLink="/RequestedTrainings" class=" btn btn-outline-dark blue button">Training Requested</button>
+                        <button type="button" routerLink="/PaymentDetails" class=" btn btn-outline-dark blue button">Payment Details</button>
+
                 </div>
                 <div class="col-md-2">
   
@@ -23,8 +25,8 @@
         </div>
 
         <div class="row">
-                        
-                        <div class="col-md-12 text-center">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 text-center">
                         <div class="table-responsive" style="margin-top:30px;"> 
                                 <h4>Payment Management</h4>
                                   <table class="table">
@@ -32,61 +34,67 @@
                             <tr>
                               
                                 <th>Technologhy</th>
+                                <!-- <th>Email</th> -->
                                 <th>Status</th>
                                 <th>Payment Details</th>
                                
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                
-                                <td>C</td>
-                                <td>Pending</td>
+                            <tr *ngFor="let i of myPayRecord">
+                                <td>{{i.skillName}}</td>
+                                <!-- <td></td> -->
+                                <td><strong style="color: green"> Paid : {{i.fees}}</strong></td>
                                 <td>
-                                        <button type="button" class="btn btn-primary">See Details</button>
-
+                                <button type="button" class="btn btn-primary" 
+                                 data-toggle="modal" data-target="#myModal" (click)="getDetails(i.id)">
+                                    See Details
+                                </button>
                                 </td>
                             </tr>
-                            <tr>
-                                    <td>OOPS</td>
-                                    <td>Paid</td>
-                                    <td>
-                                            <button type="button" class="btn btn-primary">See Details</button>
-
-                                    </td>
-                            </tr>
-                            <tr>
-                                    <td>Java</td>
-                                    <td>Paid</td>
-                                    <td>
-                                            <button type="button" class="btn btn-primary">See Details</button>
-
-                                    </td>
-                            </tr>
-
-                            <tr>
-                                    <td>PHP</td>
-                                    <td>Pending</td>
-                                    <td>
-                                            <button type="button" class="btn btn-primary">See Details</button>
-
-                                    </td>
-                            </tr>
-
-                            <tr>
-                                    <td>ASP.NET</td>
-                                    <td>Pending</td>
-                                    <td>
-                                            <button type="button" class="btn btn-primary">See Details</button>
-
-                                    </td>
-                            </tr>
-                            
                         </tbody>
                     </table>
                 </div>
         </div>
+        <div class="col-md-1"></div>
 </div> 
+
+<!-- Model Starts Here -->
+<div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div *ngIf="myPayRecord"class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Payment Recipt</h4>
+            </div>
+          <div class="modal-body" *ngFor="let i of myPayRecord" style="text-align: left">
+            <h6>Training - {{i.skillName}}</h6>
+            <hr>
+              <p *ngIf="i.PaymentStatus">Payment Status - <span style="color:green">Confirmed</span></p>
+              <hr>
+              <p>Amount Paid -<span style="color:green">&#8377;{{i.fees}}</span> </p>
+              <p *ngIf="userData">By {{userData.userName}} </p>
+              <p *ngIf="userData">{{userData.email}} </p>
+            
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+  <!-- Model End -->
+
+
+<div class="row" style="text-align: center" *ngIf="show">
+        <div class="col-md-12">
+            <div style="margin-top: 10px">
+            <h4>No Records Found</h4>
+            <img src="../../../../assets/imgs/user_menu_not_found.png">
+            </div>
+</div>
 </div> 
 
 <app-footer></app-footer>

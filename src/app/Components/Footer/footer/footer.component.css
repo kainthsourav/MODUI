@@ -1,16 +1,28 @@
-footer{
+/* footer{
     background-color: #007bff;
     bottom: 0%;
     width: 100%;
-    margin-top: 10px;
+} */
+
+footer
+{
+    background-color:#007bff;
+    color: white;
+    bottom: 0;
+     width: 100%;
+        
 }
-h6{
+
+h6
+{
    
     font-variant-caps: petite-caps;
     color: white;
     font: bold;
     font-size: 20px;
 }
-p{
+
+p
+{
     color: white;
 }
